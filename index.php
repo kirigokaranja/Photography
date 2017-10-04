@@ -271,7 +271,7 @@
     <div class="container">
       <div class="row">
         <div class="footer-col col-md-6">
-          <h5>Our Office Location</h5>
+          <h5>Foto Kenya</h5>
           <p>Copyright © 2017 Foto. All Rights Reserved. <i class="fa fa-heart pulse"></i></p>
         </div>
         <div class="footer-col col-md-3">
