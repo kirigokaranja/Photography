@@ -14,16 +14,16 @@ $res = $db->query($s) or trigger_error($db->error."[$s]");
 
 
 while($row = mysqli_fetch_array($res)) {
-    $doctid =$row['photoID'];
+    $photid =$row['photoID'];
 
-    $sql = "";
+    $sql = "INSERT INTO `book`( `custID`, `event`, `date`, `location`, `description`, `photoID`) VALUES ('$custid', '$genre','$date', '$location', '$description','$photid')";
     global $db;
     $result = $db->query($sql) or trigger_error($db->error . "[$sql]");
     if ($result) {
 
-        header("Location:trial.php");
+       header("Location:book.php?message=success");
     } else {
-        header("Location:signin.php?error=noexists");
+        header("Location:book.php?error=fail");
 
     }
 }

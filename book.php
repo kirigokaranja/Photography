@@ -18,7 +18,16 @@
     <!--Google Fonts-->
     <link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
-
+<style>
+    p{
+        margin-top: -70px;
+        font-family: 'Playfair Display', serif;
+        font-size: 40px;
+        font-weight: 400;
+        line-height: 52px;
+        letter-spacing: 0.01em;
+    }
+</style>
 </head>
 
 <body>
@@ -52,8 +61,19 @@ $custid = $row['custID'];
                     <h3>Book Us Now<br>While You Still Can</h3>
                 </header>
             </div>
-            <form action="" method="post">
+            <form action="book_action.php" method="post">
                 <div class="col-md-6 right-side">
+                    <?php
+                    $url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+
+                    // error message incase username or password are incorrect
+
+                    if(strpos($url,'error=fail')){
+                        echo "<p style='color:red; font-size:20px;text-align: center;'>An Error Ocurred</p>";
+                    }elseif(strpos($url,'message=success')){
+                        echo "<p class='heading' style='color:#24c315;text-align: center;'>Booking Successful </p>";
+                    }
+                    ?>
 <input type="hidden" name="custid" value="<?php echo $custid;?>">
         <span class="input input--hoshi"><?php } ?>
             <input type="text" readonly style="border: none">
