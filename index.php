@@ -9,7 +9,8 @@
 <meta charset="utf-8">
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Foto</title>
+    <link rel="icon" type="image/ico" href="favicon.ico" />
+<title>Foto | HomePage</title>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/flexslider.css">
 <link rel="stylesheet" href="css/jquery.fancybox.css">
@@ -33,7 +34,7 @@
           <li><a href="#teams">Our Team</a></li>
           <li><a href="#testimonials">Testimonials</a></li>
           <li><a href="#contact">Contact</a></li>
-          <a href="login.php" class="btn btn-large">Sign In</a>
+          <a href="signin.php" class="btn btn-large">Sign In</a>
         </ul>
       </nav>
       <a href="#" class="nav-toggle">Menu<span></span></a> </div>
@@ -271,8 +272,16 @@
     <div class="container">
       <div class="row">
         <div class="footer-col col-md-6">
-          <h5>Foto Kenya</h5>
-          <p>Copyright © 2017 Foto. All Rights Reserved. <i class="fa fa-heart pulse"></i></p>
+            <form method="post" action="contact.php" >
+                <fieldset>
+                    <h4 style="color: white;">CONTACT US</h4>
+
+                    <input type="text" name="name" style="height: 50px; border-color: transparent; border-bottom-color: #2d3033;font-size: large; width: 60%;background-color: transparent;color: white;" placeholder="Your Name"><br><br>
+                    <input type="email" name="email" style="height: 50px; border-color: transparent; border-bottom-color: #2d3033;font-size: large; width: 60%;background-color: transparent;color: white;" placeholder="Your Email"><br><br>
+                    <input type="text" name="message" style="height: 100px; border-color: transparent; border-bottom-color: #2d3033;font-size: large; width: 60%;background-color: transparent;color: white;" placeholder="Your Message"><br><br>
+                    <button type="submit" class="send" style="font-size: x-large; border-radius: 6px; border-color: #1157e6;background-color: transparent;padding: 10px 12px">Send Message</button>
+                </fieldset>
+            </form>
         </div>
         <div class="footer-col col-md-3">
           <h5>Services We Offer</h5>
@@ -291,6 +300,8 @@
             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
           </ul>
+            <h5>Foto Kenya</h5>
+            <p>Copyright © 2017 Foto. All Rights Reserved. <i class="fa fa-heart pulse"></i></p>
         </div>
       </div>
     </div>
