@@ -56,13 +56,13 @@
 
             <div class="cont_back_info">
                 <div class="cont_img_back_grey">
-                    <img src="city.jpg" alt="" />
+                    <img src="eberhard.jpg" alt="" />
                 </div>
 
             </div>
             <div class="cont_forms" >
                 <div class="cont_img_back_">
-                    <img src="city.jpg" alt="" />
+                    <img src="eberhard.jpg" alt="" />
                 </div>
                 <form action="login.php" method="post">
                 <div class="cont_form_login">
