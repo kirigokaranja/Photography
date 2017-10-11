@@ -27,6 +27,24 @@
         line-height: 52px;
         letter-spacing: 0.01em;
     }
+    .right-side .cta .btn1{
+        padding: 13px 25px;
+        border: none;
+        color: #fff;
+        display: inline-block;
+        font-family: 'lato', sans-serif;
+        text-transform: uppercase;
+        font-size: 13px;
+        letter-spacing: 0.12em;
+        border-radius: 24px;
+        background: #1157e6;
+    }
+    .right-side .cta .btn1:hover {
+        -webkit-transition: 0.2s ease-in;
+        -o-transition: 0.2s ease-in;
+        transition: 0.2s ease-in;
+        background: black;
+    }
 </style>
 </head>
 
@@ -62,7 +80,7 @@ $custid = $row['custID'];
                 </header>
             </div>
             <form action="book_action.php" method="post">
-                <div class="col-md-6 right-side">
+                <div class="col-md-6 right-side" style="margin-top: -10%">
                     <?php
                     $url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 
@@ -135,8 +153,10 @@ $custid = $row['custID'];
                     <div class="cta">
                         <button class="btn btn-primary pull-left">
                             Book Now
+                        </button> &emsp;&emsp;
+                        <button class="btn1" onclick="window.location.href='index.php'">
+                            Back
                         </button>
-
                     </div>
                 </div>
             </form>
@@ -190,8 +210,8 @@ $custid = $row['custID'];
 
 
         ?>
-        <br><br>
-        <P style="color: blue; text-align: center; font-size: 25px">You are Not logged in</P>
+        <br><br><br><br><br><br>
+        <P style="color: blue; text-align: center; font-size: 25px">You are Not logged in</P><br><br><br><br>
         <p style="text-align: center"><a href="signin.php" style="color: red; font-size: 30px; "> Login</a></p>
     <?php } ?>
 </body>

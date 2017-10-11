@@ -1,7 +1,6 @@
 /* LESS BUILD */
 /*
   Color Mixins
-
   Example:
   #777777 lighten(@text-color, 46.5%)
   #bebebe lighten(@text-color, 74.5%)
@@ -1122,8 +1121,6 @@ th {
  * -------------------------- */
 @font-face {
     font-family: 'FontAwesome';
-    src: url('../fonts/fontawesome-webfont.eot?v=4.2.0');
-    src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.2.0') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff?v=4.2.0') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.2.0') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.2.0#fontawesomeregular') format('svg');
     font-weight: normal;
     font-style: normal;
 }

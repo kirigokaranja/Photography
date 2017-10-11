@@ -7,15 +7,7 @@ $number = $_POST["number"];
 $pass = $_POST["password"];
 $type = "customer";
 
-$sql1 = "select * from users";
-global $db;
-$result1 = $db->query($sql1) or trigger_error($db->error."[$sql1]");
-while($row = mysqli_fetch_array($result1)){
-    $emails = $row['email'];
-    if ($emails == $email){
-        header("Location: signin.php?error=exists");
 
-    }else{
 
     $sq = "INSERT INTO `users`(`user_type`, `email`, `password`) VALUES ('$type', '$email','$pass')";
     $rslt = $db->query($sq) or trigger_error($db->error."[$sq]");
@@ -33,5 +25,4 @@ while($row = mysqli_fetch_array($result1)){
 
             header("Location: signin.php?error=fail");
         }
-    }
-}
+

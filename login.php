@@ -17,9 +17,9 @@ include ("connect.php");
             $custID = $row['email'];
 
             $_SESSION['email'] = $custID;
-            header("Location:trial.php");
+            header("Location:index.php");
         } else {
-            header("Location:signin.php?error=noexists");
+            header("Location:log.php?error=fail");
 
         }
 
