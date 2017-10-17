@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="css/animate.min.css">
     <link rel="stylesheet" href="css/font-icon.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/menuDropdown.css">
 </head>
 
 <body>
@@ -41,7 +42,15 @@ if(isset($_SESSION['email'])){
                         <li><a href="#teams">Our Team</a></li>
                         <li><a href="#testimonials">Testimonials</a></li>
                         <li><a href="#contact">Contact</a></li>
-                        <a href="book.php" class="btn btn-large">Book</a>
+                        <div class="dropdown">
+                            <li><a href="#" class="btn btn-large">Welcome <?php echo $id?></a></li>
+                            <div class="dropdown-content">
+                                <a href="">Notifications</a>
+                                <a href="book.php">Book</a>
+                                <a href="bookings.php">Bookings</a>
+                                <a href="logout.php">Logout</a>
+                            </div>
+                        </div>
                     </ul>
                 </nav>
                 <a href="#" class="nav-toggle">Menu<span></span></a> </div>
