@@ -39,7 +39,7 @@
         <div class="text-center">
             <button type="submit" class="submit">LOG IN</button>
         </div>
-
+        <p>Not a member yet? <a href="signin.php">Join Us</a> </p>
     </form>
 </div>
 </body>

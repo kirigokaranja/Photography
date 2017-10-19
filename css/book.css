@@ -2788,7 +2788,7 @@ hr {
 }
 .right-side {
     position: relative;
-    padding: 120px 120px 100px 120px;
+    padding: 100px 120px 100px 120px;
     height: 100vh;
     background: #fff;
 }
@@ -2800,7 +2800,7 @@ hr {
     font-size: 14px;
 }
 .right-side .cta {
-    margin-top: 40px;
+    margin-top: 20px;
 }
 .right-side .cta .btn {
     padding: 13px 25px;
@@ -2832,36 +2832,12 @@ hr {
     color: #999;
     letter-spacing: 0.1em;
 }
-.right-side .social {
-    position: absolute;
-    padding: 0;
-    bottom: 30px;
-    right: 120px;
-}
-.right-side .social li {
-    margin-left: 8px;
-    display: inline-block;
-}
-.right-side .social li:last-child:after {
-    display: none;
-}
-.right-side .social li:after {
-    padding-left: 10px;
-    content: "-";
-    color: #24c315;
-}
-.right-side .social li a {
-    font-family: 'lato', sans-serif;
-    text-transform: uppercase;
-    font-size: 13px;
-    color: #999;
-    letter-spacing: 0.1em;
-}
+
 p{
     margin: 0;
     font-family: 'Playfair Display', serif;
-    font-size: 54px;
+    font-size: 44px;
     font-weight: 400;
-    line-height: 72px;
+    line-height: 62px;
     letter-spacing: 0.01em;
 }

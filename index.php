@@ -44,7 +44,7 @@
                             <li><a href="book.php" class="btn btn-large">Book</a></li>
                             <div class="dropdown-content">
                                 <a href="">Notifications</a>
-                                <a href="bookings.php">Bookings</a>
+                                <a href="personal.php">Personal Details</a>
                                 <a href="logout.php">Logout</a>
                             </div>
                         </div>
