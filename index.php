@@ -131,7 +131,10 @@
                         <li><a href="#"><span class="fa fa-google-plus"></span></a></li>
                         <li><a href="#"><span class="fa fa-dribbble"></span></a></li>
                     </ul><br>
-                    <a href="book.php" class="btn btn-large">Book</a>
+                    <form method="post" action="specific_book.php">
+                        <input type="hidden" value="Jonathan Ive" name="pname">
+                        <button type="submit" class="btn btn-large">Book</button>
+                    </form>
                 </div>
             </div>
             <!-- team member 1 -->
@@ -150,7 +153,10 @@
                         <li><a href="#" class=""><span class="fa fa-google-plus"></span></a></li>
                         <li><a href="#" class=""><span class="fa fa-dribbble"></span></a></li>
                     </ul><br>
-                    <a href="book.php" class="btn btn-large">Book</a>
+                    <form method="post" action="specific_book.php">
+                        <input type="hidden" value="Jonathan Ive" name="pname">
+                        <button type="submit" class="btn btn-large">Book</button>
+                    </form>
                 </div>
             </div>
             <!-- team member 2 -->
@@ -169,7 +175,10 @@
                         <li><a href="#" class=""><span class="fa fa-google-plus"></span></a></li>
                         <li><a href="#" class=""><span class="fa fa-dribbble"></span></a></li>
                     </ul><br>
-                    <a href="book.php" class="btn btn-large">Book</a>
+                    <form method="post" action="specific_book.php">
+                        <input type="hidden" value="Jonathan Ive" name="pname">
+                        <button type="submit" class="btn btn-large">Book</button>
+                    </form>
                 </div>
             </div>
             <!-- team member 1 -->
