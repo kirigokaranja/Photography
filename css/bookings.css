@@ -1,5 +1,5 @@
 body{
-    background-image: url("../axel.jpg");
+    background-image: url("../larm.jpg");
 
 }
 .container{
@@ -19,7 +19,7 @@ body{
     width: 98%;
 }
 .container:before{
-    background: url('../axel.jpg') center no-repeat;
+    background: url('../larm.jpg') center no-repeat;
     background-size: cover;
     content: '';
     -webkit-filter: blur(10px);
