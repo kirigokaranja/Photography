@@ -32,11 +32,13 @@ if ($result && $row = $result->fetch_assoc()) {
             timer: 1500,
             showConfirmButton: false
         });
-        setTimeout(function () {
-            location.href = "index.php"
-        }, 1000);
     </script>
     <?php
+        if(isset($_SESSION['url']))
+            $url = $_SESSION['url']; // holds url for last page visited.
+        else
+            $url = "index.php"; // default page for
+    header("Location: $url");
 
 } else {
     header("Location:log.php?error=fail");
