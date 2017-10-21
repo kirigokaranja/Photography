@@ -44,7 +44,7 @@
                     <div class="hero-text text-center">
                         <h1>User Upload</h1>
                         <p>Drop Your Memories in the space below</p>
-                        <nav role="navigation"> <a href="#services" class="banner-btn"><img src="images/down-arrow.png" alt=""></a></nav>
+                        <nav role="navigation"> <a href="#works" class="banner-btn"><img src="images/down-arrow.png" alt=""></a></nav>
                     </div>
                     <!-- banner text -->
                 </div>
@@ -56,7 +56,7 @@
             <div class="container-fluid">
                 <div class="row no-gutter">
                     <form action="upload.php" method="post" enctype="multipart/form-data" class="dropzone" id="my-dropzone"
-                          style="min-height: 0; height: 350px">
+                          style="min-height: 350px; border: dotted">
                         <div class="fallback">
                             <input name="file" type="file" multiple />
                         </div>

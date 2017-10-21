@@ -18,8 +18,6 @@ while ($row = mysqli_fetch_array($res)) {
     $name = $row['name'];
     $custId = $row['custID'];
 
-    $destination_path = dirname(__FILE__) .$userFolder;
-
     if (!empty($_FILES)) {
         $temp = $_FILES['file']['tmp_name'];
         $dir_separator = DIRECTORY_SEPARATOR;
