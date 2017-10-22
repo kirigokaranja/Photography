@@ -45,7 +45,8 @@ if(isset($_SESSION['email'])) {
 
 
 while ($row = mysqli_fetch_array($res)) {
-    $name = $row['name'];
+    $fname = $row['firstName'];
+    $sname = $row['surname'];
     ?>
     <section class="hero" role="banner">
 
@@ -53,7 +54,7 @@ while ($row = mysqli_fetch_array($res)) {
         <div class="container">
             <div class="col-md-10 col-md-offset-1">
                 <div class="hero-text text-center">
-                    <h1><?php echo $name ?></h1>
+                    <h1><?php echo $fname." ".$sname ?></h1>
                     <p>Gallery</p>
                     <nav role="navigation"><a href="#photos" class="banner-btn"><img src="images/down-arrow.png" alt=""></a>
                     </nav>
@@ -64,32 +65,51 @@ while ($row = mysqli_fetch_array($res)) {
     </section>
     <!-- header section -->
     <!-- gallery section -->
-    <section id="photos" style="padding-top: 5px; border: dotted">
-    <div>
+
         <?php
-        $name = $row['name'];
+        $fname = $row['firstName'];
+        $sname = $row['surname'];
         $custId = $row['custID'];
-        $folder_path = 'images/'.$name.'-'.$custId.'/'; //image folder path
+        $folder_path = 'images/'.$fname.$sname.'-'.$custId.'/'; //image folder path
         $dir_separator = DIRECTORY_SEPARATOR;
         $id_separator = "-";
-        $userFolder =$dir_separator. $folder_path . $dir_separator.$name.$id_separator.$custId . $dir_separator;
+        $userFolder =$dir_separator.'images'.$dir_separator.$fname.$sname.$id_separator.$custId . $dir_separator;
 
         $destination_path = dirname(__FILE__) .$userFolder;
 
-        $folder = opendir($folder_path);
 
-        while (false !== ($entry = readdir($folder))) {
-            if ($entry != "." && $entry != ".." && $entry != "Thumb.db") {
+        if (!is_dir($destination_path)) {;?>
+             <section  class="section quote">
+                <div class="container">
+                    <div class="col-md-8 col-md-offset-2 text-center">
+                        <h3>Aw Snap! You have not uploaded any photos yet!</h3>
+                        <a href="upload2.php" class="btn btn-large">Upload Photo</a> </div>
+                </div>
+            </section>
+            <?php
+        }else {?>
+            <section id="photos" style="padding-top: 5px; border: dotted">
+            <div>
+            <?php
+            $folder = opendir($folder_path);
+            while (false !== ($entry = readdir($folder))) {
+                if ($entry != "." && $entry != ".." && $entry != "Thumb.db") {
 
-                $file_path = $folder_path . $entry;
-                $ext = strtolower(pathinfo($file_path, PATHINFO_EXTENSION));
-                if ($ext == 'jpg' || $ext == 'png' || $ext == 'gif') {
-                    echo '<a href="' . $file_path . '" class="work-box"><img src="' . $file_path . '" alt="" ></a>';
+                    $file_path = $folder_path . $entry;
+                    $ext = strtolower(pathinfo($file_path, PATHINFO_EXTENSION));
+                    if ($ext == 'jpg' || $ext == 'png' || $ext == 'gif') {
+                    echo'
+                        <a href="' . $file_path . '" class="work-box"><img src="' . $file_path . '" alt="" ></a>';
+                    }
                 }
             }
+            closedir($folder);
+            ?>
+            </div>
+            </section>
+        <?php
         }
 
-        closedir($folder);
         ?>
     </div>
     </section>

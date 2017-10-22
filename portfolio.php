@@ -12,7 +12,8 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Protfolio Gallery</title>
+  <title>Portfolio | Gallery</title>
+  <link rel="icon" type="image/ico" href="favicon.ico" />
   <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,900' rel='stylesheet' type='text/css'>
 
   <link rel='stylesheet prefetch' href='https://npmcdn.com/basscss@8.0.0/css/basscss.min.css'>

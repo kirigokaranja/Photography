@@ -31,8 +31,12 @@
         }
         ?>
         <label class="password">
-            <span class="label-text">Name</span>
-            <input type="text" name="name"required/><br><br>
+            <span class="label-text">First Name</span>
+            <input type="text" name="fname"required/><br><br>
+        </label>
+        <label class="password">
+            <span class="label-text">Surname</span>
+            <input type="text" name="sname"required/><br><br>
         </label>
         <label class="password">
             <span class="label-text">Email</span>

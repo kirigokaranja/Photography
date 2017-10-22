@@ -65,7 +65,7 @@
             <div class="banner-text text-center">
                 <h1>Foto</h1>
                 <p>Your Kenyan Photography Solution</p>
-                <nav role="navigation"> <a href="#services" class="banner-btn"><img src="images/down-arrow.png" alt=""></a></nav>
+                <nav role="navigation"> <a href="#intro" class="banner-btn"><img src="images/down-arrow.png" alt=""></a></nav>
             </div>
             <!-- banner text -->
         </div>
@@ -293,7 +293,7 @@
     <div class="container">
         <div class="col-md-8 col-md-offset-2 text-center">
             <h3>Want to upload a photo? Hit the Green Button!</h3>
-            <a href="#" class="btn btn-large">Upload Photo</a> </div>
+            <a href="upload2.php" class="btn btn-large">Upload Photo</a> </div>
     </div>
 </section>
 <!-- Get a quote section -->

@@ -15,7 +15,8 @@ global $db;
 $res = $db->query($s) or trigger_error($db->error . "[$s]");
 
 while ($row = mysqli_fetch_array($res)) {
-    $name = $row['name'];
+    $fname = $row['firstName'];
+    $sname = $row['surname'];
     $custId = $row['custID'];
 
     if (!empty($_FILES)) {
@@ -23,7 +24,7 @@ while ($row = mysqli_fetch_array($res)) {
         $dir_separator = DIRECTORY_SEPARATOR;
         $folder = "images";
         $id_separator = "-";
-        $userFolder =$dir_separator. $folder . $dir_separator.$name.$id_separator.$custId . $dir_separator;
+        $userFolder =$dir_separator. $folder . $dir_separator.$fname.$sname.$id_separator.$custId . $dir_separator;
 
         $destination_path = dirname(__FILE__) .$userFolder;
 

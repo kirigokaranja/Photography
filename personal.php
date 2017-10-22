@@ -33,7 +33,8 @@ if(isset($_SESSION['email'])){
 
 
     while($row = mysqli_fetch_array($res)) {
-        $name = $row['name'];
+        $fname = $row['firstName'];
+        $sname = $row['surname'];
         $custid = $row['custID'];
 
 
@@ -46,11 +47,11 @@ if(isset($_SESSION['email'])){
             <li class="btn-2"><a href="bookings.php">Bookings</a></li>
             <li class="btn-2"><a>Notifications</a></li>
             <li class="btn-2"><a href="book.php">Book</a> </li>
-            <li class="btn-2"><a href="upload.php">Upload Images</a></li>
+            <li class="btn-2"><a href="upload2.php">Upload Images</a></li>
         </ul>
     </div>
     <div class="left">
-        <p>Welcome, <?php echo $name; }?></p>
+        <p>Welcome, <?php echo $fname." ".$sname; }?></p>
 <img src="images/cameron-kirby-179439.jpg" height="300" width="200"><br>
     <button class="btn1" onclick="window.location.href='logout.php'">
         Logout

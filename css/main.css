@@ -295,9 +295,7 @@ ul li {
 -------------------------------------------------------------------------------*/
 
 .banner {
-	background-image: url(../images/bg1.png);
-	background-position: center top;
-	background-repeat: no-repeat;
+	background: url(../images/bg1.png) no-repeat center top;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	-webkit-background-size: cover;
@@ -471,6 +469,7 @@ ul li {
 }
 .social-icons, .footer .footer-share {
 	margin-top: 30px;
+	margin-bottom: 10px;
 }
 .social-icons li, .footer .footer-share li {
 	display: inline-block;

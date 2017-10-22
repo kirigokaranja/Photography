@@ -7,7 +7,8 @@
 <?php
 include ("connect.php");
 
-$name = $_POST["name"];
+$fname = $_POST["fname"];
+$sname = $_POST["sname"];
 $email = $_POST["email"];
 $number = $_POST["number"];
 $pass = $_POST["password"];
@@ -20,7 +21,7 @@ $rslt = $db->query($sq) or trigger_error($db->error."[$sq]");
 
 if ($rslt)
 {
-    $sql = "INSERT INTO `customer`(`name`, `email`, `phone_number`) VALUES ( '$name', '$email', '$number')";
+    $sql = "INSERT INTO `customer`(`firstName`, `surname`, `email`, `phone_number`) VALUES ( '$fname', '$sname', '$email', '$number')";
     $result = $db->query($sql) or trigger_error($db->error."[$sql]");
     if ($result){
         ?>
