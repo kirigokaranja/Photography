@@ -1,0 +1,53 @@
+@import url(https://fonts.googleapis.com/css?family=Cookie|Raleway:300,700,400);
+.hero {
+    background: url(../larm.jpg) no-repeat center top;
+    opacity: 0.9;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+    min-height: 0px;
+    height: 550px;
+}
+.hero-btn {
+    opacity: 0.5;
+}
+.hero-text {
+    padding-top: 18%;
+}
+.hero-text h1 {
+    color: #fff;
+    font-family: "Source Sans Pro";
+    font-size: 53px;
+    letter-spacing: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.hero-text p {
+    color: #d0d9ff;
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    line-height: 24px;
+    margin-top: 10px;
+    margin-bottom: 80px;
+    text-transform: uppercase;
+}
+.persimg{
+    border: solid 6px #2d3033;
+    float: right;
+}
+.imgcontent{
+    margin-right: 20%;
+    float: right;
+}
+.personalcontent{
+    float: left;
+}
+#cursname{
+    font-family: 'Cookie', "Alex Brush";
+    margin-left: 5%;
+    background: url('../images/lens.jpg');
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

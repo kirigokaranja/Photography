@@ -79,9 +79,10 @@
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="index.php">Home</a>
-        <a href="book.php">Book</a>
+        <a href="notifications.php">Notifications</a>
+        <a href="bookings.php">Bookings</a>
         <a href="personal.php">Personal Details</a>
-        <a href="#">Notifications</a>
+        <a href="gallery.php">Gallery</a>
         <a href="logout.php">Logout</a>
     </div>
 

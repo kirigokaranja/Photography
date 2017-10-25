@@ -53,6 +53,7 @@ while ($row = mysqli_fetch_array($res)) {
         <!-- banner text -->
         <div class="container">
             <div class="col-md-10 col-md-offset-1">
+
                 <div class="hero-text text-center">
                     <h1><?php echo $fname." ".$sname ?></h1>
                     <p>Gallery</p>

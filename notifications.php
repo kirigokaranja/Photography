@@ -8,7 +8,7 @@
     <meta name="author" content=" Foto">
     <link rel="icon" type="image/ico" href="favicon.ico" />
 
-    <title>Personal Details</title>
+    <title>Notifications</title>
 
     <!-- Stylesheets -->
 
@@ -44,13 +44,9 @@ if(isset($_SESSION['email'])){
     while($row = mysqli_fetch_array($res)) {
         $name = $row['name'];
         $custid = $row['custID'];
-        $email = $row['email'];
-        $phne = $row['phone_number'];
-        $file = "uploads/";
-        $img = $file.$row['picture'];
 
 
-     ?>
+    ?>
 
     <section class="hero" role="banner">
         <!--header navigation -->
@@ -63,7 +59,7 @@ if(isset($_SESSION['email'])){
                         <li><a href="personal.php">Personal Details</a></li>
                         <li><a href="gallery.php">Gallery</a></li>
                         <div class="dropdown">
-                        <li><a href="bookings.php">Bookings</a></li>
+                            <li><a href="bookings.php">Bookings</a></li>
                             <div class="dropdown-content">
                                 <a href="">Notifications</a>
                                 <a href="personal.php">Personal Details</a>
@@ -81,40 +77,16 @@ if(isset($_SESSION['email'])){
             <div class="col-md-10 col-md-offset-1">
         <br><br><br><br>
                 <div class="hero-text text-center">
-                    <h1><?php echo $name;  ?></h1><br><br>
-                    <p>Personal Details</p>
-                   </div>
+                    <h1><?php echo $name;} ?></h1><br><br>
+                    <p>Notifications</p>
+                </div>
                 <!-- banner text -->
             </div>
         </div>
     </section>
-    <br><br>
-        <div class="personalcontent">
-<form>
-    <label>Name</label>
-    <input type="text" name="name" value="<?php echo $name;?>" readonly><br><br>
-    <label>Email</label>
-    <input type="text" name="email" value="<?php echo $email;?>" readonly><br><br>
-    <label>Phone Number</label>
-    <input type="text" name="phneno" value="<?php echo $phne;?>" readonly><br><br>
-</form>
-            <h1 id="cursname"><?php echo $name;?></h1>
-        </div>
-    <div class="imgcontent">
-        <?php echo "<img class='persimg' height='300' width='300' src='$img' alt='personal image'>"; ?><br><br>
-        <br><br>
-        <form action="personal_image.php" method="post" enctype="multipart/form-data" class="uploadform">
-            <input type="file" name="file" /><br>
-            <input type="hidden" name="id" value="<?php echo $custid;}?>">
-            <button type="submit" name="btn-upload">upload</button>
-        </form>
 
-    </div>
-
-
-
-        <?php
-    }else{
+    <?php
+}else{
 
     session_destroy();
 
