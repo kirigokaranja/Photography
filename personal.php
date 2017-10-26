@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="css/font-icon.css">
     <link rel="stylesheet" href="css/menuDropdown.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
     <style>
 
     </style>
@@ -42,7 +43,8 @@ if(isset($_SESSION['email'])){
 
 
     while($row = mysqli_fetch_array($res)) {
-        $name = $row['name'];
+        $fname = $row['firstName'];
+        $sname = $row['surname'];
         $custid = $row['custID'];
         $email = $row['email'];
         $phne = $row['phone_number'];
@@ -81,7 +83,7 @@ if(isset($_SESSION['email'])){
             <div class="col-md-10 col-md-offset-1">
         <br><br><br><br>
                 <div class="hero-text text-center">
-                    <h1><?php echo $name;  ?></h1><br><br>
+                    <h1><?php echo $fname; echo $sname;?></h1><br><br>
                     <p>Personal Details</p>
                    </div>
                 <!-- banner text -->
@@ -91,14 +93,16 @@ if(isset($_SESSION['email'])){
     <br><br>
         <div class="personalcontent">
 <form>
-    <label>Name</label>
-    <input type="text" name="name" value="<?php echo $name;?>" readonly><br><br>
+    <label>Sir Name</label>
+    <input type="text" name="name" value="<?php echo $sname;?>" readonly><br><br>
+    <label>First Name</label>
+    <input type="text" name="name" value="<?php echo $fname;?>" readonly><br><br>
     <label>Email</label>
     <input type="text" name="email" value="<?php echo $email;?>" readonly><br><br>
     <label>Phone Number</label>
     <input type="text" name="phneno" value="<?php echo $phne;?>" readonly><br><br>
 </form>
-            <h1 id="cursname"><?php echo $name;?></h1>
+            <h1 id="cursname"><?php echo $fname; echo $sname;?></h1>
         </div>
     <div class="imgcontent">
         <?php echo "<img class='persimg' height='300' width='300' src='$img' alt='personal image'>"; ?><br><br>

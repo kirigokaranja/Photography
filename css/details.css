@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Cookie|Raleway:300,700,400);
 .hero {
-    background: url(../larm.jpg) no-repeat center top;
+    background: url(../images/joanna-kosinska-412005.jpg) no-repeat center top;
     opacity: 0.9;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -50,4 +50,15 @@
     background: url('../images/lens.jpg');
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    /* Safari */
+    -webkit-transform: rotate(-25deg);
+
+    /* Firefox */
+    -moz-transform: rotate(-25deg);
+
+    /* IE */
+    -ms-transform: rotate(-25deg);
+
+    /* Opera */
+    -o-transform: rotate(-25deg);
 }

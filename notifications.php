@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="css/flexslider.css">
     <link rel="stylesheet" href="css/jquery.fancybox.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/details.css">
+    <link rel="stylesheet" href="css/upload.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/animate.min.css">
     <link rel="stylesheet" href="css/font-icon.css">
@@ -42,8 +42,10 @@ if(isset($_SESSION['email'])){
 
 
     while($row = mysqli_fetch_array($res)) {
-        $name = $row['name'];
+        $fname = $row['firstName'];
+        $sname = $row['surname'];
         $custid = $row['custID'];
+
 
 
     ?>
@@ -77,7 +79,7 @@ if(isset($_SESSION['email'])){
             <div class="col-md-10 col-md-offset-1">
         <br><br><br><br>
                 <div class="hero-text text-center">
-                    <h1><?php echo $name;} ?></h1><br><br>
+                    <h1><?php echo $fname; echo $sname;} ?></h1><br><br>
                     <p>Notifications</p>
                 </div>
                 <!-- banner text -->

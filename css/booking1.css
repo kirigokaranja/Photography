@@ -2,7 +2,7 @@ body{
     background-image: url("");
 
 }
-.container{
+.container1{
     border-radius: 0.5em;
     box-shadow: 0 0 1em 0 rgba(51,51,51,0.25);
     display: block;
@@ -13,13 +13,13 @@ body{
     transform: translate(-50%, -50%);
     padding: 2em;
     position: absolute;
-    top: 120%;
+    top: 130%;
     left: 50%;
     z-index: 1;
     width: 98%;
 }
-.container:before{
-    background: url('') center no-repeat;
+.container1:before{
+    background: url('../larm.jpg') center no-repeat;
     background-size: cover;
     content: '';
     -webkit-filter: blur(10px);
@@ -34,7 +34,7 @@ body{
     transform: translate(-50%, -50%);
     width: 100vw;
 }
-.container:after{
+.container1:after{
     background: rgba(255,255,255,0.6);
     content: '';
     display: block;
@@ -48,6 +48,13 @@ body{
 table{
     width: 90%;
     text-align: center;
+}
+th{
+    text-align: center;
+}
+td{
+    text-align: center;
+    padding: 12px 14px;
 }
 form button.submit{
     background: rgba(255,255,255,0.25);

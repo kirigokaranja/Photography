@@ -120,7 +120,7 @@ $custid = $row['custID'];
                         <option value="Ashley Greene">Ashley Greene</option>
                         <option value="Hannah Benson">Hannah Benson</option>
                         <option value="Jonathan Ive">Jonathan Ive</option>
-                        <option value="others">Others</option>
+
                     </select>
           <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="photographer" >
             <span class="input__label-content input__label-content--hoshi">Photographer</span>
@@ -140,7 +140,6 @@ $custid = $row['custID'];
                         <option value="food">Food</option>
                         <option value="event">Event</option>
                         <option value="baby">Baby</option>
-                        <option value="others">Others</option>
                     </select>
           <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="genre" >
             <span class="input__label-content input__label-content--hoshi">Genre</span>
