@@ -3331,7 +3331,7 @@ var ExifRestore = function () {
       var x = 0;
       while (x < segments.length) {
         seg = segments[x];
-        if (seg[0] === 255 & seg[1] === 225) {
+        if (seg[0] === 255 && seg[1] === 225) {
           return seg;
         }
         x++;
@@ -3358,10 +3358,10 @@ var ExifRestore = function () {
       var segments = [];
       while (true) {
         var length;
-        if (rawImageArray[head] === 255 & rawImageArray[head + 1] === 218) {
+        if (rawImageArray[head] === 255 && rawImageArray[head + 1] === 218) {
           break;
         }
-        if (rawImageArray[head] === 255 & rawImageArray[head + 1] === 216) {
+        if (rawImageArray[head] === 255 && rawImageArray[head + 1] === 216) {
           head += 2;
         } else {
           length = rawImageArray[head + 2] * 256 + rawImageArray[head + 3];

@@ -43,7 +43,7 @@
                         <div class="dropdown">
                             <li><a href="book.php" class="btn btn-large">Book</a></li>
                             <div class="dropdown-content">
-                                <a href="">Notifications</a>
+                                <a href="notifications.php">Notifications</a>
                                 <a href="personal.php">Personal Details</a>
                                 <a href="logout.php">Logout</a>
                             </div>
