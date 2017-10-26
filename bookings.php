@@ -116,20 +116,20 @@ while ($row = mysqli_fetch_array($res)) {
             <td>
                 <form action="view_bookings.php" method="post">
                     <input type="hidden" value="<?php echo $id;?>" name="id">
-                    <input type="hidden" value="<?php echo $photographer;?>" name="photographer">
+                    <input type="hidden" value="<?php echo $photographer;} }?>" name="photographer">
                     <button type="submit" class="submit">View</button>
                 </form>
             </td>
         </tr>
-    <?php } ?>
+
 </table>
 </div>
-    </div>
-    </section>
+    <footer style="height: 30%; background-color: transparent;"></footer>
 
 
 
-<?php} ?>
+
+
 
 <?php
 }else{

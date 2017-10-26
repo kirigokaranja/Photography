@@ -17,6 +17,7 @@ $type = "customer";
 
 
 $sq = "INSERT INTO `users`(`user_type`, `email`, `password`) VALUES ('$type', '$email','$pass')";
+global $db;
 $rslt = $db->query($sq) or trigger_error($db->error."[$sq]");
 
 if ($rslt)

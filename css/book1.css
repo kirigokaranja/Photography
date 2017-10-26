@@ -409,8 +409,8 @@
     background: #6a7989;
     -webkit-transform: scale3d(1, 0, 1);
     transform: scale3d(1, 0, 1);
-    -webkit-transform-origin: 50% 0%;
-    transform-origin: 50% 0%;
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
 }
 
 .input__field--jiro:focus,
@@ -454,7 +454,7 @@
 .input__field--minoru {
     width: 100%;
     background: #fff;
-    box-shadow: 0px 0px 0px 2px transparent;
+    box-shadow: 0 0 0 2px transparent;
     color: #24c315;
     -webkit-transition: box-shadow 0.3s;
     transition: box-shadow 0.3s;
@@ -473,12 +473,12 @@
     z-index: -1;
     width: 100%;
     height: 4em;
-    box-shadow: 0px 0px 0px 0px;
+    box-shadow: 0 0 0 0;
     color: rgba(199,152,157, 0.6);
 }
 
 .input__field--minoru:focus {
-    box-shadow: 0px 0px 0px 2px #24c315;
+    box-shadow: 0 0 0 2px #24c315;
 }
 
 .input__field--minoru:focus + .input__label--minoru {
@@ -492,14 +492,14 @@
 
 @-webkit-keyframes anim-shadow {
     to {
-        box-shadow: 0px 0px 100px 50px;
+        box-shadow: 0 0 100px 50px;
         opacity: 0;
     }
 }
 
 @keyframes anim-shadow {
     to {
-        box-shadow: 0px 0px 100px 50px;
+        box-shadow: 0 0 100px 50px;
         opacity: 0;
     }
 }
@@ -550,8 +550,8 @@
     width: 100%;
     height: 0.25em;
     background: #24c315;
-    -webkit-transform-origin: 50% 0%;
-    transform-origin: 50% 0%;
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
     -webkit-transition: -webkit-transform 0.3s;
     transition: transform 0.3s;
 }
@@ -745,8 +745,8 @@
 }
 
 .input__label-content--ichiro {
-    -webkit-transform-origin: 0% 50%;
-    transform-origin: 0% 50%;
+    -webkit-transform-origin: 0 50%;
+    transform-origin: 0 50%;
     -webkit-transition: -webkit-transform 0.3s;
     transition: transform 0.3s;
 }
@@ -801,8 +801,8 @@
 
 .input__label-content--juro {
     padding: 2em 1em;
-    -webkit-transform-origin: 0% 50%;
-    transform-origin: 0% 50%;
+    -webkit-transform-origin: 0 50%;
+    transform-origin: 0 50%;
     -webkit-transition: -webkit-transform 0.3s, color 0.3s;
     transition: transform 0.3s, color 0.3s;
 
@@ -816,7 +816,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    border: 0px solid transparent;
+    border: 0 solid transparent;
     -webkit-transition: border-width 0.3s, border-color 0.3s;
     transition: border-width 0.3s, border-color 0.3s;
 }
@@ -867,8 +867,8 @@
     width: 4em;
     height: 100%;
     background: #899dda;
-    -webkit-transform-origin: 0% 50%;
-    transform-origin: 0% 50%;
+    -webkit-transform-origin: 0 50%;
+    transform-origin: 0 50%;
     -webkit-transition: -webkit-transform 0.3s;
     transition: transform 0.3s;
 }
@@ -877,8 +877,8 @@
     color: #fff;
     -webkit-transform: scale3d(1, 1, 1); /* Needed for Chrome bug */
     transform: scale3d(1, 1, 1);
-    -webkit-transform-origin: 0% 50%;
-    transform-origin: 0% 50%;
+    -webkit-transform-origin: 0 50%;
+    transform-origin: 0 50%;
     -webkit-transition: -webkit-transform 0.3s;
     transition: transform 0.3s;
 }
@@ -924,8 +924,8 @@
 }
 
 .input__label-content--madoka {
-    -webkit-transform-origin: 0% 50%;
-    transform-origin: 0% 50%;
+    -webkit-transform-origin: 0 50%;
+    transform-origin: 0 50%;
     -webkit-transition: -webkit-transform 0.3s;
     transition: transform 0.3s;
 }
@@ -989,8 +989,8 @@
     height: 100%;
     text-align: left;
     cursor: text;
-    -webkit-transform-origin: 0% 50%;
-    transform-origin: 0% 50%;
+    -webkit-transform-origin: 0 50%;
+    transform-origin: 0 50%;
     -webkit-transition: -webkit-transform 0.5s;
     transition: transform 0.5s;
     -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);

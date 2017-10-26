@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="../css/dropzone.css">
     <link rel="stylesheet" href="css/upload.css">
     <link rel="stylesheet" href="../css/gallery.css">
+    <script src="../dist/sweetalert.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../dist/sweetalert.css">
 
 </head>
@@ -70,7 +71,7 @@ while ($row = mysqli_fetch_array($res)) {
             <div class="col-md-10 col-md-offset-1">
 
                 <div class="hero-text text-center">
-                    <h1><?php echo $fname; ?></h1><br>
+                    <h1><?php echo $fname; }?></h1><br>
                     <p>Dashboard</p>
                     <nav role="navigation"><a href="#photos" class="banner-btn"><img src="images/down-arrow.png" alt=""></a>
                     </nav>
@@ -80,7 +81,7 @@ while ($row = mysqli_fetch_array($res)) {
         </div>
     </section>
 
-<?php }
+<?php
 }else{
 
 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
@@ -100,9 +101,9 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
             },
             function (isConfirm) {
                 if (isConfirm) {
-                    location.href = "log.php"
+                    location.href = "signin.php"
                 } else {
-                    location.href = "index.php"
+                    location.href = "signin.php"
                 }
             });
     </script>

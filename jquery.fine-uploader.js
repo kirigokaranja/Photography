@@ -5276,7 +5276,7 @@
             var seg;
             for (var x = 0; x < segments.length; x++) {
                 seg = segments[x];
-                if (seg[0] == 255 & seg[1] == 225) {
+                if (seg[0] == 255 && seg[1] == 225) {
                     return seg;
                 }
             }
@@ -5291,10 +5291,10 @@
         ExifRestorer.slice2Segments = function(rawImageArray) {
             var head = 0, segments = [];
             while (1) {
-                if (rawImageArray[head] == 255 & rawImageArray[head + 1] == 218) {
+                if (rawImageArray[head] == 255 && rawImageArray[head + 1] == 218) {
                     break;
                 }
-                if (rawImageArray[head] == 255 & rawImageArray[head + 1] == 216) {
+                if (rawImageArray[head] == 255 && rawImageArray[head + 1] == 216) {
                     head += 2;
                 } else {
                     var length = rawImageArray[head + 2] * 256 + rawImageArray[head + 3], endPoint = head + length + 2, seg = rawImageArray.slice(head, endPoint);
