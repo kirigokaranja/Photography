@@ -125,7 +125,8 @@ $custid = $row['custID'];
           <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="photographer" >
             <span class="input__label-content input__label-content--hoshi">Photographer</span>
           </label>
-        </span>
+                    </span>
+
                     <span class="input input--hoshi">
                     <input type="text" readonly style="border: none">
                     <select name="genre"  class="input__field input__field--hoshi" id="genre"  required style="font-size:large; outline:none">
@@ -152,6 +153,7 @@ $custid = $row['custID'];
             <span class="input__label-content input__label-content--hoshi">Description</span>
           </label>
         </span>
+
                     <div class="cta">
                         <button class="btn btn-primary pull-left">
                             Book Now

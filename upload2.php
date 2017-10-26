@@ -42,8 +42,8 @@
             <div class="container">
                 <div class="col-md-10 col-md-offset-1">
                     <div class="hero-text text-center">
-                        <h1>User Upload</h1>
-                        <p>Drop Your Memories in the space below</p>
+                        <h1><?php echo $_SESSION['user']?> Upload</h1>
+                        <p>Drop your memories in the space below</p>
                         <nav role="navigation"> <a href="#works" class="banner-btn"><img src="images/down-arrow.png" alt=""></a></nav>
                     </div>
                     <!-- banner text -->

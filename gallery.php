@@ -25,9 +25,13 @@
     <link rel="stylesheet" href="css/gallery.css">
     <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
     <!-- script files -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="dist/sweetalert.min.js"></script>
     <script src="js/dropzone.js"></script>
     <script src="js/upload.js"></script>
+    <script src="js/jquery.fancybox.pack.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/gallery.js"></script>
     <!-- script files -->
 </head>
 
@@ -44,7 +48,7 @@ if(isset($_SESSION['email'])) {
     $res = $db->query($s) or trigger_error($db->error . "[$s]");
 
 
-while ($row = mysqli_fetch_array($res)) {
+    while ($row = mysqli_fetch_array($res)) {
     $fname = $row['firstName'];
     $sname = $row['surname'];
     ?>
@@ -53,13 +57,14 @@ while ($row = mysqli_fetch_array($res)) {
         <!-- banner text -->
         <div class="container">
             <br><br>
-            <div class="header-content clearfix"> <a class="logo" href="#"><img src="images/logo.ai" alt=""></a>
+            <div class="header-content clearfix"><a class="logo" href="#"><img src="images/logo.ai" alt=""></a>
                 <nav class="navigation" role="navigation">
                     <ul class="primary-nav">
                         <li><a href="index.php">Home</a></li>
                         <li><a href="notifications.php">Notifications</a></li>
                         <li><a href="personal.php">Personal Details</a></li>
                         <li><a href="gallery.php">Gallery</a></li>
+                        <li><a href="upload2.php">Upload</a></li>
                         <div class="dropdown">
                             <li><a href="bookings.php">Bookings</a></li>
                             <div class="dropdown-content">
@@ -75,7 +80,7 @@ while ($row = mysqli_fetch_array($res)) {
             <div class="col-md-10 col-md-offset-1">
 
                 <div class="hero-text text-center">
-                    <h1><?php echo $fname." ".$sname ?></h1>
+                    <h1><?php echo $fname . " " . $sname ?></h1>
                     <p>Gallery</p>
                     <nav role="navigation"><a href="#photos" class="banner-btn"><img src="images/down-arrow.png" alt=""></a>
                     </nav>
@@ -87,53 +92,76 @@ while ($row = mysqli_fetch_array($res)) {
     <!-- header section -->
     <!-- gallery section -->
 
-        <?php
-        $fname = $row['firstName'];
-        $sname = $row['surname'];
-        $custId = $row['custID'];
-        $folder_path = 'images/'.$fname.$sname.'-'.$custId.'/'; //image folder path
-        $dir_separator = DIRECTORY_SEPARATOR;
-        $id_separator = "-";
-        $userFolder =$dir_separator.'images'.$dir_separator.$fname.$sname.$id_separator.$custId . $dir_separator;
+    <?php
+    $fname = $row['firstName'];
+    $sname = $row['surname'];
+    $custId = $row['custID'];
+    $folder_path = 'images/' . $fname . $sname . '-' . $custId . '/'; //image folder path
+    $dir_separator = DIRECTORY_SEPARATOR;
+    $id_separator = "-";
+    $userFolder = $dir_separator . 'images' . $dir_separator . $fname . $sname . $id_separator . $custId . $dir_separator;
 
-        $destination_path = dirname(__FILE__) .$userFolder;
+    $destination_path = dirname(__FILE__) . $userFolder;
 
-
-        if (!is_dir($destination_path)) {;?>
-             <section  class="section quote">
-                <div class="container">
-                    <div class="col-md-8 col-md-offset-2 text-center">
-                        <h3>Aw Snap! You have not uploaded any photos yet!</h3>
-                        <a href="upload2.php" class="btn btn-large">Upload Photo</a> </div>
-                </div>
-            </section>
+if (!is_dir($destination_path)) {
+    ; ?>
+    <section class="section quote">
+        <div class="container">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <h3>Aw Snap! You have not uploaded any photos yet!</h3>
+                <a href="upload2.php" class="btn btn-large">Upload Photo</a></div>
+        </div>
+    </section>
+    <?php
+}else { ?>
+    <section class="section quote">
+        <div class="container">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <h3>Choose the gallery that you would like to view</h3>
+                <a id="edited" class="btn btn-large" style="margin-right: 5%">Edited</a>
+                <a id="unEdited" class="btn btn-large" style="margin-right: 5%">Unedited</a></div>
+        </div>
+        </div>
+    </section>
+    <section id="photos" style="padding-top: 5px; border: dotted">
+        <div id="photosEdited" style="display: none">
             <?php
-        }else {?>
-            <section id="photos" style="padding-top: 5px; border: dotted">
-            <div>
-            <?php
-            $folder = opendir($folder_path);
-            while (false !== ($entry = readdir($folder))) {
-                if ($entry != "." && $entry != ".." && $entry != "Thumb.db") {
-
+            $sqlImage = "SELECT * FROM customer_upload WHERE custID = '$custId' AND edit_status = 'Edited'";
+            $resImage = $db->query($sqlImage) or trigger_error($db->error . "[$sqlImage]");
+            while ($row = mysqli_fetch_array($resImage)) {
+                $file_name = $row['name'];
+                $ext = $row['extension'];
+                if ($ext == 'jpg' || $ext == 'png' || $ext == 'gif' || $ext == 'JPG' || $ext == 'PNG' || $ext == 'GIF') {
+                    $entry = $file_name . "." . $ext;
                     $file_path = $folder_path . $entry;
-                    $ext = strtolower(pathinfo($file_path, PATHINFO_EXTENSION));
-                    if ($ext == 'jpg' || $ext == 'png' || $ext == 'gif') {
-                    echo'
+                    echo '
+                                <a href="' . $file_path . '" class="work-box"><img src="' . $file_path . '" alt="" ></a>';
+                }
+            } ?>
+        </div>
+
+        <div id="photosUnedited" style="display: none">
+            <?php
+            $sqlImage = "SELECT * FROM customer_upload WHERE custID = '$custId' AND edit_status = 'Unedited'";
+            $resImage = $db->query($sqlImage) or trigger_error($db->error . "[$sqlImage]");
+            while ($row = mysqli_fetch_array($resImage)) {
+                $file_name = $row['name'];
+                $ext = $row['extension'];
+                if ($ext == 'jpg' || $ext == 'png' || $ext == 'gif' || $ext == 'JPG' || $ext == 'PNG' || $ext == 'GIF') {
+                    $entry = $file_name . "." . $ext;
+                    $file_path = $folder_path . $entry;
+                    echo '
                         <a href="' . $file_path . '" class="work-box"><img src="' . $file_path . '" alt="" ></a>';
-                    }
                 }
             }
-            closedir($folder);
             ?>
-            </div>
-            </section>
-        <?php
-        }
-
-        ?>
-    </div>
+        </div>
     </section>
+<?php
+}
+
+
+    ?>
     <!-- work section -->
     <!-- Footer section -->
     <footer class="footer" id="contact">
@@ -189,6 +217,7 @@ while ($row = mysqli_fetch_array($res)) {
     </footer>
     <!-- Footer section -->
 <?php }
+
 }else{
 
 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
@@ -214,7 +243,8 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
                 }
             });
     </script>
-    <?php } ?>
+    <?php }
+    ?>
 </body>
 </html>
 

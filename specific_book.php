@@ -14,6 +14,7 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/book.css">
     <link rel="stylesheet" href="css/book1.css">
+    <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
 
     <!--Google Fonts-->
     <link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
@@ -46,6 +47,7 @@
             background: black;
         }
     </style>
+    <script src="dist/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -63,7 +65,8 @@ $res = $db->query($s) or trigger_error($db->error."[$s]");
 
 
 while($row = mysqli_fetch_array($res)) {
-$name = $row['name'];
+$fname = $row['firstName'];
+$sname = $row['surname'];
 $custid = $row['custID'];
 
 
@@ -74,7 +77,7 @@ $custid = $row['custID'];
         <div class="row">
             <div class="col-md-6 left-side">
                 <header>
-                    <h3 style="color: #1157e6;"> <?php echo $name;?>,</h3>
+                    <h3 style="color: #1157e6;"> <?php echo $fname." ".$sname;?>,</h3>
                     <br> <span>Need a photographer?</span>
                     <h3>Book Us Now<br>While You Still Can</h3>
                 </header>
@@ -108,7 +111,7 @@ $custid = $row['custID'];
           </label>
         </span>
                     <?php
-$pname = $_POST["pname"];
+                    $pname = $_POST["pname"];
                     ?>
                     <span class="input input--hoshi">
                         <input type="text" readonly style="border: none">
@@ -200,13 +203,31 @@ $pname = $_POST["pname"];
     <?php
     }else{
 
-        session_destroy();
+        $_SESSION['url'] = $_SERVER['REQUEST_URI'];
 
 
         ?>
-        <br><br><br><br><br><br>
-        <P style="color: blue; text-align: center; font-size: 25px">You are Not logged in</P><br><br><br><br>
-        <p style="text-align: center"><a href="signin.php" style="color: red; font-size: 30px; "> Login</a></p>
+        <script>
+
+            swal({
+                    title: "Login Required!",
+                    text: "Please login to access booking feature",
+                    type: "info",
+                    showCancelButton: true,
+                    confirmButtonClass: "btn-danger",
+                    confirmButtonText: "Login",
+                    cancelButtonText: "Cancel",
+                    closeOnConfirm: false,
+                    closeOnCancel: false
+                },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        location.href = "log.php"
+                    } else {
+                        location.href = "index.php"
+                    }
+                });
+        </script>
     <?php } ?>
 </body>
 </html>

@@ -21,8 +21,10 @@ if ($result && $row = $result->fetch_assoc()) {
 
     session_start();
     $custID = $row['email'];
+    $user = $row['user_type'];
 
     $_SESSION['email'] = $custID;
+    $_SESSION['user'] = $user;
     ?>
     <script>
         swal({
