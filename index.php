@@ -40,6 +40,7 @@
                     if(isset($_SESSION['email'])){
                         $id = $_SESSION['email'];
                         ?>
+                        <li><a href="gallery.php">Your Gallery</a></li>
                         <div class="dropdown">
                             <li><a href="book.php" class="btn btn-large">Book</a></li>
                             <div class="dropdown-content">

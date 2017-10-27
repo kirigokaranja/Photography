@@ -23,9 +23,9 @@ include ("connect.php");
     if($result && $row = $result->fetch_assoc()){
 
         session_start();
-        $photID = $row['email'];
+        $photoID = $row['email'];
 
-        $_SESSION['email'] = $photID;
+        $_SESSION['Photographer'] = $photoID;
 ?>
 <script>
     swal({

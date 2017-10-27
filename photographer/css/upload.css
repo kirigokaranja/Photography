@@ -1,6 +1,5 @@
 .hero {
     background: url(../dariusz-sankowski-56725.jpg) no-repeat center top;
-    opacity: 0.9;
     -moz-background-size: cover;
     -o-background-size: cover;
     -webkit-background-size: cover;
@@ -19,6 +18,14 @@
     font-family: "Source Sans Pro";
     font-size: 53px;
     letter-spacing: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.hero-text h2 {
+    color: #fff;
+    font-family: "Source Sans Pro";
+    font-size: 40px;
+    letter-spacing: 15px;
     font-weight: 700;
     text-transform: uppercase;
 }

@@ -103,8 +103,7 @@ if(isset($_SESSION['email'])) {
 
     $destination_path = dirname(__FILE__) . $userFolder;
 
-if (!is_dir($destination_path)) {
-    ; ?>
+if (!is_dir($destination_path)) {?>
     <section class="section quote">
         <div class="container">
             <div class="col-md-8 col-md-offset-2 text-center">
@@ -159,10 +158,8 @@ if (!is_dir($destination_path)) {
     </section>
 <?php
 }
-
-
     ?>
-    <!-- work section -->
+    <!-- gallery section -->
     <!-- Footer section -->
     <footer class="footer" id="contact">
         <div class="footer-top section">
@@ -225,7 +222,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
     <script>
 
         swal({
-                title: "Login Required!",
+                title: "User Login Required!",
                 text: "Please login to access upload feature",
                 type: "info",
                 showCancelButton: true,

@@ -40,15 +40,36 @@
 
             <!-- banner text -->
             <div class="container">
+                <br><br>
+                <div class="header-content clearfix"><a class="logo" href="#"><img src="images/logo.ai" alt=""></a>
+                    <nav class="navigation" role="navigation">
+                        <ul class="primary-nav">
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="notifications.php">Notifications</a></li>
+                            <li><a href="personal.php">Personal Details</a></li>
+                            <li><a href="gallery.php">Gallery</a></li>
+                            <li><a href="upload2.php">Upload</a></li>
+                            <div class="dropdown">
+                                <li><a href="bookings.php">Bookings</a></li>
+                                <div class="dropdown-content">
+                                    <a href="">Notifications</a>
+                                    <a href="personal.php">Personal Details</a>
+                                </div>
+                            </div>
+                            <li><a href="logout.php" class="btn btn-large">Logout</a></li>
+
+                        </ul>
+                    </nav>
+                </div>
                 <div class="col-md-10 col-md-offset-1">
                     <div class="hero-text text-center">
                         <h1><?php echo $_SESSION['user']?> Upload</h1>
                         <p>Drop your memories in the space below</p>
                         <nav role="navigation"> <a href="#works" class="banner-btn"><img src="images/down-arrow.png" alt=""></a></nav>
                     </div>
-                    <!-- banner text -->
                 </div>
             </div>
+            <!-- banner text -->
         </section>
         <!-- header section -->
         <!-- work section -->

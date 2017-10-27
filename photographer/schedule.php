@@ -31,8 +31,8 @@
 session_start();
 include ('connect.php');
 
-if(isset($_SESSION['email'])) {
-    $id = $_SESSION['email'];
+if(isset($_SESSION['Photographer'])) {
+    $id = $_SESSION['Photographer'];
 
     $s = "SELECT * FROM photographer WHERE email = '$id'";
     global $db;
@@ -40,7 +40,8 @@ if(isset($_SESSION['email'])) {
 
 
 while ($row = mysqli_fetch_array($res)) {
-    $fname = $row['name'];
+    $fname = $row['firstName'];
+    $sname = $row['surname'];
 
     ?>
     <section class="hero" role="banner">
@@ -69,7 +70,7 @@ while ($row = mysqli_fetch_array($res)) {
             <div class="col-md-10 col-md-offset-1">
 
                 <div class="hero-text text-center">
-                    <h1><?php echo $fname; ?></h1><br>
+                    <h1><?php echo $fname." ".$sname; ?></h1><br>
                     <p>Schedule</p>
                     <nav role="navigation"><a href="#photos" class="banner-btn"><img src="images/down-arrow.png" alt=""></a>
                     </nav>

@@ -23,8 +23,12 @@
     <link rel="stylesheet" href="../css/dropzone.css">
     <link rel="stylesheet" href="css/upload.css">
     <link rel="stylesheet" href="../css/gallery.css">
-    <script src="../dist/sweetalert.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../dist/sweetalert.css">
+    <!-- script files -->
+    <script src="../dist/sweetalert.min.js"></script>
+    <script src="js/portfolio.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- script files -->
 
 </head>
 
@@ -33,8 +37,8 @@
 session_start();
 include ('connect.php');
 
-if(isset($_SESSION['email'])) {
-    $id = $_SESSION['email'];
+if(isset($_SESSION['Photographer'])) {
+    $id = $_SESSION['Photographer'];
 
     $s = "SELECT * FROM photographer WHERE email = '$id'";
     global $db;
@@ -42,7 +46,8 @@ if(isset($_SESSION['email'])) {
 
 
 while ($row = mysqli_fetch_array($res)) {
-    $fname = $row['name'];
+    $fname = $row['firstName'];
+    $sname = $row['surname'];
 
     ?>
     <section class="hero" role="banner">
@@ -50,7 +55,7 @@ while ($row = mysqli_fetch_array($res)) {
         <!-- banner text -->
         <div class="container">
             <br><br>
-            <div class="header-content clearfix"> <a class="logo" href="#"><img src="images/logo.ai" alt=""></a>
+            <div class="header-content clearfix"><a class="logo" href="#"><img src="images/logo.ai" alt=""></a>
                 <nav class="navigation" role="navigation">
                     <ul class="primary-nav">
                         <li><a href="dashboard.php">Dashboard</a></li>
@@ -71,7 +76,7 @@ while ($row = mysqli_fetch_array($res)) {
             <div class="col-md-10 col-md-offset-1">
 
                 <div class="hero-text text-center">
-                    <h1><?php echo $fname; }?></h1><br>
+                    <h1><?php echo $fname . " " . $sname; ?></h1><br>
                     <p>Dashboard</p>
                     <nav role="navigation"><a href="#photos" class="banner-btn"><img src="images/down-arrow.png" alt=""></a>
                     </nav>
@@ -80,33 +85,76 @@ while ($row = mysqli_fetch_array($res)) {
             </div>
         </div>
     </section>
+    <!-- gallery section -->
+
+    <?php
+    $photoId = $row['photoID'];
+    $folder_path = 'images/' . $fname . $sname . '-' . $photoId . '/'; //image folder path
+    $dir_separator = DIRECTORY_SEPARATOR;
+    $id_separator = "-";
+    $userFolder = $dir_separator . 'images' . $dir_separator . $fname . $sname . $id_separator . $photoId . $dir_separator;
+
+    $destination_path = dirname(__FILE__) . $userFolder;
+
+if (!is_dir($destination_path)) {?>
+        <section class="section quote">
+            <div class="container">
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <h3>Aw Snap! You have not uploaded any photos yet!</h3>
+                    <a href="upload2.php" class="btn btn-large">Upload Photo</a></div>
+            </div>
+        </section>
+    <?php
+}else { ?>
+    <section id="photos" style="padding-top: 5px; border: dotted">
+        <div id="portfolio">
+            <?php
+            $sqlImage = "SELECT * FROM photographer_upload WHERE photographerID = '$photoId'";
+            $resImage = $db->query($sqlImage) or trigger_error($db->error . "[$sqlImage]");
+            while ($row = mysqli_fetch_array($resImage)) {
+                $file_name = $row['name'];
+                $ext = $row['extension'];
+                if ($ext == 'jpg' || $ext == 'png' || $ext == 'gif' || $ext == 'JPG' || $ext == 'PNG' || $ext == 'GIF') {
+                    $entry = $file_name . "." . $ext;
+                    $file_path = $folder_path . $entry;
+                    echo '
+                                    <a href="' . $file_path . '" class="work-box"><img src="' . $file_path . '" alt="" ></a>';
+                }
+            } ?>
+        </div>
+    </section>
+    <?php
+}
+}
+    ?>
+    <!-- gallery section -->
 
 <?php
 }else{
 
-$_SESSION['url'] = $_SERVER['REQUEST_URI'];
-?>
-    <script>
+    $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+    ?>
+        <script>
 
-        swal({
-                title: "Login Required!",
-                text: "Please login to access upload feature",
-                type: "info",
-                showCancelButton: true,
-                confirmButtonClass: "btn-danger",
-                confirmButtonText: "Login",
-                cancelButtonText: "Cancel",
-                closeOnConfirm: false,
-                closeOnCancel: false
-            },
-            function (isConfirm) {
-                if (isConfirm) {
-                    location.href = "signin.php"
-                } else {
-                    location.href = "signin.php"
-                }
-            });
-    </script>
+            swal({
+                    title: "Login Required!",
+                    text: "Please login to access upload feature",
+                    type: "info",
+                    showCancelButton: true,
+                    confirmButtonClass: "btn-danger",
+                    confirmButtonText: "Login",
+                    cancelButtonText: "Cancel",
+                    closeOnConfirm: false,
+                    closeOnCancel: false
+                },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        location.href = "signin.php"
+                    } else {
+                        location.href = "signin.php"
+                    }
+                });
+        </script>
 <?php } ?>
 </body>
 </html>

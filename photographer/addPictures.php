@@ -23,6 +23,12 @@
     <link rel="stylesheet" href="../css/dropzone.css">
     <link rel="stylesheet" href="css/upload.css">
     <link rel="stylesheet" href="../css/gallery.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <!--script files-->
+    <script src="../dist/sweetalert.min.js"></script>
+    <script src="../js/dropzone.js"></script>
+    <script src="../js/upload.js"></script>
+    <!-- script files -->
 
 </head>
 
@@ -31,8 +37,8 @@
 session_start();
 include ('connect.php');
 
-if(isset($_SESSION['email'])) {
-    $id = $_SESSION['email'];
+if(isset($_SESSION['Photographer'])) {
+    $id = $_SESSION['Photographer'];
 
     $s = "SELECT * FROM photographer WHERE email = '$id'";
     global $db;
@@ -40,7 +46,8 @@ if(isset($_SESSION['email'])) {
 
 
 while ($row = mysqli_fetch_array($res)) {
-    $fname = $row['name'];
+    $fname = $row['firstName'];
+    $sname = $row['surname'];
 
     ?>
     <section class="hero" role="banner">
@@ -68,16 +75,34 @@ while ($row = mysqli_fetch_array($res)) {
             </div>
             <div class="col-md-10 col-md-offset-1">
 
-                <div class="hero-text text-center">
-                    <h1><?php echo $fname; ?></h1><br>
-                    <p>Add Pictures</p>
-                    <nav role="navigation"><a href="#photos" class="banner-btn"><img src="images/down-arrow.png" alt=""></a>
-                    </nav>
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="hero-text text-center">
+                        <h1><?php echo $fname." ".$sname?> </h1>
+                        <p>Add photos to your gallery</p>
+                        <nav role="navigation"> <a href="#works" class="banner-btn"><img src="../images/down-arrow.png" alt=""></a></nav>
+                    </div>
                 </div>
                 <!-- banner text -->
             </div>
         </div>
     </section>
+    <!-- work section -->
+    <section id="works" class="works section no-padding">
+        <div class="container-fluid">
+            <div class="row no-gutter">
+                <form action="upload.php" method="post" enctype="multipart/form-data" class="dropzone" id="my-dropzone"
+                      style="min-height: 350px; border: dotted">
+                    <div class="fallback">
+                        <input name="file" type="file" multiple />
+                    </div>
+                </form>
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <button class="btn btn-large" id="submit-all">Upload Photos</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- work section -->
 
 <?php }
 }else{
