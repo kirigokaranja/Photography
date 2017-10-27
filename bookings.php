@@ -85,8 +85,7 @@ while ($row = mysqli_fetch_array($res)) {
                 <div class="hero-text text-center">
                     <h1><?php echo $fname." ".$sname ?></h1>
                     <p>Bookings</p>
-                    <nav role="navigation"><a href="#photos" class="banner-btn"><img src="images/down-arrow.png" alt=""></a>
-                    </nav>
+
                 </div>
                 <!-- banner text -->
             </div>
@@ -116,12 +115,13 @@ while ($row = mysqli_fetch_array($res)) {
             <td>
                 <form action="view_bookings.php" method="post">
                     <input type="hidden" value="<?php echo $id;?>" name="id">
-                    <input type="hidden" value="<?php echo $photographer;} }?>" name="photographer">
+                    <input type="hidden" value="<?php echo $photographer; ?>" name="photographer">
                     <button type="submit" class="submit">View</button>
                 </form>
             </td>
         </tr>
-
+<?php }?>
+        <?php }?>
 </table>
 </div>
     <footer style="height: 30%; background-color: transparent;"></footer>
