@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 26, 2017 at 10:29 PM
+-- Generation Time: Oct 27, 2017 at 09:43 AM
 -- Server version: 10.1.19-MariaDB
--- PHP Version: 5.6.28
+-- PHP Version: 7.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `foto`
+-- Database: `foto2`
 --
 
 -- --------------------------------------------------------
@@ -141,6 +141,13 @@ CREATE TABLE `photographer` (
   `phone_number` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `photographer`
+--
+
+INSERT INTO `photographer` (`photoID`, `name`, `email`, `phone_number`) VALUES
+(1, 'Jonathan Ive', 'jonathan@gmail.com', 768456234);
+
 -- --------------------------------------------------------
 
 --
@@ -164,20 +171,22 @@ CREATE TABLE `photographer_upload` (
 CREATE TABLE `users` (
   `user_type` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `password` varchar(255) NOT NULL,
+  `active` varchar(255) NOT NULL DEFAULT 'active'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_type`, `email`, `password`) VALUES
-('customer', 'g@g.com', '123'),
-('customer', 'gyth.wanjohi@gmail.com', '1234'),
-('customer', 'jabuya@gmail.com', '1234'),
-('customer', 'mk@gmail.com', '1234'),
-('customer', 'sharon@gmail.com', '1234'),
-('customer', 'sheldon@gmail.com', '1234');
+INSERT INTO `users` (`user_type`, `email`, `password`, `active`) VALUES
+('customer', 'g@g.com', '123', 'active'),
+('customer', 'gyth.wanjohi@gmail.com', '1234', 'active'),
+('customer', 'jabuya@gmail.com', '1234', 'active'),
+('photographer', 'jonathan@gmail.com', '12345678', 'active'),
+('customer', 'mk@gmail.com', '1234', 'active'),
+('customer', 'sharon@gmail.com', '1234', 'active'),
+('customer', 'sheldon@gmail.com', '1234', 'active');
 
 --
 -- Indexes for dumped tables
@@ -259,7 +268,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `photographer`
 --
 ALTER TABLE `photographer`
-  MODIFY `photoID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `photoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `photographer_upload`
 --
