@@ -43,6 +43,10 @@
 }
 .personalcontent{
     float: left;
+
+}
+form{
+    margin-left: 10%;
 }
 #cursname{
     font-family: 'Cookie', "Alex Brush";
@@ -62,3 +66,4 @@
     /* Opera */
     -o-transform: rotate(-25deg);
 }
+

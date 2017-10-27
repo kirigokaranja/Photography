@@ -23,8 +23,47 @@
     <link rel="stylesheet" href="css/menuDropdown.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
-    <style>
 
+    <style>
+        form label{
+            border-bottom: 1px solid #333;
+            display: block;
+            font-size: 1.25em;
+            margin-bottom: 0.5em;
+            -webkit-transition: all 0.25s;
+            transition: all 0.25s;
+        }
+        form label input{
+            background: none;
+            border: none;
+            line-height: 1em;
+            font-weight: 300;
+            padding: 0.125em 0.25em;
+            width: 100%;
+            color: #1157e6;
+        }
+        form label span.label-text{
+            display: block;
+            font-size: 0.7em;
+            font-weight: bold;
+            padding-left: 0.5em;
+            text-transform: uppercase;
+            -webkit-transition: all 0.25s;
+            transition: all 0.25s;
+        }
+        .personalcontent{
+            float: left;
+            border-radius: 0.5em;
+            box-shadow: 0 0 1em 0 rgba(51,51,51,0.25);
+            display: block;
+            max-width: 480px;
+            overflow: hidden;
+            padding: 2em;
+            position: absolute;
+            width: 98%;
+            margin-left: 10%;
+            height: 80%;
+        }
     </style>
 </head>
 
@@ -92,15 +131,24 @@ if(isset($_SESSION['email'])){
     </section>
     <br><br>
         <div class="personalcontent">
+
 <form>
-    <label>Sir Name</label>
-    <input type="text" name="name" value="<?php echo $sname;?>" readonly><br><br>
-    <label>First Name</label>
-    <input type="text" name="name" value="<?php echo $fname;?>" readonly><br><br>
-    <label>Email</label>
-    <input type="text" name="email" value="<?php echo $email;?>" readonly><br><br>
-    <label>Phone Number</label>
-    <input type="text" name="phneno" value="<?php echo $phne;?>" readonly><br><br>
+    <label>
+        <span class="label-text">Sir Name</span>
+        <input type="text" name="name" value="<?php echo $sname;?>" readonly>
+    </label><br>
+    <label>
+        <span class="label-text">First Name</span>
+        <input type="text" name="name" value="<?php echo $fname;?>" readonly>
+    </label><br>
+    <label>
+        <span class="label-text">Email</span>
+        <input type="text" name="email" value="<?php echo $email;?>" readonly>
+    </label><br>
+    <label>
+        <span class="label-text">Phone Number</span>
+        <input type="text" name="phneno" value="<?php echo $phne;?>" readonly>
+    </label><br>
 </form>
             <h1 id="cursname"><?php echo $fname; echo $sname;?></h1>
         </div>
