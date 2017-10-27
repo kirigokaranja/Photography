@@ -13,7 +13,43 @@
     <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
 
     <link rel="stylesheet" href="photographer/css/style.css">
+<style>
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+        text-align: center;
+    }
 
+    li {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    li a:hover {
+        background-color: #111;
+        text-decoration: none;
+    }
+    .navbar {
+        overflow: hidden;
+        background-color: #333;
+        opacity: 0.8;
+        position: fixed;
+        bottom: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+</style>
 
 </head>
 
@@ -54,7 +90,12 @@
         <p>Not a member yet? <a href="signin.php">Join Us</a> </p>
     </form>
 </div>
-
+<footer class="navbar">
+    <ul >
+<li><a>Main Photographer</a></li>
+    <li><a href="photographer/signin.php">Photographer</a></li>
+    </ul>
+</footer>
 
 </body>
 </html>
