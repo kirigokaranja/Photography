@@ -40,9 +40,6 @@
         </label>
         <label class="password">
             <span class="label-text">Password</span>
-            <button class="toggle-visibility" title="toggle password visibility" tabindex="-1">
-                <span class="glyphicon glyphicon-eye-close"></span>
-            </button>
             <input type="password" name="password">
         </label>
 

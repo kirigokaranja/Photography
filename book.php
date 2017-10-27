@@ -20,34 +20,34 @@
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
     <script src="dist/sweetalert.min.js"></script>
-<style>
-    p{
-        margin-top: -70px;
-        font-family: 'Playfair Display', serif;
-        font-size: 40px;
-        font-weight: 400;
-        line-height: 52px;
-        letter-spacing: 0.01em;
-    }
-    .right-side .cta .btn1{
-        padding: 13px 25px;
-        border: none;
-        color: #fff;
-        display: inline-block;
-        font-family: 'lato', sans-serif;
-        text-transform: uppercase;
-        font-size: 13px;
-        letter-spacing: 0.12em;
-        border-radius: 24px;
-        background: #1157e6;
-    }
-    .right-side .cta .btn1:hover {
-        -webkit-transition: 0.2s ease-in;
-        -o-transition: 0.2s ease-in;
-        transition: 0.2s ease-in;
-        background: black;
-    }
-</style>
+    <style>
+        p{
+            margin-top: -70px;
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            font-weight: 400;
+            line-height: 52px;
+            letter-spacing: 0.01em;
+        }
+        .right-side .cta .btn1{
+            padding: 13px 25px;
+            border: none;
+            color: #fff;
+            display: inline-block;
+            font-family: 'lato', sans-serif;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 0.12em;
+            border-radius: 24px;
+            background: #1157e6;
+        }
+        .right-side .cta .btn1:hover {
+            -webkit-transition: 0.2s ease-in;
+            -o-transition: 0.2s ease-in;
+            transition: 0.2s ease-in;
+            background: black;
+        }
+    </style>
 </head>
 
 <body>
@@ -78,7 +78,7 @@ $custid = $row['custID'];
             <div class="col-md-6 left-side">
                 <header>
                     <h3 style="color: #1157e6;"> <?php echo $fname." ".$sname;?>,</h3>
-                   <br> <span>Need a photographer?</span>
+                    <br> <span>Need a photographer?</span>
                     <h3>Book Us Now<br>While You Still Can</h3>
                 </header>
             </div>
@@ -95,9 +95,9 @@ $custid = $row['custID'];
                         echo "<p class='heading' style='color:#24c315;text-align: center;'>Booking Successful </p>";
                     }
                     ?>
-<input type="hidden" name="custid" value="<?php echo $custid;?>">
-        <span class="input input--hoshi"><?php } ?>
-            <input type="text" readonly style="border: none">
+                    <input type="hidden" name="custid" value="<?php echo $custid;?>">
+                    <span class="input input--hoshi"><?php } ?>
+                        <input type="text" readonly style="border: none">
           <input class="input__field input__field--hoshi" type="date" id="date" name="date"  min="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d', strtotime('+3 months')); ?>" required />
           <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="date">
             <span class="input__label-content input__label-content--hoshi">Date</span>
@@ -112,20 +112,27 @@ $custid = $row['custID'];
         </span>
                     <span class="input input--hoshi">
                     <input type="text" readonly style="border: none">
-                    <select name="photographer"  class="input__field input__field--hoshi" id="photographer" required style="font-size:large; outline:none">
-                        <option value="choose"> Choose a Photographer</option>
-                        <option value="Sarah Courtney">Sarah Courtney</option>
-                        <option value="Richard Macey">Richard Macey</option>
-                        <option value="Jonny Sullens">Jonny Sullens</option>
-                        <option value="Ashley Greene">Ashley Greene</option>
-                        <option value="Hannah Benson">Hannah Benson</option>
-                        <option value="Jonathan Ive">Jonathan Ive</option>
 
-                    </select>
-          <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="photographer" >
+                        <?php
+                        $sql=mysqli_query($db, "SELECT * FROM photographer" );
+                        if(mysqli_num_rows($sql)){
+                            ?>
+
+                            <select name="photographer"  class="input__field input__field--hoshi" id="photographer" required style="font-size:large; outline:none">
+                   <option value="choose">Choose a photographer</option>
+                                <?php
+                                while($rs=mysqli_fetch_array($sql)){
+                                ?>
+                                <option value="<?php echo $rs['name']; ?>"><?php echo $rs['name'];} ?></option></select>
+                            <?php
+
+                        }
+
+                        ?>
+                        <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="photographer" >
             <span class="input__label-content input__label-content--hoshi">Photographer</span>
           </label>
-                    </span>
+        </span>
 
                     <span class="input input--hoshi">
                     <input type="text" readonly style="border: none">
@@ -146,6 +153,7 @@ $custid = $row['custID'];
             <span class="input__label-content input__label-content--hoshi">Genre</span>
           </label>
         </span>
+
                     <span class="input input--hoshi">
                     <input type="text" readonly style="border: none">
           <input class="input__field input__field--hoshi" type="text" name="description" id="description"  required/>

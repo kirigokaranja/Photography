@@ -55,15 +55,22 @@ while($row = mysqli_fetch_array($result)) {
         $pname = $row['name'];
     ?>
                 <label>Photographer
-                    <select name="photographer" id="photographer" required style="outline:none">
-                        <option value="<?php echo $pname;?>"><?php echo $pname;?></option>
-                        <option value="Sarah Courtney">Sarah Courtney</option>
-                        <option value="Richard Macey">Richard Macey</option>
-                        <option value="Jonny Sullens">Jonny Sullens</option>
-                        <option value="Ashley Greene">Ashley Greene</option>
-                        <option value="Hannah Benson">Hannah Benson</option>
-                        <option value="Jonathan Ive">Jonathan Ive</option>
-                    </select>
+                    <?php
+                    $sql=mysqli_query($db, "SELECT * FROM photographer" );
+                    if(mysqli_num_rows($sql)){
+                        ?>
+
+                        <select name="photographer"  class="input__field input__field--hoshi" id="photographer" required style="font-size:large; outline:none">
+                            <option value="<?php echo $pname;?>"><?php echo $pname;?></option>
+                            <?php
+                            while($rs=mysqli_fetch_array($sql)){
+                            ?>
+                            <option value="<?php echo $rs['name']; ?>"><?php echo $rs['name'];} ?></option></select>
+                        <?php
+
+                    }
+
+                    ?>
                 </label><br><br>
                 <label>Genre
                     <select name="genre" id="genre"  required style="outline:none">

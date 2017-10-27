@@ -1,17 +1,22 @@
-<html>
+<!DOCTYPE html>
+<html >
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Signin Page for Foto ">
-    <meta name="author" content=" Foto">
-    <link rel="icon" type="image/ico" href="favicon.ico" />
+    <meta charset="UTF-8">
+    <title>Signin</title>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Signin Page for Foto ">
+        <meta name="author" content=" Foto">
+        <link rel="icon" type="image/ico" href="favicon.ico" />
 
-    <title>Sign In</title>
-    <link href="css/signin.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Cookie|Raleway:300,700,400' rel='stylesheet' type='text/css'>
+        <title>Sign In</title>
+        <link rel="stylesheet" href="photographer/css/style.css">
+        <link href='https://fonts.googleapis.com/css?family=Cookie|Raleway:300,700,400' rel='stylesheet' type='text/css'>
 
-</head>
+    </head>
 <body>
 <div class="container">
     <form action="signup.php" method="post">
@@ -32,23 +37,23 @@
         ?>
         <label class="password">
             <span class="label-text">First Name</span>
-            <input type="text" name="fname"required/><br><br>
+            <input type="text" name="fname"required/>
         </label>
         <label class="password">
             <span class="label-text">Surname</span>
-            <input type="text" name="sname"required/><br><br>
+            <input type="text" name="sname"required/>
         </label>
         <label class="password">
             <span class="label-text">Email</span>
-            <input type="text" name="email" required/><br><br>
+            <input type="email" name="email" required/>
         </label>
         <label class="password">
             <span class="label-text">Phone Number</span>
-            <input type="text" name="number" required/><br><br>
+            <input type="number" name="number" required/>
         </label>
         <label class="password">
             <span class="label-text">Password</span>
-            <input type="password" name="password" required/><br><br>
+            <input type="password" name="password" required/>
         </label>
         <div class="text-center">
             <button type="submit" class="submit">SIGN UP</button>

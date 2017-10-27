@@ -8,39 +8,53 @@
     <link rel="icon" type="image/ico" href="favicon.ico" />
 
     <title>Sign In</title>
-    <link href="css/signin.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+
+    <link rel="stylesheet" href="photographer/css/style.css">
+
+
 </head>
+
 <body>
 <div class="container">
-    <form action="login.php" method="post">
 
-        <h1 class="text-center">Log In</h1>
-        <?php
-        $url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+    <h1 class="text-center">Login</h1>
+    <?php
+    $url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 
-        // error message incase username or password are incorrect
+    // error message incase username or password are incorrect
 
-        if(strpos($url,'error=fail')){
-            echo "<p style='color:red; font-size:20px;text-align: center;'>An Error Ocurred</p>";
-        }elseif(strpos($url,'message=success')){
-            echo "<p style='color:red; font-size:32px;text-align: center;'>Login Successful </p>";
-        }
-        ?>
+    if(strpos($url,'error=wrong')){
+        echo "<p style='color:red; font-size:20px;text-align: center;'>An Error Ocurred</p>";
+    }elseif(strpos($url,'message=success')){
+        echo "<p style='color:red; font-size:32px;text-align: center;'>Login Successful </p>";
+    }
+    ?>
+    <form method="post" action="login.php">
+        <label class="col-one-half">
 
-        <label class="password">
-            <span class="label-text">Email</span>
-            <input type="text" name="email" required/><br><br>
         </label>
+        <label class="col-one-half">
 
+        </label>
+        <label>
+            <span class="label-text">Email</span>
+            <input type="email" name="email" required>
+        </label>
         <label class="password">
             <span class="label-text">Password</span>
-            <input type="password" name="password" required/><br><br>
+            <input type="password" name="password" required>
         </label>
+
         <div class="text-center">
-            <button type="submit" class="submit">LOG IN</button>
-        </div>
+            <button class="submit" type="submit">Login</button>
+        </div><br>
         <p>Not a member yet? <a href="signin.php">Join Us</a> </p>
     </form>
 </div>
+
+
 </body>
 </html>
