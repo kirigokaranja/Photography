@@ -11,10 +11,11 @@ include ("connect.php");
 
 $bookid = $_POST["bookid"];
 $status = $_POST["status"];
+$title = $_POST["title"];
 
 
 
-    $sql = "UPDATE `book` SET `status`= '$status' WHERE bookID = '$bookid'";
+    $sql = "UPDATE `book` SET `status`= '$status' , title = '$title' WHERE bookID = '$bookid'";
     global $db;
     $result = $db->query($sql) or trigger_error($db->error . "[$sql]");
 

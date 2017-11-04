@@ -3,7 +3,7 @@
 /* colors */
 /* body */
 body {
-  background: rgba(0, 0, 0, 0.9);
+  background: white;
   font-family: 'Open Sans', sans-serif; }
 
 /* links */
@@ -41,7 +41,7 @@ body {
   max-width: 1000px;
   margin: 20px auto 100px auto;
   padding: 0;
-  background: rgba(255, 255, 255, 0.1);
+  background: #2d3033;
   color: rgba(255, 255, 255, 0.9);
   overflow: hidden;
   position: relative; }

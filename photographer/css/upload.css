@@ -5,13 +5,13 @@
     -webkit-background-size: cover;
     background-size: cover;
     min-height: 0;
-    height: 550px;
+    height: 300px;
 }
 .hero-btn {
     opacity: 0.5;
 }
 .hero-text {
-    padding-top: 18%;
+    padding-top: 4%;
 }
 .hero-text h1 {
     color: #fff;
@@ -38,6 +38,7 @@
     margin-top: 10px;
     margin-bottom: 80px;
     text-transform: uppercase;
+    text-align: center;
 }
 .persimg{
     border: solid 6px #2d3033;
