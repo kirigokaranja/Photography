@@ -65,13 +65,7 @@ if(isset($_SESSION['email'])) {
                         <li><a href="personal.php">Personal Details</a></li>
                         <li><a href="gallery.php">Gallery</a></li>
                         <li><a href="upload2.php">Upload</a></li>
-                        <div class="dropdown">
-                            <li><a href="bookings.php">Bookings</a></li>
-                            <div class="dropdown-content">
-                                <a href="">Notifications</a>
-                                <a href="personal.php">Personal Details</a>
-                            </div>
-                        </div>
+                        <li><a href="bookings.php">Bookings</a></li>
                         <li><a href="logout.php" class="btn btn-large">Logout</a></li>
 
                     </ul>

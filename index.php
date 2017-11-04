@@ -141,7 +141,7 @@
             <!-- team member 1 -->
             <!-- team member 2 -->
             <div class="col-md-4 col-sm-8">
-                <div class="person"><a href="portfolio.php"> <img src="images/cameron-kirby-179439.jpg" alt="" class="img-responsive">
+                <div class="person"><a href="portfolio.php"> <img src="images/cameron-kirby-179439.jpg"  alt="" class="img-responsive">
                         <div class="person-content">
                             <h4>Sharon Kirigo</h4>
                             <h5 class="role">Creative head</h5>

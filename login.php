@@ -11,7 +11,7 @@ include ("connect.php");
 
 $email = $_POST['email'];
 $pass = $_POST['password'];
-$type = "customer";
+$type = 1;
 
 
 $sql = "SELECT * FROM `users` WHERE `email`='$email'and `password`='$pass' AND user_type = '$type'";
