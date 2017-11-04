@@ -1,18 +1,18 @@
 .hero {
-    background: url(../glenn-carstens-peters-339405.jpg) no-repeat center top;
+    background: url(../alif-ngoylung-243373.jpg) no-repeat center top;
     opacity: 0.9;
     -moz-background-size: cover;
     -o-background-size: cover;
     -webkit-background-size: cover;
     background-size: cover;
     min-height: 0;
-    height: 550px;
+    height: 300px;
 }
 .hero-btn {
     opacity: 0.5;
 }
 .hero-text {
-    padding-top: 13%;
+    padding-top: 4%;
 }
 .hero-text h1 {
     color: #fff;

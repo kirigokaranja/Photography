@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="../css/animate.min.css">
     <link rel="stylesheet" href="../css/font-icon.css">
     <link rel="stylesheet" href="../css/menuDropdown.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/dropzone.css">
     <link rel="stylesheet" href="css/upload.css">
     <link rel="stylesheet" href="../css/gallery.css">
@@ -40,8 +39,10 @@ if(isset($_SESSION['Admin'])) {
                 <nav class="navigation" role="navigation">
                     <ul class="primary-nav">
                         <li><a href="dashboard.php">Dashboard</a></li>
-                        <li><a href="schedule.php">Schedule</a></li>
-                        <li><a href="addPictures.php">Add Pictures</a></li>
+                        <li><a href="dashboard.php">User Uploads</a></li>
+                        <li><a href="dashboard.php">Messages</a></li>
+                        <li><a href="dashboard.php">Photographers</a></li>
+                        <li><a href="addPictures.php">Bookings</a></li>
                         <li><a href="logout.php" class="btn btn-large">Logout</a></li>
 
                     </ul>
@@ -51,9 +52,8 @@ if(isset($_SESSION['Admin'])) {
 
                 <div class="hero-text text-center">
                     <h1>Main Photographer</h1><br>
-                    <p>Dashboard</p>
-                    <nav role="navigation"><a href="#photos" class="banner-btn"><img src="images/down-arrow.png" alt=""></a>
-                    </nav>
+                    <p style="color: #003434;">Dashboard</p>
+
                 </div>
                 <!-- banner text -->
             </div>
