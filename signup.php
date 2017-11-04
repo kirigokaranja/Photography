@@ -39,7 +39,7 @@ if ($rslt)
             }, 1000);
         </script>
         <?php
-        //  header("Location: signin.php?message=success");
+
     }
 }
 else

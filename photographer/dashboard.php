@@ -62,7 +62,7 @@ while ($row = mysqli_fetch_array($res)) {
                         <li><a href="schedule.php">Schedule</a></li>
                         <li><a href="addPictures.php">Add Pictures</a></li>
                         <div class="dropdown">
-                            <li><a href="bookings.php">Bookings</a></li>
+                            <li><a href="trial.php">Bookings</a></li>
                             <div class="dropdown-content">
                                 <a href="">Accepted</a>
                                 <a href="">Rejected</a>
@@ -101,7 +101,7 @@ if (!is_dir($destination_path)) {?>
             <div class="container">
                 <div class="col-md-8 col-md-offset-2 text-center">
                     <h3>Aw Snap! You have not uploaded any photos yet!</h3>
-                    <a href="upload2.php" class="btn btn-large">Upload Photo</a></div>
+                    <a href="../upload2.php" class="btn btn-large">Upload Photo</a></div>
             </div>
         </section>
     <?php
