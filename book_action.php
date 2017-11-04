@@ -13,15 +13,15 @@ $photographer = $_POST["photographer"];
 $genre = $_POST["genre"];
 $description = $_POST["description"];
 $custid = $_POST["custid"];
+$ph = explode(" ",$photographer);
 
-$s = "SELECT * FROM photographer WHERE name = '$photographer'";
+$s = "SELECT * FROM photographer WHERE firstName = '$ph[0]'";
 global $db;
 $res = $db->query($s) or trigger_error($db->error."[$s]");
 
 
 while($row = mysqli_fetch_array($res)) {
     $photid = $row['photoID'];
-
     $sql = "INSERT INTO `book`( `custID`, `event`, `date`, `location`, `description`, `photoID`) VALUES ('$custid', '$genre','$date', '$location', '$description','$photid')";
     global $db;
     $result = $db->query($sql) or trigger_error($db->error . "[$sql]");
@@ -71,7 +71,7 @@ while($row = mysqli_fetch_array($res)) {
             swal({title: "Error", text: "An Error Ocurred!", type: "error", timer: 1500, showConfirmButton: false});
             setTimeout(function () {
                 location.href = "book.php"
-            }, 1000);
+            }, 1000000);
         </script>
         <?php
 

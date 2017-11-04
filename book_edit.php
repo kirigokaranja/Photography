@@ -13,9 +13,9 @@ $photographer = $_POST["photographer"];
 $genre = $_POST["genre"];
 $description = $_POST["description"];
 $bookid = $_POST["bookid"];
+$ph = explode(" ",$photographer);
 
-
-$s = "SELECT * FROM photographer WHERE name = '$photographer'";
+$s = "SELECT * FROM photographer WHERE firstName = '$ph[0]'";
 global $db;
 $res = $db->query($s) or trigger_error($db->error."[$s]");
 
