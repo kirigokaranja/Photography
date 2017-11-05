@@ -51,11 +51,8 @@ while ($row = mysqli_fetch_array($res)) {
     $sname = $row['surname'];
 
     $custid = $row['custID'];
-
-    $sql = "SELECT * FROM book WHERE custID = '$custid'";
-    global $db;
-    $result = $db->query($sql) or trigger_error($db->error . "[$sql]");
     ?>
+
     <section class="hero" role="banner">
 
         <!-- banner text -->
@@ -68,13 +65,7 @@ while ($row = mysqli_fetch_array($res)) {
                         <li><a href="notifications.php">Notifications</a></li>
                         <li><a href="personal.php">Personal Details</a></li>
                         <li><a href="gallery.php">Gallery</a></li>
-                        <div class="dropdown">
-                            <li><a href="bookings.php">Bookings</a></li>
-                            <div class="dropdown-content">
-                                <a href="">Notifications</a>
-                                <a href="personal.php">Personal Details</a>
-                            </div>
-                        </div>
+                        <li><a href="bookings.php">Bookings</a></li>
                         <li><a href="logout.php" class="btn btn-large">Logout</a></li>
 
                     </ul>
@@ -91,42 +82,83 @@ while ($row = mysqli_fetch_array($res)) {
             </div>
         </div>
     </section>
-    <div class="container1">
-    <table >
-    <tr class="heading">
-        <th>Date</th>
-        <th>Location</th>
-        <th>Genre</th>
-        <th>Edit</th>
-    </tr>
-    <?php
-    while($row = mysqli_fetch_array($result)){
-        $date = $row['date'];
-        $location = $row['location'];
-        $photographer = $row['photoID'];
-        $genre = $row['event'];
-        $id = $row['bookID'];
+<br>
 
-        ?>
-        <tr>
-            <td><?php echo $date;?></td>
-            <td><?php echo $location;?></td>
-            <td><?php echo $genre;?></td>
-            <td>
-                <form action="view_bookings.php" method="post">
-                    <input type="hidden" value="<?php echo $id;?>" name="id">
-                    <input type="hidden" value="<?php echo $photographer; ?>" name="photographer">
-                    <button type="submit" class="submit">View</button>
-                </form>
-            </td>
-        </tr>
-<?php }?>
-        <?php }?>
-</table>
-</div>
+    <form action="bookings.php" method="get">
+
+        <input class="search" type="text" name="search" placeholder="Search..."/>
+        <input type="submit" value="Search" class="ssubmit">
+    </form>
+    <?php
+
+    $sql = "SELECT * FROM book WHERE custID = '$custid' ORDER BY bookID DESC ";
+if (isset($_GET['search'])) {
+    $search = $_GET['search'];
+    $sql = "SELECT * FROM book WHERE  event LIKE '%$search%' OR date LIKE '%$search%' OR location LIKE '%$search%'";
+
+if ($search !=null){
+    ?>
+<br><br> <button class="viewall" onclick="window.location.href='bookings.php'">View All</button>
+    <?php
+}
+}
+    global $db;
+    $result = $db->query($sql) or trigger_error($db->error . "[$sql]");
+
+    ?>
+    <div class="container1">
+        <table >
+            <tr class="heading">
+                <th>Date</th>
+                <th>Location</th>
+                <th>Genre</th>
+                <th>Edit</th>
+            </tr>
+            <?php
+            while($row = mysqli_fetch_array($result)){
+                $date = $row['date'];
+                $location = $row['location'];
+                $photographer = $row['photoID'];
+                $genre = $row['event'];
+                $id = $row['bookID'];
+                $status = $row['status'];
+                $pend = "pending";
+                ?>
+                <tr>
+                    <td><?php echo $date;?></td>
+                    <td><?php echo $location;?></td>
+                    <td><?php echo $genre;?></td>
+                    <td>
+                        <?php
+                        if ($status == $pend){
+                            ?>
+                            <form action="view_bookings.php" method="post">
+                                <input type="hidden" value="<?php echo $id;?>" name="id">
+                                <input type="hidden" value="<?php echo $photographer; ?>" name="photographer">
+                                <button type="submit" class="submit">Edit</button>
+                            </form>
+                            <?php
+                        }else{
+                            ?>
+                            <form action="view_bookings.php" method="post">
+                                <input type="hidden" value="<?php echo $id;?>" name="id">
+                                <input type="hidden" value="<?php echo $photographer; ?>" name="photographer">
+                                <button type="submit" class="submit" style="background-color: midnightblue;border-color: midnightblue;color: white">View</button>
+                            </form>
+                            <?php
+                        }
+                        ?>
+
+                    </td>
+                </tr>
+            <?php }?>
+
+        </table>
+
+    </div>
     <footer style="height: 30%; background-color: transparent;"></footer>
 
-
+<?php }?>
 
 
 

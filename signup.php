@@ -12,7 +12,7 @@ $sname = $_POST["sname"];
 $email = $_POST["email"];
 $number = $_POST["number"];
 $pass = $_POST["password"];
-$type = "customer";
+$type = 1;
 
 
 

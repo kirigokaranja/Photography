@@ -24,6 +24,56 @@
     <link rel="stylesheet" href="css/upload.css">
     <link rel="stylesheet" href="../css/gallery.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
+    <script>
+
+        $(document).ready(function() {
+            var date = new Date();
+            var d = date.getDate();
+            var m = date.getMonth();
+            var y = date.getFullYear();
+
+            var calendar = $('#calendar').fullCalendar({
+                editable: true,
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: ''
+                },
+
+                events: "events.php",
+
+                eventRender: function(event, element, view) {
+                    if (event.allDay === 'true') {
+                        event.allDay = true;
+                    } else {
+                        event.allDay = false;
+                    }
+                }
+
+            });
+
+        });
+
+    </script>
+    <style>
+        body {
+
+            text-align: center;
+            font-size: 14px;
+            font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+        }
+        #calendar {
+            width: 750px;
+            margin: 0 auto;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -55,13 +105,7 @@ while ($row = mysqli_fetch_array($res)) {
                         <li><a href="dashboard.php">Dashboard</a></li>
                         <li><a href="schedule.php">Schedule</a></li>
                         <li><a href="addPictures.php">Add Pictures</a></li>
-                        <div class="dropdown">
-                            <li><a href="bookings.php">Bookings</a></li>
-                            <div class="dropdown-content">
-                                <a href="">Accepted</a>
-                                <a href="">Rejected</a>
-                            </div>
-                        </div>
+                        <li><a href="bookings.php">Bookings</a></li>
                         <li><a href="logout.php" class="btn btn-large">Logout</a></li>
 
                     </ul>
@@ -79,7 +123,8 @@ while ($row = mysqli_fetch_array($res)) {
             </div>
         </div>
     </section>
-
+<br><br>
+    <div id='calendar'></div>
 <?php }
 }else{
 

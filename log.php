@@ -68,7 +68,7 @@
         echo "<p style='color:red; font-size:32px;text-align: center;'>Login Successful </p>";
     }
     ?>
-    <form method="post" action="login.php">
+    <form method="post" action="trial2.php">
         <label class="col-one-half">
 
         </label>
@@ -92,7 +92,7 @@
 </div>
 <footer class="navbar">
     <ul >
-<li><a>Main Photographer</a></li>
+<li><a href="main/signin.php">Main Photographer</a></li>
     <li><a href="photographer/signin.php">Photographer</a></li>
     </ul>
 </footer>

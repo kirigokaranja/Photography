@@ -61,13 +61,7 @@ while ($row = mysqli_fetch_array($res)) {
                         <li><a href="dashboard.php">Dashboard</a></li>
                         <li><a href="schedule.php">Schedule</a></li>
                         <li><a href="addPictures.php">Add Pictures</a></li>
-                        <div class="dropdown">
-                            <li><a href="bookings.php">Bookings</a></li>
-                            <div class="dropdown-content">
-                                <a href="">Accepted</a>
-                                <a href="">Rejected</a>
-                            </div>
-                        </div>
+                        <li><a href="bookings.php">Bookings</a></li>
                         <li><a href="logout.php" class="btn btn-large">Logout</a></li>
 
                     </ul>
@@ -87,15 +81,15 @@ while ($row = mysqli_fetch_array($res)) {
         </div>
     </section>
     <!-- work section -->
-    <section id="works" class="works section no-padding">
+    <section id="works" class="works section no-padding" >
         <div class="container-fluid">
             <div class="row no-gutter">
                 <form action="upload.php" method="post" enctype="multipart/form-data" class="dropzone" id="my-dropzone"
-                      style="min-height: 350px; border: dotted">
+                      style="min-height: 350px; border: dotted; ">
                     <div class="fallback">
                         <input name="file" type="file" multiple />
                     </div>
-                </form>
+                </form >
                 <div class="col-md-8 col-md-offset-2 text-center">
                     <button class="btn btn-large" id="submit-all">Upload Photos</button>
                 </div>

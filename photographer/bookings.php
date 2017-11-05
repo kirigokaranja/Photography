@@ -10,39 +10,38 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/ico" href="../favicon.ico" />
-    <title>Photographer | Dashboard</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/flexslider.css">
-    <link rel="stylesheet" href="../css/jquery.fancybox.css">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/responsive.css">
-    <link rel="stylesheet" href="../css/animate.min.css">
-    <link rel="stylesheet" href="../css/font-icon.css">
-    <link rel="stylesheet" href="../css/menuDropdown.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/dropzone.css">
-    <link rel="stylesheet" href="css/upload.css">
-    <link rel="stylesheet" href="../css/gallery.css">
+    <title>Bookings</title>
     <link rel="stylesheet" type="text/css" href="css/booking.css">
+    <link type="text/css" rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" type="text/css" href="css/upload.css">
+    <link rel="stylesheet" type="text/css" href="css/booktable.css">
+    <link rel="stylesheet" href="../css/menuDropdown.css">
+    <link rel="stylesheet" href="">
 
 </head>
-
 <body>
 <?php
+
 session_start();
-include ('connect.php');
+include ("connect.php");
 
 if(isset($_SESSION['Photographer'])) {
-    $pid = $_SESSION['Photographer'];
+    $id = $_SESSION['Photographer'];
 
-    $s = "SELECT * FROM photographer WHERE email = '$pid'";
+    $s = "SELECT * FROM photographer WHERE email = '$id'";
     global $db;
     $res = $db->query($s) or trigger_error($db->error . "[$s]");
 
 
 while ($row = mysqli_fetch_array($res)) {
+    $name = $row['surname'];
     $fname = $row['firstName'];
-    $sname = $row['surname'];
+    $phtid = $row['photoID'];
+    $status = "pending";
+
+    $sql = "SELECT * FROM book WHERE photoID = '$phtid' AND status = '$status'";
+    global $db;
+    $result = $db->query($sql) or trigger_error($db->error . "[$sql]");
 
     ?>
     <section class="hero" role="banner">
@@ -50,35 +49,27 @@ while ($row = mysqli_fetch_array($res)) {
         <!-- banner text -->
         <div class="container">
             <br><br>
-            <div class="header-content clearfix"> <a class="logo" href="#"><img src="images/logo.ai" alt=""></a>
-                <nav class="navigation" role="navigation">
-                    <ul class="primary-nav">
-                        <li><a href="dashboard.php">Dashboard</a></li>
-                        <li><a href="schedule.php">Schedule</a></li>
-                        <li><a href="addPictures.php">Add Pictures</a></li>
-                        <div class="dropdown">
-                            <li><a href="bookings.php">Bookings</a></li>
-                            <div class="dropdown-content">
-                                <a href="">Accepted</a>
-                                <a href="">Rejected</a>
-                            </div>
-                        </div>
-                        <li><a href="logout.php" class="btn btn-large">Logout</a></li>
+            <nav class="navigation" role="navigation">
+                <ul class="primary-nav">
+                    <li><a href="dashboard.php">Dashboard</a></li>
+                    <li><a href="schedule.php">Schedule</a></li>
+                    <li><a href="addPictures.php">Add Pictures</a></li>
+                        <li><a href="bookings.php">Bookings</a></li>
+                    <li><a href="logout.php" class="btn btn-large">Logout</a></li>
 
-                    </ul>
-                </nav>
-            </div>
-            <div class="col-md-10 col-md-offset-1">
-
-                <div class="hero-text text-center">
-                    <h1><?php echo $fname." ".$sname; ?></h1><br>
-                    <p>Bookings</p>
-                    <nav role="navigation"><a href="#photos" class="banner-btn"><img src="images/down-arrow.png" alt=""></a>
-                    </nav>
-                </div>
-                <!-- banner text -->
-            </div>
+                </ul>
+            </nav>
         </div>
+        <div class="col-md-10 col-md-offset-1">
+<br><br>
+            <div class="hero-text text-center">
+                <h1><?php echo $fname." ".$name; ?></h1><br>
+                <p>Bookings</p>
+            </div>
+            <!-- banner text -->
+        </div>
+        </div>
+
     </section>
     <section class="wrapper">
         <!-- Row title -->
@@ -92,70 +83,96 @@ while ($row = mysqli_fetch_array($res)) {
             </ul>
         </main>
         <?php
-        $e = "landscape";
-        $e1 = "portrait";
-        $sql = "SELECT * FROM book WHERE photoID = '$pid' AND event = '$e' OR event = '$e1'";
-        global $db;
-        $r1 = $db->query($sql) or trigger_error($db->error . "[$sql]");
-        while($row = mysqli_fetch_array($r1)) {
+        while($row = mysqli_fetch_array($result)) {
             $date = $row['date'];
             $location = $row['location'];
             $photographer = $row['photoID'];
             $genre = $row['event'];
-            $id = $row['bookID'];
+            $bookid = $row['bookID'];
             $description = $row['description'];
+            $title = $genre." ,".$location;
 
             ?>
-            <article class="row mlb">
+
+            <article class="row nfl">
                 <ul>
                     <li><?php echo $genre;?></li>
                     <li><?php echo $date;?></li>
                     <li><?php echo $location;?></li>
-                    <li><form action="" method="post">
-                            <input type="hidden" value="<?php echo $id;?>" name="id">
-                            <input type="hidden" value="<?php echo $photographer;?>" name="photographer">
+                    <li><form action="accept.php" method="post">
+                            <input type="hidden" value="<?php echo $bookid;?>" name="bookid">
+                            <input type="hidden" value="<?php echo $title;?>" name="title">
+                            <input type="hidden" value="accepted" name="status">
                             <button type="submit" class="submit">Accept</button>
                         </form></li>
-                    <li><form action="" method="post">
-                            <input type="hidden" value="<?php echo $id;?>" name="id">
-                            <input type="hidden" value="<?php echo $photographer;?>" name="photographer">
-                            <button type="submit" class="submit">Reject</button>
-                        </form></li>
+                    <li>
+                        <button id="myBtn">Reject</button>
+                    </li>
                 </ul>
                 <ul class="more-content">
-                    <li><?php echo $description;}?></li>
+                    <li style="text-align: center; font-size: x-large;color: #1157e6;"><?php echo $description;?></li>
                 </ul>
             </article>
+            <div id="myModal" class="modal" style="display: none">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+
+                    <h1>Reject Reason!</h1>
+                    <form action="reject.php" method="post">
+
+                        <label>Give your reject reason</label><br>
+                        <input type="hidden" value="<?php echo $bookid;?>" name="bookid">
+                        <input type="hidden" value="rejected" name="status">
+                        <input type="text" name="reason" placeholder="Write something">
+                        <input type="submit" name="submit" value="Submit Reason">
+                    </form>
+                </div>
+
+            </div>
+        <?php }?>
+        <?php }?>
 
     </section>
 
-<?php }
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById('myModal');
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+<?php
 }else{
 
-$_SESSION['url'] = $_SERVER['REQUEST_URI'];
-?>
-    <script>
+session_destroy();
 
-        swal({
-                title: "Login Required!",
-                text: "Please login to access upload feature",
-                type: "info",
-                showCancelButton: true,
-                confirmButtonClass: "btn-danger",
-                confirmButtonText: "Login",
-                cancelButtonText: "Cancel",
-                closeOnConfirm: false,
-                closeOnCancel: false
-            },
-            function (isConfirm) {
-                if (isConfirm) {
-                    location.href = "log.php"
-                } else {
-                    location.href = "index.php"
-                }
-            });
-    </script>
+
+?>
+<br><br>
+    <P style="color: blue; text-align: center; font-size: 25px">You are Not logged in</P>
+    <p style="text-align: center"><a href="signin.php" style="color: red; font-size: 30px; "> Login</a></p>
 <?php } ?>
 </body>
 </html>
-

@@ -52,7 +52,7 @@ while($row = mysqli_fetch_array($result)) {
 
 
     while($row = mysqli_fetch_array($res)) {
-        $pname = $row['name'];
+        $photo = $row['firstName']. " " . $row['surname'];
     ?>
                 <label>Photographer
                     <?php
@@ -61,11 +61,11 @@ while($row = mysqli_fetch_array($result)) {
                         ?>
 
                         <select name="photographer"  class="input__field input__field--hoshi" id="photographer" required style="font-size:large; outline:none">
-                            <option value="<?php echo $pname;?>"><?php echo $pname;?></option>
+                            <option value="<?php echo $photo;?>"><?php echo $photo;?></option>
                             <?php
                             while($rs=mysqli_fetch_array($sql)){
                             ?>
-                            <option value="<?php echo $rs['name']; ?>"><?php echo $rs['name'];} ?></option></select>
+                            <option value="<?php echo $photo = $rs['firstName']. " " . $rs['surname']; ?>"><?php echo $photo = $rs['firstName']. " " . $rs['surname'];} ?></option></select>
                         <?php
 
                     }
@@ -73,19 +73,21 @@ while($row = mysqli_fetch_array($result)) {
                     ?>
                 </label><br><br>
                 <label>Genre
+        <?php
+        $sq=mysqli_query($db, "SELECT * FROM genre" );
+        if(mysqli_num_rows($sq)){
+            ?>
                     <select name="genre" id="genre"  required style="outline:none">
                         <option value="<?php echo $genre;?>"> <?php echo $genre;?> </option>
-                        <option value="landscape">Landscape</option>
-                        <option value="portrait">Portrait</option>
-                        <option value="lifestyle">Lifestyle</option>
-                        <option value="family">Family</option>
-                        <option value="decor">Decor</option>
-                        <option value="wedding">Wedding</option>
-                        <option value="fashion">Fashion</option>
-                        <option value="food">Food</option>
-                        <option value="event">Event</option>
-                        <option value="baby">Baby</option>
-                    </select>
+                        <?php
+                        while($rs1=mysqli_fetch_array($sq)){
+                        ?>
+                        <option value="<?php echo $genre = $rs1['name']; ?>"><?php echo $genre=$rs1['name'];} ?></option></select>
+            <?php
+
+        }
+
+        ?>
                 </label><br><br>
                 <label>Description
                     <input type="text" name="description" value="<?php echo $description;?>" required/>
