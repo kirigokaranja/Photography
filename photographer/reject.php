@@ -12,12 +12,17 @@ include ("connect.php");
 $bookid = $_POST["bookid"];
 $status = $_POST["status"];
 $reason = $_POST["reason"];
+$cust = $_POST["cid"];
+$pht = $_POST["pid"];
+$date = date("Y-m-d");
 
-$sql = "UPDATE `book` SET `status`= '$status', reject_reason = '$reason' WHERE bookID = '$bookid'";
+$sql = "UPDATE `book` SET `status`= '$status' WHERE bookID = '$bookid'";
 global $db;
 $result = $db->query($sql) or trigger_error($db->error . "[$sql]");
 
-if ($result){
+$sql1 = "INSERT INTO `feedback`(`bookID`, `custID`, `photoID`, `status`, reject_reason, datePosted) VALUES ('$bookid', '$cust', '$pht', '$status', '$reason', '$date')";
+$result1 = $db->query($sql1) or trigger_error($db->error . "[$sql1]");
+if ($result && $result1){
 ?>
     <script>
         swal({
@@ -30,7 +35,7 @@ if ($result){
 
 
         setTimeout(function () {
-            location.href = "trial.php"
+            location.href = "bookings.php"
         }, 1000);
     </script>
 <?php
@@ -47,7 +52,7 @@ if ($result){
 
 
         setTimeout(function () {
-            location.href = "trial.php"
+            location.href = "bookings.php"
         }, 1000);
     </script>
     <?php

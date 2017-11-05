@@ -85,6 +85,7 @@ while ($row = mysqli_fetch_array($res)) {
         <?php
         while($row = mysqli_fetch_array($result)) {
             $date = $row['date'];
+            $cust = $row['custID'];
             $location = $row['location'];
             $photographer = $row['photoID'];
             $genre = $row['event'];
@@ -102,6 +103,8 @@ while ($row = mysqli_fetch_array($res)) {
                     <li><form action="accept.php" method="post">
                             <input type="hidden" value="<?php echo $bookid;?>" name="bookid">
                             <input type="hidden" value="<?php echo $title;?>" name="title">
+                            <input type="hidden" value="<?php echo $photographer;?>" name="pid">
+                            <input type="hidden" value="<?php echo $cust;?>" name="cid">
                             <input type="hidden" value="accepted" name="status">
                             <button type="submit" class="submit">Accept</button>
                         </form></li>
@@ -123,6 +126,8 @@ while ($row = mysqli_fetch_array($res)) {
 
                         <label>Give your reject reason</label><br>
                         <input type="hidden" value="<?php echo $bookid;?>" name="bookid">
+                        <input type="hidden" value="<?php echo $photographer;?>" name="pid">
+                        <input type="hidden" value="<?php echo $cust;?>" name="cid">
                         <input type="hidden" value="rejected" name="status">
                         <input type="text" name="reason" placeholder="Write something">
                         <input type="submit" name="submit" value="Submit Reason">
