@@ -12,8 +12,9 @@ include ("connect.php");
 $name = $_POST["name"];
 $email = $_POST["email"];
 $message = $_POST["message"];
+$date = date('Y-m-d');
 
-    $sql = "INSERT INTO `messages`( `name`, `email`, `message`) VALUES ('$name', '$email','$message')";
+    $sql = "INSERT INTO `messages`( `name`, `email`, `message`, date) VALUES ('$name', '$email','$message', '$date')";
     global $db;
     $result = $db->query($sql) or trigger_error($db->error . "[$sql]");
     ?>

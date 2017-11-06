@@ -28,7 +28,7 @@
 session_start();
 include ('connect.php');
 if(isset($_SESSION['Admin'])) {
-   ?>
+    ?>
 
     <section class="hero" role="banner">
 
@@ -52,19 +52,60 @@ if(isset($_SESSION['Admin'])) {
 
                 <div class="hero-text text-center">
                     <h1>Main Photographer</h1><br>
-                    <p style="color: #003434;">Dashboard</p>
+                    <p style="color: #003434;">Messages</p>
 
                 </div>
                 <!-- banner text -->
             </div>
         </div>
     </section>
+    <section>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Message</th>
+                <th>View</th>
+            </tr>
+            <?php
+            include ("connect.php");
+            $view = "unread";
+            $sql = "SELECT * FROM messages WHERE viewed = '$view' ORDER BY messID DESC ";
+            global $db;
+            $result = $db->query($sql) or trigger_error($db->error."[$sql]");
+
+
+            while($row = mysqli_fetch_array($result)){
+
+            $message = $row['message'];
+            $name = $row['name'];
+            $email = $row['email'];
+            $id = $row['messID'];
+
+
+            ?>
+            <tr>
+                <td><?php echo $name; ?></td>
+                <td><?php echo $email; ?></td>
+                <td><?php echo $message; ?></td>
+                <td>
+
+                    <form action="view_message.php" method="post">
+                        <input type="hidden" name="messid" value=" <?php echo $id; ?>">
+                        <button type="submit" STYLE="width: 150px;font-size: 20px;margin-top: 2%"> View </button>
+                    </form>
+                </td>
+
+                <?php }?>
+            </tr>
+        </table>
+    </section>
 
 <?php
 }else{
 
 
-    ?>
+?>
     <script>
 
         swal({
