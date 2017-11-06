@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/ico" href="../favicon.ico" />
-    <title>Photographer | Dashboard</title>
+    <title>MainPhotographer | Dashboard</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/flexslider.css">
     <link rel="stylesheet" href="../css/jquery.fancybox.css">
@@ -43,6 +43,7 @@ if(isset($_SESSION['Admin'])) {
                         <li><a href="message.php">Messages</a></li>
                         <li><a href="dashboard.php">Photographers</a></li>
                         <li><a href="addPictures.php">Bookings</a></li>
+                        <li><a href="genre.php">Genre</a></li>
                         <li><a href="logout.php" class="btn btn-large">Logout</a></li>
 
                     </ul>
@@ -80,9 +81,9 @@ if(isset($_SESSION['Admin'])) {
             },
             function (isConfirm) {
                 if (isConfirm) {
-                    location.href = "signin.php"
+                    location.href = "../log.php"
                 } else {
-                    location.href = "signin.php"
+                    location.href = "../index.php"
                 }
             });
     </script>

@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/ico" href="../favicon.ico" />
-    <title>Photographer | Dashboard</title>
+    <title>MainPhotographer | Messages</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/flexslider.css">
     <link rel="stylesheet" href="../css/jquery.fancybox.css">
@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="../css/dropzone.css">
     <link rel="stylesheet" href="css/upload.css">
     <link rel="stylesheet" href="../css/gallery.css">
+    <link rel="stylesheet" href="css/message.css">
 </head>
 <body>
 <?php
@@ -42,7 +43,8 @@ if(isset($_SESSION['Admin'])) {
                         <li><a href="dashboard.php">User Uploads</a></li>
                         <li><a href="message.php">Messages</a></li>
                         <li><a href="dashboard.php">Photographers</a></li>
-                        <li><a href="addPictures.php">Bookings</a></li>
+                        <li><a href="">Bookings</a></li>
+                        <li><a href="genre.php">Genre</a></li>
                         <li><a href="logout.php" class="btn btn-large">Logout</a></li>
 
                     </ul>
@@ -60,6 +62,29 @@ if(isset($_SESSION['Admin'])) {
         </div>
     </section>
     <section>
+        <form action="message.php" method="get">
+
+            <input class="search" type="text" name="search" placeholder="Search..."/>
+            <input type="submit" value="Search" class="ssubmit">
+        </form>
+        <?php
+        include ("connect.php");
+        $view = "unread";
+        $sql = "SELECT * FROM messages WHERE viewed = '$view' ORDER BY messID DESC ";
+        if (isset($_GET['search'])) {
+            $search = $_GET['search'];
+            $sql = "SELECT * FROM messages WHERE  name LIKE '%$search%' OR email LIKE '%$search%' OR message LIKE '%$search%'";
+
+            if ($search !=null){
+                ?>
+                <br><br> <button class="viewall" onclick="window.location.href='message.php'">View All</button>
+                <?php
+            }
+        }
+        global $db;
+        $result = $db->query($sql) or trigger_error($db->error."[$sql]");
+        ?>
+        <div class="container1">
         <table>
             <tr>
                 <th>Name</th>
@@ -67,20 +92,16 @@ if(isset($_SESSION['Admin'])) {
                 <th>Message</th>
                 <th>View</th>
             </tr>
+
+
             <?php
-            include ("connect.php");
-            $view = "unread";
-            $sql = "SELECT * FROM messages WHERE viewed = '$view' ORDER BY messID DESC ";
-            global $db;
-            $result = $db->query($sql) or trigger_error($db->error."[$sql]");
-
-
             while($row = mysqli_fetch_array($result)){
 
             $message = $row['message'];
             $name = $row['name'];
             $email = $row['email'];
             $id = $row['messID'];
+            $view = $row['viewed'];
 
 
             ?>
@@ -88,17 +109,36 @@ if(isset($_SESSION['Admin'])) {
                 <td><?php echo $name; ?></td>
                 <td><?php echo $email; ?></td>
                 <td><?php echo $message; ?></td>
-                <td>
+                <?php
+                if ($view == "unread"){
+                    ?>
+                    <td>
 
-                    <form action="view_message.php" method="post">
-                        <input type="hidden" name="messid" value=" <?php echo $id; ?>">
-                        <button type="submit" STYLE="width: 150px;font-size: 20px;margin-top: 2%"> View </button>
-                    </form>
-                </td>
+                        <form action="view_message.php" method="post">
+                            <input type="hidden" name="messid" value=" <?php echo $id; ?>">
+                            <input type="hidden" name="view" value="pending">
+                            <button type="submit" STYLE="width: 150px;font-size: 20px;margin-top: 2%; color: #1157e6"> Pending </button>
+                        </form>
+                    </td>
+                    <?php
+                }else {
+                    ?>
+                    <td>
+
+                        <form action="view_message.php" method="post">
+                            <input type="hidden" name="messid" value=" <?php echo $id; ?>">
+                            <input type="hidden" name="view" value="read">
+                            <button type="submit" STYLE="width: 150px;font-size: 20px;margin-top: 2%;color: #24c315"> Read </button>
+                        </form>
+                    </td>
+                    <?php
+                }
+                ?>
 
                 <?php }?>
             </tr>
         </table>
+        </div>
     </section>
 
 <?php
@@ -110,7 +150,7 @@ if(isset($_SESSION['Admin'])) {
 
         swal({
                 title: "Login Required!",
-                text: "Please login to access dashboard",
+                text: "Please login to access messages",
                 type: "info",
                 showCancelButton: true,
                 confirmButtonClass: "btn-danger",
@@ -121,9 +161,9 @@ if(isset($_SESSION['Admin'])) {
             },
             function (isConfirm) {
                 if (isConfirm) {
-                    location.href = "signin.php"
+                    location.href = "../log.php"
                 } else {
-                    location.href = "signin.php"
+                    location.href = "../index.php"
                 }
             });
     </script>

@@ -13,6 +13,7 @@ include ("connect.php");
 if(isset($_SESSION['Admin'])){
 
     $messid = $_POST["messid"];
+    $view = $_POST["view"];
 
     $sql = "SELECT * FROM messages WHERE messID = '$messid'";
     global $db;
@@ -31,7 +32,9 @@ if(isset($_SESSION['Admin'])){
 
         <h1>Message</h1>
 
-
+        <?php
+        if ($view =="pending"){
+        ?>
         <div class="article">
         <form method="post" action="message_action.php" >
         <input type="hidden" name="messid" value="<?php echo $messid;?>">
@@ -55,10 +58,37 @@ if(isset($_SESSION['Admin'])){
                 <button type="submit" class="submit">READ</button>
 
             </div>
+        </form>
+            <button onclick=" window.location='message.php' " class="back">Back</button>
+        </div>
+
+            <?php }else{
+        ?>
+            <div class="article">
+                <form>
+                    <input type="hidden" name="messid" value="<?php echo $messid;?>">
+                    <label>
+                        <span >Date</span>
+                        <input type="date" name="date" value="<?php echo $date;?>" readonly/>
+                    </label><br><br>
+                    <label>
+                        <span>Name</span>
+                        <input type="text" value="<?php echo $name;?>" readonly/>
+                    </label><br><br>
+                    <label>
+                        <span >Email</span>
+                        <input type="text" value="<?php echo $email;?>" readonly/>
+                    </label><br><br>
+                    <label>
+                        <span>Message</span>
+                        <input type="text" value="<?php echo $message;?>" readonly/>
+                    </label><br><br>
+                </form>
+                <button onclick=" window.location='message.php' " class="back">Back</button>
+            </div>
+            <?php }?>
         <?php }?>
-    </form>
-    <button onclick=" window.location='message.php' " class="back">Back</button>
-    </div>
+
     </div>
     </div>
     <?php

@@ -95,7 +95,7 @@ if ($result && $row = $result->fetch_assoc()) {
         showConfirmButton: false
     });
     setTimeout(function () {
-        location.href = "login.php"
+        location.href = "log.php"
     }, 1000);
 </script>
 <?php
