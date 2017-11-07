@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="../css/dropzone.css">
     <link rel="stylesheet" href="css/upload.css">
     <link rel="stylesheet" href="../css/gallery.css">
+    <script src="../dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../dist/sweetalert.css">
 </head>
 <body>
 <?php
@@ -41,8 +43,8 @@ if(isset($_SESSION['Admin'])) {
                         <li><a href="dashboard.php">Dashboard</a></li>
                         <li><a href="dashboard.php">User Uploads</a></li>
                         <li><a href="message.php">Messages</a></li>
-                        <li><a href="dashboard.php">Photographers</a></li>
-                        <li><a href="addPictures.php">Bookings</a></li>
+                        <li><a href="photographer.php">Photographers</a></li>
+                        <li><a href="">Bookings</a></li>
                         <li><a href="genre.php">Genre</a></li>
                         <li><a href="logout.php" class="btn btn-large">Logout</a></li>
 
