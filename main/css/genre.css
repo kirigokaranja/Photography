@@ -1,0 +1,83 @@
+body{
+    background-color: ghostwhite;
+
+}
+.container1{
+    background-color: white;
+    border-radius: 0.5em;
+    box-shadow: 0 0 1em 0 rgba(51,51,51,0.25);
+    display: block;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: 60%;
+    margin-top: 10px;
+    margin-left: 15%;
+    z-index: 1;
+}
+.picture-holder {
+    background-image:url(../alif-ngoylung-243373.jpg);
+    background-repeat:no-repeat;
+    background-position:center top;
+    background-size:cover;
+    padding-top:300px;
+    width: 50%;
+    float: right;
+    height: 83vh;
+}
+.story-holder {
+    padding:30px 30px;
+    margin:0;
+    width: 45%;
+    height: 83vh;
+    text-align: center;
+}
+.formh1 {
+    font-family:"Playfair Display", serif;
+    font-size:3em;
+    line-height:1;
+    padding-bottom:24px;
+    border-bottom:16px solid #1157e6;
+    margin-bottom:24px;
+    text-transform:uppercase;
+    color:#1157e6;
+    text-align:center;
+}
+form label{
+    width: 75%;
+    border-bottom: 1px solid #333;
+    display: block;
+    font-size: 1.5em;
+    margin-bottom: 0.2em;
+    color:rgb(20, 20,59);
+    margin-left: 54px;
+}
+form label input {
+    background: none;
+    border: none;
+    line-height: 1.4em;
+    font-weight: 300;
+    padding: 12px 8px;
+    width: 100%;
+    font-size: large;
+    color: #1157e6;
+}
+form button.buttonsubmit{
+    background: #1157e6;
+    border: 1px solid #1157e6;
+    border-radius: 4px;
+    line-height: 1em;
+    padding: 0.7em 0.7em;
+    -webkit-transition: all 0.25s;
+    transition: all 0.25s;
+    font-size: larger;
+    color: whitesmoke;
+}
+form button.buttonsubmit:hover{
+    background-color: #24c315;
+    color: white;
+    border-color: #24c315;
+}
+.text-center{
+    text-align: center;
+}
