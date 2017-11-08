@@ -1,0 +1,97 @@
+body {
+    font-size:100%;
+    line-height:1.5;
+    font-family: "Roboto Slab", sans-serif;
+    color:#222;
+    background:rgb(0,0,40);
+}
+.container {
+    background-color:#fff;
+    max-width:1400px;
+    margin:0 auto;
+}
+.picture-holder {
+    background-image:url(../alif-ngoylung-243373.jpg);
+    background-repeat:no-repeat;
+    background-position:center top;
+    background-size:cover;
+
+    padding-top:300px;
+    width: 50%;
+    float: right;
+    height: 65vh;
+}
+.story-holder {
+    padding:36px 36px;
+    margin:0;
+    width: 45%;
+    height: 100vh;
+}
+h1 {
+    font-family:"Playfair Display", serif;
+    font-size:3em;
+    line-height:1;
+    padding-bottom:24px;
+    border-bottom:16px solid rgb(20, 20,59);
+    margin-bottom:24px;
+    text-transform:uppercase;
+    color:rgb(20, 20,59);
+    text-align:center;
+}
+.back{
+    font-size: large;
+    background: rgba(255,255,255,0.25);
+    border: 1px solid #333;
+    line-height: 1em;
+    padding: 0.7em 0.7em;
+    -webkit-transition: all 0.25s;
+    transition: all 0.25s;
+}
+.back:hover{
+    background: rgb(20,20,59);
+    color: white;
+    border: solid rgb(20,20,59);
+}
+form button.submit{
+    background: rgba(255,255,255,0.25);
+    border: 1px solid #333;
+    line-height: 1em;
+    padding: 0.5em 0.5em;
+    -webkit-transition: all 0.25s;
+    transition: all 0.25s;
+}
+form button.submit:hover {
+    background: rgb(20,20,59);
+    color: white;
+    border: solid rgb(20,20,59);
+}
+.text-center{
+    text-align: center;
+}
+form label{
+    border-bottom: 1px solid #333;
+    display: block;
+    font-size: 1.25em;
+    margin-bottom: 0.2em;
+
+}
+form label input {
+    background: none;
+    border: none;
+    line-height: 1em;
+    font-weight: 300;
+    padding: 0.125em 0.125em;
+    width: 100%;
+    font-size: large;
+    color:rgb(20, 20,59);
+}
+form select {
+    background: none;
+    border: none;
+    line-height: 1em;
+    font-weight: 300;
+    padding: 0.125em 0.25em;
+    width: 100%;
+    font-size: large;
+    color:rgb(20, 20,59);
+}

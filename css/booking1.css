@@ -7,17 +7,13 @@ body{
     border-radius: 0.5em;
     box-shadow: 0 0 1em 0 rgba(51,51,51,0.25);
     display: block;
-    max-width: 680px;
     overflow: hidden;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
     padding: 2em;
-    position: absolute;
-    top: 145%;
-    left: 50%;
+    position: relative;
+    width: 45%;
+    margin-top: 10px;
+    margin-left: 25%;
     z-index: 1;
-    width: 98%;
 }
 
 table{

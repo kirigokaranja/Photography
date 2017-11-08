@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/ico" href="../favicon.ico" />
-    <title>MainPhotographer | Dashboard</title>
+    <title>MainPhotographer | Genre</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/flexslider.css">
     <link rel="stylesheet" href="../css/jquery.fancybox.css">
@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="../css/dropzone.css">
     <link rel="stylesheet" href="css/upload.css">
     <link rel="stylesheet" href="../css/gallery.css">
+    <link rel="stylesheet" href="css/genre.css">
     <script src="../dist/sweetalert.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../dist/sweetalert.css">
 </head>
@@ -30,7 +31,7 @@
 session_start();
 include ('connect.php');
 if(isset($_SESSION['Admin'])) {
-   ?>
+    ?>
 
     <section class="hero" role="banner">
 
@@ -44,7 +45,7 @@ if(isset($_SESSION['Admin'])) {
                         <li><a href="dashboard.php">User Uploads</a></li>
                         <li><a href="message.php">Messages</a></li>
                         <li><a href="photographer.php">Photographers</a></li>
-                        <li><a href="">Bookings</a></li>
+                        <li><a href="addPictures.php">Bookings</a></li>
                         <li><a href="genre.php">Genre</a></li>
                         <li><a href="logout.php" class="btn btn-large">Logout</a></li>
 
@@ -55,10 +56,27 @@ if(isset($_SESSION['Admin'])) {
 
                 <div class="hero-text text-center">
                     <h1>Main Photographer</h1><br>
-                    <p style="color: #003434;">Dashboard</p>
+                    <p style="color: #003434;">Genre</p>
 
                 </div>
                 <!-- banner text -->
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container1">
+            <div class="picture-holder"></div>
+            <div class="story-holder">
+                <h1 class="formh1">Genre</h1><br><br><br>
+                <form method="post" action="genre_action.php">
+                    <label>
+                        <span>Genre Name</span><br>
+                        <input type="text" name="genre" required/>
+                    </label><br><br>
+                    <div class="text-center">
+                        <button type="submit" class="buttonsubmit">Add Genre</button>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
@@ -67,12 +85,12 @@ if(isset($_SESSION['Admin'])) {
 }else{
 
 
-    ?>
+?>
     <script>
 
         swal({
                 title: "Login Required!",
-                text: "Please login to access dashboard",
+                text: "Please login to access genre",
                 type: "info",
                 showCancelButton: true,
                 confirmButtonClass: "btn-danger",

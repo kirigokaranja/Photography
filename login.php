@@ -94,6 +94,9 @@ if ($result && $row = $result->fetch_assoc()) {
         timer: 1500,
         showConfirmButton: false
     });
+    setTimeout(function () {
+        location.href = "log.php"
+    }, 1000);
 </script>
 <?php
 }

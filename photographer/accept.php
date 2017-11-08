@@ -49,7 +49,7 @@ $date = date("Y-m-d");
                     showConfirmButton: false
                 });
                 setTimeout(function () {
-                    location.href = "trial.php"
+                    location.href = "bookings.php"
                 }, 1000);
             </script>
     <?php
