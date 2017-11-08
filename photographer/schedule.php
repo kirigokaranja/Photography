@@ -1,3 +1,5 @@
+<?php session_start();
+?>
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -26,12 +28,16 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css" />
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.3.1/fullcalendar.print.css' rel='stylesheet' media='print' />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.css"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
-    <script>
 
+    <link type="text/css" rel="stylesheet" href="css/modal.css">
+
+    <script>
         $(document).ready(function() {
             var date = new Date();
             var d = date.getDate();
@@ -45,15 +51,13 @@
                     center: 'title',
                     right: ''
                 },
-
                 events: "events.php",
+                eventColor: '#1157e6',
+                eventTextColor: 'white',
+                eventClick: function(event, jsEvent, view) {
 
-                eventRender: function(event, element, view) {
-                    if (event.allDay === 'true') {
-                        event.allDay = true;
-                    } else {
-                        event.allDay = false;
-                    }
+                    alert('Date: ' + event.date  + '\n\n Event: ' + event.event+ '\n\n Location: ' + event.location+ '\n\n Description: '+ event.description  );
+
                 }
 
             });
@@ -63,7 +67,7 @@
     </script>
     <style>
         body {
-
+            background-color: white;
             text-align: center;
             font-size: 14px;
             font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
@@ -71,14 +75,17 @@
         #calendar {
             width: 750px;
             margin: 0 auto;
+            background-color: whitesmoke;
+
         }
+        .fc-event { height: 2em; }
     </style>
 
 </head>
 
 <body>
 <?php
-session_start();
+
 include ('connect.php');
 
 if(isset($_SESSION['Photographer'])) {
@@ -106,7 +113,7 @@ while ($row = mysqli_fetch_array($res)) {
                         <li><a href="schedule.php">Schedule</a></li>
                         <li><a href="addPictures.php">Add Pictures</a></li>
                         <li><a href="bookings.php">Bookings</a></li>
-                        <li><a href="logout.php" class="btn btn-large">Logout</a></li>
+                        <li><a href="logout.php" class="btn btn-large" style="padding: 20px">Logout</a></li>
 
                     </ul>
                 </nav>
@@ -125,6 +132,24 @@ while ($row = mysqli_fetch_array($res)) {
     </section>
 <br><br>
     <div id='calendar'></div>
+
+    <div id="myModal" class="modal" style="display: none">
+
+        <!-- Modal content -->
+        <div class="modal-content" id="eventContent"  style="display:none;">
+
+            <h1>Reject Reason!</h1>
+            <form>
+
+                <p>Date: <span id="startTime"></span></p><br>
+                <p>Event: <span id="eventevent"></span></p><br>
+                <p>Location: <span id="eventLoca"></span></p><br>
+                <p>Description: <span id="eventInfo"></span></p>
+            </form>
+        </div>
+
+    </div>
+
 <?php }
 }else{
 

@@ -143,7 +143,7 @@
             <div class="col-md-4 col-sm-8">
                 <div class="person"><a href="portfolio.php"> <img src="images/cameron-kirby-179439.jpg"  alt="" class="img-responsive">
                         <div class="person-content">
-                            <h4>Sharon Kirigo</h4>
+                            <h4>Sharon Karanja</h4>
                             <h5 class="role">Creative head</h5>
                             <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
                         </div></a>
@@ -165,7 +165,7 @@
             <div class="col-md-4 col-sm-8">
                 <div class="person"><a href="portfolio.php"><img src="images/team-3.png" alt="" class="img-responsive">
                         <div class="person-content">
-                            <h4>Mike Collins</h4>
+                            <h4>Jonathan Ive</h4>
                             <h5 class="role">Master Editor</h5>
                             <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
                         </div></a>

@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/ico" href="../favicon.ico" />
-    <title>MainPhotographer | Dashboard</title>
+    <title>MainPhotographer | Bookings</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/flexslider.css">
     <link rel="stylesheet" href="../css/jquery.fancybox.css">
@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="../css/menuDropdown.css">
     <link rel="stylesheet" href="../css/dropzone.css">
     <link rel="stylesheet" href="css/upload.css">
+    <link rel="stylesheet" href="css/bookings.css">
     <link rel="stylesheet" href="../css/gallery.css">
     <script src="../dist/sweetalert.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../dist/sweetalert.css">
@@ -30,7 +31,7 @@
 session_start();
 include ('connect.php');
 if(isset($_SESSION['Admin'])) {
-   ?>
+    ?>
 
     <section class="hero" role="banner">
 
@@ -55,24 +56,87 @@ if(isset($_SESSION['Admin'])) {
 
                 <div class="hero-text text-center">
                     <h1>Main Photographer</h1><br>
-                    <p style="color: #003434;">Dashboard</p>
+                    <p style="color: #003434;">Bookings</p>
 
                 </div>
                 <!-- banner text -->
             </div>
         </div>
     </section>
+    <section>
+        <form action="bookings.php" method="get">
 
+            <input class="search" type="text" name="search" placeholder="Search..."/>
+            <input type="submit" value="Search" class="ssubmit">
+        </form>
+        <?php
+        include ("connect.php");
+        $view = "rejected";
+        $sql = "SELECT * FROM book WHERE status = '$view' ORDER BY bookID DESC ";
+        if (isset($_GET['search'])) {
+            $search = $_GET['search'];
+            $sql = "SELECT * FROM book WHERE  event LIKE '%$search%' OR date LIKE '%$search%' OR location LIKE '%$search%' AND status = '$view'";
+
+            if ($search !=null){
+                ?>
+                <br><br> <button class="viewall" onclick="window.location.href='bookings.php'">View All</button>
+                <?php
+            }
+        }
+        global $db;
+        $result = $db->query($sql) or trigger_error($db->error."[$sql]");
+        ?>
+        <div class="container1">
+            <table>
+                <tr>
+                    <th>Event</th>
+                    <th>Date</th>
+                    <th>Location</th>
+                    <th>View</th>
+                </tr>
+
+
+                <?php
+                while($row = mysqli_fetch_array($result)){
+
+                $event = $row['event'];
+                $date = $row['date'];
+                $location = $row['location'];
+                $id = $row['bookID'];
+
+
+                ?>
+                <tr>
+                    <td><?php echo $event; ?></td>
+                    <td><?php echo $date; ?></td>
+                    <td><?php echo $location; ?></td>
+
+                    <td>
+
+                        <form action="view_bookings.php" method="post">
+                            <input type="hidden" name="bookid" value=" <?php echo $id; ?>">
+                            <input type="hidden" name="date" value=" <?php echo $date; ?>">
+                            <input type="hidden" name="view" value="pending">
+                            <button type="submit" class="statusbutton"> View </button>
+                        </form>
+                    </td>
+
+
+                    <?php }?>
+                </tr>
+            </table>
+        </div>
+    </section>
 <?php
 }else{
 
 
-    ?>
+?>
     <script>
 
         swal({
                 title: "Login Required!",
-                text: "Please login to access dashboard",
+                text: "Please login to access bookings",
                 type: "info",
                 showCancelButton: true,
                 confirmButtonClass: "btn-danger",
