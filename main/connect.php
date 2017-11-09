@@ -1,5 +1,5 @@
 <?php	
-	$db=mysqli_connect("localhost", "root","") ;
+	$db=mysqli_connect("localhost", "root","");
 	if (!$db) {
         die ("Could not connect to database" . mysqli_connect_error());
     }
