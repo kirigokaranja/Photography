@@ -35,7 +35,18 @@
     session_start();
     include ('connect.php');
 
-    if(isset($_SESSION['email'])){ ?>
+    if(isset($_SESSION['email'])){
+        $id = $_SESSION['email'];
+
+        $s = "SELECT * FROM customer WHERE email = '$id'";
+        global $db;
+        $res = $db->query($s) or trigger_error($db->error . "[$s]");
+
+
+        while ($row = mysqli_fetch_array($res)) {
+            $fname = $row['firstName'];
+            $sname = $row['surname'];
+        ?>
         <section class="hero" role="banner">
 
             <!-- banner text -->
@@ -57,12 +68,13 @@
                 </div>
                 <div class="col-md-10 col-md-offset-1">
                     <div class="hero-text text-center">
-                        <h1><?php echo $_SESSION['user']?> Upload</h1>
+                        <h1><?php echo $fname." ".$sname?> Upload</h1>
                         <p>Drop your memories in the space below</p>
                         <nav role="navigation"> <a href="#works" class="banner-btn"><img src="images/down-arrow.png" alt=""></a></nav>
                     </div>
                 </div>
             </div>
+            <?php }?>
             <!-- banner text -->
         </section>
         <!-- header section -->
@@ -72,13 +84,17 @@
                 <div class="row no-gutter">
                     <form action="upload.php" method="post" enctype="multipart/form-data" class="dropzone" id="my-dropzone"
                           style="min-height: 350px; border: dotted">
-                        <div class="fallback">
+                        <div class="form-group">
+                            <label for="folder">Folder Name</label>
+                            <input type="text" class="form-control" id="folder" name="folder" placeholder="Input the folder name that you would like to upload to" required>
+                        </div>
+                        <div class="fallback" style="position: relative">
                             <input name="file" type="file" multiple />
                         </div>
                     </form>
-                    <div class="col-md-8 col-md-offset-2 text-center">
-                        <button class="btn btn-large" id="submit-all">Upload Photos</button>
-                    </div>
+                </div>
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <button class="btn btn-large" id="submit-all">Upload Photos</button>
                 </div>
             </div>
         </section>
