@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Githinji Wanjohi
- * Date: 10/11/2017
- * Time: 9:00 AM
- */
+
 ?>
 
 

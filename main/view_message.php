@@ -15,6 +15,12 @@ if(isset($_SESSION['Admin'])){
     $messid = $_POST["messid"];
     $view = $_POST["view"];
 
+    $read = "read";
+
+    $sql1 = "UPDATE `messages` SET `viewed` ='$read' WHERE `messID` = '$messid'";
+    global $db;
+    $result1 = $db->query($sql1) or trigger_error($db->error."[$sql1]");
+
     $sql = "SELECT * FROM messages WHERE messID = '$messid'";
     global $db;
     $result = $db->query($sql) or trigger_error($db->error . "[$sql]");
@@ -36,7 +42,7 @@ if(isset($_SESSION['Admin'])){
         if ($view =="pending"){
         ?>
         <div class="article">
-        <form method="post" action="message_action.php" >
+        <form  action="message_action.php" method="post">
         <input type="hidden" name="messid" value="<?php echo $messid;?>">
         <label>
             <span >Date</span>
@@ -59,7 +65,7 @@ if(isset($_SESSION['Admin'])){
 
             </div>
         </form>
-            <button onclick=" window.location='message.php' " class="back">Back</button>
+
         </div>
 
             <?php }else{

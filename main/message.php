@@ -45,7 +45,6 @@ if(isset($_SESSION['Admin'])) {
                         <li><a href="dashboard.php">User Uploads</a></li>
                         <li><a href="message.php">Messages</a></li>
                         <li><a href="photographer.php">Photographers</a></li>
-                        <li><a href="bookings.php">Bookings</a></li>
                         <li><a href="genre.php">Genre</a></li>
                         <li><a href="logout.php" class="btn btn-large">Logout</a></li>
 
@@ -89,9 +88,9 @@ if(isset($_SESSION['Admin'])) {
         <div class="container1">
         <table>
             <tr>
+                <th>Date</th>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Message</th>
                 <th>View</th>
             </tr>
 
@@ -104,13 +103,15 @@ if(isset($_SESSION['Admin'])) {
             $email = $row['email'];
             $id = $row['messID'];
             $view = $row['viewed'];
+            $date = $row['date'];
 
 
             ?>
             <tr>
+                <td><?php echo $date; ?></td>
                 <td><?php echo $name; ?></td>
                 <td><?php echo $email; ?></td>
-                <td><?php echo $message; ?></td>
+
                 <?php
                 if ($view == "unread"){
                     ?>

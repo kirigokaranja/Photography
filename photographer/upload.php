@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Githinji Wanjohi
- * Date: 10/27/2017
- * Time: 1:11 PM
- */
+
 
 session_start();
 include ('connect.php');
