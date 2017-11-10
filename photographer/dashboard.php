@@ -21,12 +21,12 @@
     <link rel="stylesheet" href="../css/menuDropdown.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/dropzone.css">
-    <link rel="stylesheet" href="css/upload.css">
+    <link rel="stylesheet" href="../css/upload.css">
     <link rel="stylesheet" href="../css/gallery.css">
     <link rel="stylesheet" type="text/css" href="../dist/sweetalert.css">
     <!-- script files -->
     <script src="../dist/sweetalert.min.js"></script>
-    <script src="js/portfolio.js"></script>
+    <script src="../js/portfolio.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- script files -->
 
@@ -70,10 +70,8 @@ while ($row = mysqli_fetch_array($res)) {
             <div class="col-md-10 col-md-offset-1">
 
                 <div class="hero-text text-center">
-                    <h1><?php echo $fname . " " . $sname; ?></h1><br>
+                    <h1><?php echo $fname . " " . $sname; ?></h1>
                     <p>Dashboard</p>
-                    <nav role="navigation"><a href="#photos" class="banner-btn"><img src="images/down-arrow.png" alt=""></a>
-                    </nav>
                 </div>
                 <!-- banner text -->
             </div>
@@ -95,7 +93,7 @@ if (!is_dir($destination_path)) {?>
             <div class="container">
                 <div class="col-md-8 col-md-offset-2 text-center">
                     <h3>Aw Snap! You have not uploaded any photos yet!</h3>
-                    <a href="../upload2.php" class="btn btn-large">Upload Photo</a></div>
+                    <a href="../photographer/upload2.php" class="btn btn-large">Upload Photo</a></div>
             </div>
         </section>
     <?php
