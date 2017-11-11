@@ -100,6 +100,7 @@ while ($row = mysqli_fetch_array($res)) {
     $fname = $row['firstName'];
     $sname = $row['surname'];
 
+
     ?>
     <section class="hero" role="banner">
 

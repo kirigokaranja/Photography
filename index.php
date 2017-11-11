@@ -133,7 +133,7 @@
                         <li><a href="#"><span class="fa fa-dribbble"></span></a></li>
                     </ul><br>
                     <form method="post" action="specific_book.php">
-                        <input type="hidden" value="Jonathan Ive" name="pname">
+                        <input type="hidden" value="Githinji Wanjohi" name="pname">
                         <button type="submit" class="btn btn-large">Book</button>
                     </form>
                 </div>
@@ -141,7 +141,7 @@
             <!-- team member 1 -->
             <!-- team member 2 -->
             <div class="col-md-4 col-sm-8">
-                <div class="person"><a href="portfolio.php"> <img src="images/cameron-kirby-179439.jpg"  alt="" class="img-responsive">
+                <div class="person"><a href="portfolio.php"> <img src="images/cameron-kirby-179439.jpg"    alt="" class="img-responsive">
                         <div class="person-content">
                             <h4>Sharon Karanja</h4>
                             <h5 class="role">Creative head</h5>
@@ -155,7 +155,7 @@
                         <li><a href="#" class=""><span class="fa fa-dribbble"></span></a></li>
                     </ul><br>
                     <form method="post" action="specific_book.php">
-                        <input type="hidden" value="Jonathan Ive" name="pname">
+                        <input type="hidden" value="Sharon Karanja" name="pname">
                         <button type="submit" class="btn btn-large">Book</button>
                     </form>
                 </div>
