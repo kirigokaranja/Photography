@@ -1,94 +1,44 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Githinji Wanjohi
- * Date: 10/11/2017
- * Time: 9:00 AM
- */
-?>
+include 'connect.php';
+global $db;
+
+$pname = $_POST["pname"];
+$photoId = $pname;
+$sq = "SELECT DISTINCT * FROM photographer WHERE photoID = '$photoId'";
+$res = $db->query($sq);
+while ($rw1 = mysqli_fetch_assoc($res)) {
+    $fname = $rw1['firstName'];
+    $sname = $rw1['surname'];
+
+    $file_path = 'photographer/images/' . $fname . $sname . '-' . $photoId . '/';
 
 
-<!DOCTYPE html>
-<html >
-<head>
-  <meta charset="UTF-8">
-  <title>Portfolio | Gallery</title>
-  <link rel="icon" type="image/ico" href="favicon.ico" />
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,900' rel='stylesheet' type='text/css'>
+    $sql = "SELECT * FROM photographer_upload WHERE photographerID = '$photoId'";
+    $result = $db->query($sql) or trigger_error($db->error . "[$sql]");
+    ?>
+    <h1 style="text-align: center; font-size: 50px; margin-top: 5%; color: #24c315"><?php echo $fname . $sname;?>'s Works</h1>
+    <?php
+    while($all_images = mysqli_fetch_assoc( $result ))
 
-  <link rel='stylesheet prefetch' href='https://npmcdn.com/basscss@8.0.0/css/basscss.min.css'>
-  <link rel="stylesheet" href="css/portfolio.css">
-  <link rel="stylesheet" href="css/main.css">
+    {
+        $name = $all_images['name'];
+        $ext = $all_images['extension'];
+        $img = $name.".".$ext;
+        $img_src = $file_path.$img;
 
-</head>
+        ?>
+        <img src="<?php echo $img_src;?>" height="300" style="margin-left: 5%;margin-top: 5%">
+        <?php
+    }
+}
 
-<body>
 
 
-    <div id="portfolio">
-  <div class="tile scale-anm web all">
-        <img src="images/IMG_2371.jpg" alt="" />
-  </div>
-  <div class="tile scale-anm bcards all">
-    <img src="http://demo.themerain.com/charm/wp-content/uploads/2015/04/jti-icons_08-300x172.jpg" alt="" />
-  </div>
-  <div class="tile scale-anm web all">
-    <img src="http://demo.themerain.com/charm/wp-content/uploads/2015/04/emi_haze-300x201.jpg" alt="" />
-  </div>
-  <div class="tile scale-anm web all">
-            <img src="http://demo.themerain.com/charm/wp-content/uploads/2015/04/codystretch-300x270.jpg" alt="" />
-  </div>
-  <div class="tile scale-anm flyers all">
-        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=350&h=190" alt="" />
-  </div>
-  <div class="tile scale-anm bcards all">
-            <img src="https://placeholdit.imgix.net/~text?txtsize=19&txt=200%C3%97290&w=200&h=290" alt="" />
-  </div>
-  <div class="tile scale-anm flyers all">
-    <img src="http://demo.themerain.com/charm/wp-content/uploads/2015/04/jti-icons_08-300x172.jpg" alt="" />
-  </div>
-  <div class="tile scale-anm flyers all">
-    <img src="http://demo.themerain.com/charm/wp-content/uploads/2015/04/transmission_01-300x300.jpg" alt="" />
-  </div>
-  <div class="tile scale-anm web all">
-        <img src="https://placeholdit.imgix.net/~text?txtsize=19&txt=200%C3%97290&w=200&h=290" alt="" />
-  </div>
-  <div class="tile scale-anm flyers all">
-           <img src="https://placeholdit.imgix.net/~text?txtsize=19&txt=200%C3%97290&w=200&h=290" alt="" />
-  </div>
-  <div class="tile scale-anm web all">
-        <img src="http://demo.themerain.com/charm/wp-content/uploads/2015/04/the-ninetys-brand_02-300x300.jpg" alt="" />
-  </div>
-  <div class="tile scale-anm bcards all">
-            <img src="http://demo.themerain.com/charm/wp-content/uploads/2015/04/15-dia_1092-1-300x300.jpg" alt="" />
-  </div>
-  <div class="tile scale-anm web all">
-       <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=350&h=190" alt="" />
-  </div>
-  <div class="tile scale-anm bcards all">
-          <img src="http://demo.themerain.com/charm/wp-content/uploads/2015/04/emi_haze-300x201.jpg" alt="" />
-  </div>
-  <div class="tile scale-anm web all">
-            <img src="http://demo.themerain.com/charm/wp-content/uploads/2015/04/transmission_01-300x300.jpg" alt="" />
-  </div>
-  <div class="tile scale-anm web all">
-      <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97190&w=350&h=190" alt="" />
-  </div>
-  <div class="tile scale-anm bcards all">
-            <img src="https://placeholdit.imgix.net/~text?txtsize=19&txt=200%C3%97290&w=200&h=290" alt="" />
-  </div>
-</div>
 
-<div style="clear:both;"></div>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 
-    <script src="js/portfolio.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.flexslider-min.js"></script>
-    <script src="js/jquery.fancybox.pack.js"></script>
-    <script src="js/retina.min.js"></script>
-    <script src="js/modernizr.js"></script>
 
-</body>
-</html>
+
+
+
+
+

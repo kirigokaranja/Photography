@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="css/upload.css">
     <link rel="stylesheet" href="../css/gallery.css">
     <link rel="stylesheet" href="css/message.css">
+    <link rel="stylesheet" href="css/paginate.css">
     <script src="../dist/sweetalert.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../dist/sweetalert.css">
 </head>
@@ -45,7 +46,6 @@ if(isset($_SESSION['Admin'])) {
                         <li><a href="dashboard.php">User Uploads</a></li>
                         <li><a href="message.php">Messages</a></li>
                         <li><a href="photographer.php">Photographers</a></li>
-                        <li><a href="">Bookings</a></li>
                         <li><a href="genre.php">Genre</a></li>
                         <li><a href="logout.php" class="btn btn-large">Logout</a></li>
 
@@ -71,11 +71,20 @@ if(isset($_SESSION['Admin'])) {
         </form>
         <?php
         include ("connect.php");
+
+        $limit = 5;
+        if(isset($_GET['page'])){
+            $page = $_GET['page'];
+        }else{
+            $page = 1;
+        }
+        $start_from = ($page-1) * $limit;
+
         $view = "unread";
-        $sql = "SELECT * FROM messages WHERE viewed = '$view' ORDER BY messID DESC ";
+        $sql = "SELECT * FROM messages WHERE viewed = '$view' ORDER BY messID DESC LIMIT $start_from, $limit";
         if (isset($_GET['search'])) {
             $search = $_GET['search'];
-            $sql = "SELECT * FROM messages WHERE  name LIKE '%$search%' OR email LIKE '%$search%' OR message LIKE '%$search%'";
+            $sql = "SELECT * FROM messages WHERE  name LIKE '%$search%' OR email LIKE '%$search%' OR message LIKE '%$search%'  ORDER BY messID DESC LIMIT $start_from, $limit";
 
             if ($search !=null){
                 ?>
@@ -87,59 +96,77 @@ if(isset($_SESSION['Admin'])) {
         $result = $db->query($sql) or trigger_error($db->error."[$sql]");
         ?>
         <div class="container1">
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Message</th>
-                <th>View</th>
-            </tr>
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>View</th>
+                </tr>
 
 
-            <?php
-            while($row = mysqli_fetch_array($result)){
-
-            $message = $row['message'];
-            $name = $row['name'];
-            $email = $row['email'];
-            $id = $row['messID'];
-            $view = $row['viewed'];
-
-
-            ?>
-            <tr>
-                <td><?php echo $name; ?></td>
-                <td><?php echo $email; ?></td>
-                <td><?php echo $message; ?></td>
                 <?php
-                if ($view == "unread"){
-                    ?>
-                    <td>
+                while($row = mysqli_fetch_array($result)){
 
-                        <form action="view_message.php" method="post">
-                            <input type="hidden" name="messid" value=" <?php echo $id; ?>">
-                            <input type="hidden" name="view" value="pending">
-                            <button type="submit" STYLE="width: 150px;font-size: 20px;margin-top: 2%; color: #1157e6"> Pending </button>
-                        </form>
-                    </td>
-                    <?php
-                }else {
-                    ?>
-                    <td>
+                $message = $row['message'];
+                $name = $row['name'];
+                $email = $row['email'];
+                $id = $row['messID'];
+                $view = $row['viewed'];
+                $date = $row['date'];
 
-                        <form action="view_message.php" method="post">
-                            <input type="hidden" name="messid" value=" <?php echo $id; ?>">
-                            <input type="hidden" name="view" value="read">
-                            <button type="submit" STYLE="width: 150px;font-size: 20px;margin-top: 2%;color: #24c315"> Read </button>
-                        </form>
-                    </td>
-                    <?php
-                }
+
                 ?>
+                <tr>
+                    <td><?php echo $date; ?></td>
+                    <td><?php echo $name; ?></td>
+                    <td><?php echo $email; ?></td>
 
-                <?php }?>
-            </tr>
-        </table>
+                    <?php
+                    if ($view == "unread"){
+                        ?>
+                        <td>
+
+                            <form action="view_message.php" method="post">
+                                <input type="hidden" name="messid" value=" <?php echo $id; ?>">
+                                <input type="hidden" name="view" value="pending">
+                                <button type="submit" STYLE="width: 150px;font-size: 20px;margin-top: 2%; color: #1157e6"> Pending </button>
+                            </form>
+                        </td>
+                        <?php
+                    }else {
+                        ?>
+                        <td>
+
+                            <form action="view_message.php" method="post">
+                                <input type="hidden" name="messid" value=" <?php echo $id; ?>">
+                                <input type="hidden" name="view" value="read">
+                                <button type="submit" STYLE="width: 150px;font-size: 20px;margin-top: 2%;color: #24c315"> Read </button>
+                            </form>
+                        </td>
+                        <?php
+                    }
+                    ?>
+
+                    <?php }?>
+                </tr>
+            </table>
+            <?php
+            include ('../paginate.php');
+            $sql1 = "SELECT COUNT(`messID`) FROM `messages`";
+            $rs = mysqli_query($db ,$sql1);
+            $row1 = mysqli_fetch_row($rs);
+            $total_records = $row1[0];
+            $total_pages = ceil($total_records / $limit);
+            $tpages=$total_pages;
+            $show_page=$page;
+            $reload = $_SERVER['PHP_SELF'] . "?tpages=" . $tpages;
+            echo '<div class="pagination"><ul>';
+            if ($total_pages > 1) {
+                echo paginate($reload, $show_page, $total_pages);
+            }
+            echo "</ul></div>";
+            ?>
         </div>
     </section>
 

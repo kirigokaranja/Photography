@@ -6,15 +6,6 @@
 <body>
 <?php
 include ("connect.php");
-$eid = $_POST["messid"];
-$read = "read";
-
-$sql = "UPDATE `messages` SET `viewed` ='$read' WHERE `messID` = '$eid'";
-global $db;
-$result = $db->query($sql) or trigger_error($db->error."[$sql]");
-
-if ($result)
-{
 ?>
 <script>
     swal({
@@ -28,23 +19,3 @@ if ($result)
         location.href = "message.php"
     }, 1000);
 </script>
-<?php
-}
-else
-{
-?>
-<script>
-    swal({
-        title: "Error",
-        text: "An error ocurred!",
-        type: "error",
-        timer: 1500,
-        showConfirmButton: false
-    });
-    setTimeout(function () {
-        location.href = "message.php"
-    }, 1000);
-</script>
-<?php
-
-}

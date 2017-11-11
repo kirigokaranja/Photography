@@ -114,7 +114,8 @@ $custid = $row['custID'];
                     <input type="text" readonly style="border: none">
 
                         <?php
-                        $sql=mysqli_query($db, "SELECT * FROM photographer" );
+                        $stat = "active";
+                        $sql=mysqli_query($db, "SELECT * FROM photographer WHERE status = '$stat'" );
                         if(mysqli_num_rows($sql)){
 
                             ?>

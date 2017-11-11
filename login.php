@@ -12,8 +12,9 @@ global $db;
 
 $email = $_POST['email'];
 $pass = $_POST['password'];
+$act = "active";
 
-$sql = "SELECT * FROM `users` WHERE `email`='$email'and `password`='$pass'";
+$sql = "SELECT * FROM `users` WHERE `email`='$email'and `password`='$pass' AND active = '$act'";
 $result = $db->query($sql) or trigger_error($db->error . "[$sql]");
 if ($result && $row = $result->fetch_assoc()) {
     $utype = $row['user_type'];

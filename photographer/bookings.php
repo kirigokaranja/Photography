@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="css/booking.css">
     <link type="text/css" rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" type="text/css" href="css/upload.css">
+    <link rel="stylesheet" href="css/paginate.css">
     <link rel="stylesheet" type="text/css" href="css/booktable.css">
     <link rel="stylesheet" href="../css/menuDropdown.css">
     <link rel="stylesheet" href="">
@@ -39,7 +40,15 @@ while ($row = mysqli_fetch_array($res)) {
     $phtid = $row['photoID'];
     $status = "pending";
 
-    $sql = "SELECT * FROM book WHERE photoID = '$phtid' AND status = '$status'";
+    $limit = 5;
+    if(isset($_GET['page'])){
+        $page = $_GET['page'];
+    }else{
+        $page = 1;
+    }
+    $start_from = ($page-1) * $limit;
+
+    $sql = "SELECT * FROM book WHERE photoID = '$phtid' AND status = '$status' ORDER BY bookID DESC LIMIT $start_from, $limit";
     global $db;
     $result = $db->query($sql) or trigger_error($db->error . "[$sql]");
 
@@ -137,6 +146,22 @@ while ($row = mysqli_fetch_array($res)) {
             </div>
         <?php }?>
         <?php }?>
+        <?php
+        include ('../paginate.php');
+        $sql1 = "SELECT COUNT(`messID`) FROM `messages`";
+        $rs = mysqli_query($db ,$sql1);
+        $row1 = mysqli_fetch_row($rs);
+        $total_records = $row1[0];
+        $total_pages = ceil($total_records / $limit);
+        $tpages=$total_pages;
+        $show_page=$page;
+        $reload = $_SERVER['PHP_SELF'] . "?tpages=" . $tpages;
+        echo '<div class="pagination"><ul>';
+        if ($total_pages > 1) {
+            echo paginate($reload, $show_page, $total_pages);
+        }
+        echo "</ul></div>";
+        ?>
 
     </section>
 

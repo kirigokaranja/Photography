@@ -122,21 +122,23 @@ $custid = $row['custID'];
         </span>
                     <span class="input input--hoshi">
                     <input type="text" readonly style="border: none">
-                    <select name="genre"  class="input__field input__field--hoshi" id="genre"  required style="font-size:large; outline:none">
+                        <?php
+                        $sql=mysqli_query($db, "SELECT * FROM genre" );
+                        if(mysqli_num_rows($sql)){
+
+                            ?>
+                            <select name="genre"  class="input__field input__field--hoshi" id="genre"  required style="font-size:large; outline:none">
                         <option value="choose">Choose a Genre</option>
-                        <option value="landscape">Landscape</option>
-                        <option value="portrait">Portrait</option>
-                        <option value="lifestyle">Lifestyle</option>
-                        <option value="family">Family</option>
-                        <option value="decor">Decor</option>
-                        <option value="wedding">Wedding</option>
-                        <option value="fashion">Fashion</option>
-                        <option value="food">Food</option>
-                        <option value="event">Event</option>
-                        <option value="baby">Baby</option>
-                        <option value="others">Others</option>
-                    </select>
-          <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="genre" >
+                                <?php
+                                while($rs=mysqli_fetch_array($sql)){
+                                ?>
+                                <option value="<?php echo $rs['name']; ?>"><?php echo $rs['name'];} ?></option></select>
+                            <?php
+
+                        }
+
+                        ?>
+                        <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="genre" >
             <span class="input__label-content input__label-content--hoshi">Genre</span>
           </label>
         </span>

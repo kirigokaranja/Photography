@@ -16,20 +16,20 @@ body{
     z-index: 1;
 }
 .picture-holder {
-    background-image:url(../images/eberhard-grossgasteiger-427713.jpg);
+    background-image:url(../images/fabrizio-conti-437995.jpg);
     background-repeat:no-repeat;
     background-position:center top;
     background-size:cover;
     padding-top:300px;
     width: 50%;
     float: right;
-    height: 83vh;
+    height: 120vh;
 }
 .story-holder {
     padding:30px 30px;
     margin:0;
     width: 45%;
-    height: 83vh;
+    height: 120vh;
     text-align: center;
 }
 .formh1 {
@@ -37,7 +37,7 @@ body{
     font-size:3em;
     line-height:1;
     padding-bottom:24px;
-    border-bottom:16px solid #1157e6;
+    border-bottom:13px solid #1157e6;
     margin-bottom:24px;
     text-transform:uppercase;
     color:#1157e6;
@@ -61,6 +61,18 @@ form label input {
     width: 100%;
     font-size: large;
     color: #1157e6;
+    text-align: center;
+}
+form label select {
+    background: none;
+    border: none;
+    line-height: 1.4em;
+    font-weight: 300;
+    padding: 12px 8px;
+    width: 100%;
+    font-size: large;
+    color: #1157e6;
+    text-align: center;
 }
 form button.buttonsubmit{
     background: #1157e6;
@@ -80,4 +92,20 @@ form button.buttonsubmit:hover{
 }
 .text-center{
     text-align: center;
+}
+.buttonback{
+    background: #24c315;
+    border: 1px solid #24c315;
+    border-radius: 4px;
+    line-height: 1em;
+    padding: 0.7em 0.7em;
+    -webkit-transition: all 0.25s;
+    transition: all 0.25s;
+    font-size: larger;
+    color: whitesmoke;
+}
+.buttonback:hover{
+    background-color: #1157e6;
+    color: white;
+    border-color: #1157e6;
 }
