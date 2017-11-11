@@ -193,7 +193,7 @@ $id = $_SESSION['Admin'];
                         $sql = "SELECT * FROM customer_upload 
                                     WHERE edit_status = '$edited'
                                     GROUP BY custID, timePosted
-                                    ORDER BY datePosted DESC, timePosted DESC";
+                                    ORDER BY datePosted ASC , timePosted ASC ";
                         $result = $db->query($sql) or trigger_error($db->error."[$sql]");
 
                         while($row1 = mysqli_fetch_array($result)) {

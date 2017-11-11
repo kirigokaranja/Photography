@@ -6,13 +6,14 @@
     -webkit-background-size: cover;
     background-size: cover;
     min-height: 0;
-    height: 550px;
+    height: 450px;
+    padding-top: 15px;
 }
 .hero-btn {
     opacity: 0.5;
 }
 .hero-text {
-    padding-top: 13%;
+    padding-top: 2%;
 }
 .hero-text h1 {
     color: #fff;

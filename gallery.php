@@ -90,11 +90,9 @@ if(isset($_SESSION['email'])) {
     $fname = $row['firstName'];
     $sname = $row['surname'];
     $custId = $row['custID'];
-    $folder_path = 'images/' . $fname . $sname . '-' . $custId . '/'; //image folder path
     $dir_separator = DIRECTORY_SEPARATOR;
     $id_separator = "-";
     $userFolder = $dir_separator . 'images' . $dir_separator . $fname . $sname . $id_separator . $custId . $dir_separator;
-
     $destination_path = dirname(__FILE__) . $userFolder;
 
 if (!is_dir($destination_path)) {?>
@@ -114,7 +112,6 @@ if (!is_dir($destination_path)) {?>
                 <a id="edited" class="btn btn-large" style="margin-right: 5%">Edited</a>
                 <a id="unEdited" class="btn btn-large" style="margin-right: 5%">Unedited</a></div>
         </div>
-        </div>
     </section>
     <section id="photos" style="padding-top: 5px; border: dotted">
         <div id="photosEdited" style="display: none">
@@ -124,6 +121,9 @@ if (!is_dir($destination_path)) {?>
             while ($row = mysqli_fetch_array($resImage)) {
                 $file_name = $row['name'];
                 $ext = $row['extension'];
+                $folderName = $row['folderName'];
+                $folder_path = 'images/' . $fname . $sname . '-' . $custId . '/'.$folderName.'/'; //image folder path
+
                 if ($ext == 'jpg' || $ext == 'png' || $ext == 'gif' || $ext == 'JPG' || $ext == 'PNG' || $ext == 'GIF') {
                     $entry = $file_name . "." . $ext;
                     $file_path = $folder_path . $entry;
@@ -135,16 +135,21 @@ if (!is_dir($destination_path)) {?>
 
         <div id="photosUnedited" style="display: none">
             <?php
-            $sqlImage = "SELECT * FROM customer_upload WHERE custID = '$custId' AND edit_status = 'Unedited'";
+            $sqlImage = "SELECT * FROM customer_upload WHERE custID = '$custId' AND edit_status != 'Edited'";
             $resImage = $db->query($sqlImage) or trigger_error($db->error . "[$sqlImage]");
             while ($row = mysqli_fetch_array($resImage)) {
                 $file_name = $row['name'];
                 $ext = $row['extension'];
+                $folderName = $row['folderName'];
+                $folder_path = 'images/' . $fname . $sname . '-' . $custId . '/'.$folderName.'/'; //image folder path
+
                 if ($ext == 'jpg' || $ext == 'png' || $ext == 'gif' || $ext == 'JPG' || $ext == 'PNG' || $ext == 'GIF') {
                     $entry = $file_name . "." . $ext;
                     $file_path = $folder_path . $entry;
                     echo '
-                        <a href="' . $file_path . '" class="work-box"><img src="' . $file_path . '" alt="" ></a>';
+                        <div>
+                        <a href="' . $file_path . '" class="work-box"><img src="' . $file_path . '" alt="" ></a>
+                        </div>';
                 }
             }
             ?>
@@ -189,7 +194,6 @@ if (!is_dir($destination_path)) {?>
                             <li><a href="#">Videography</a></li>
                             <li><a href="#">Photo Editing</a></li>
                         </ul>
-                        </p>
                     </div>
                     <div class="footer-col col-md-3">
                         <h5>Share with Love</h5>

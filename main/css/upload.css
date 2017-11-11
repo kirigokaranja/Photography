@@ -7,12 +7,13 @@
     background-size: cover;
     min-height: 0;
     height: 300px;
+    padding-top: 15px;
 }
 .hero-btn {
     opacity: 0.5;
 }
 .hero-text {
-    padding-top: 4%;
+    padding-top: 2%;
 }
 .hero-text h1 {
     color: #fff;
@@ -29,7 +30,6 @@
     letter-spacing: 3px;
     line-height: 24px;
     margin-top: 10px;
-    margin-bottom: 80px;
 }
 .persimg{
     border: solid 6px #2d3033;

@@ -84,7 +84,7 @@ while ($row = mysqli_fetch_array($res)) {
     <section id="works" class="works section no-padding" >
         <div class="container-fluid">
             <div class="row no-gutter">
-                <form action="upload.php" method="post" enctype="multipart/form-data" class="dropzone" id="my-dropzone"
+                <form action="../photographer/upload2.php" method="post" enctype="multipart/form-data" class="dropzone" id="my-dropzone"
                       style="min-height: 350px; border: dotted; ">
                     <div class="fallback">
                         <input name="file" type="file" multiple />
