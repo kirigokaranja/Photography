@@ -3,7 +3,11 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
+<<<<<<< Updated upstream
 -- Generation Time: Nov 05, 2017 at 03:42 PM
+=======
+-- Generation Time: Nov 04, 2017 at 06:47 AM
+>>>>>>> Stashed changes
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -35,6 +39,10 @@ CREATE TABLE `book` (
   `description` varchar(255) NOT NULL,
   `photoID` int(11) NOT NULL,
   `status` varchar(255) NOT NULL DEFAULT 'pending',
+<<<<<<< Updated upstream
+=======
+  `reject_reason` varchar(255) NOT NULL,
+>>>>>>> Stashed changes
   `title` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -42,6 +50,7 @@ CREATE TABLE `book` (
 -- Dumping data for table `book`
 --
 
+<<<<<<< Updated upstream
 INSERT INTO `book` (`bookID`, `custID`, `event`, `date`, `location`, `description`, `photoID`, `status`, `title`) VALUES
 (5, 7, 'family', '2017-10-18', 'Madaraka', 'shoot', 1, 'accepted', 'Madaraka,Family'),
 (6, 7, 'fashion', '2017-10-27', 'Thika', 'in need of some fashion photographer', 1, 'accepted', 'fashion ,Thika'),
@@ -57,6 +66,23 @@ INSERT INTO `book` (`bookID`, `custID`, `event`, `date`, `location`, `descriptio
 (16, 14, 'baby', '2017-11-03', 'Nairobi West', 'babys first walk', 1, 'pending', ''),
 (17, 14, 'baby', '2017-11-02', 'Madaraka', 'babys first walk', 1, 'pending', ''),
 (18, 13, 'landscape', '5/11/2017', 'nairobi', 'landscape', 1, 'pending', '');
+=======
+INSERT INTO `book` (`bookID`, `custID`, `event`, `date`, `location`, `description`, `photoID`, `status`, `reject_reason`, `title`) VALUES
+(5, 7, 'family', '2017-10-18', 'Madaraka', 'shoot', 1, 'accepted', '', 'Madaraka,Family'),
+(6, 7, 'fashion', '2017-10-27', 'Thika', 'in need of some fashion photographer', 1, 'pending', '', ''),
+(7, 7, 'portrait', '2017-10-31', 'Nairobi', 'self potrait of myself and family', 1, 'pending', '', ''),
+(8, 13, 'wedding', '2017-10-27', 'nairobi', 'my dream wedding', 1, 'accepted', '', 'Wedding,Nairobi '),
+(9, 13, 'fashion', '31/10/2017', 'Nairobi', 'fashion', 1, 'pending', '', ''),
+(10, 13, 'decor', '2017-10-26', 'kisumu', 'new house pictures', 1, 'rejected', 'something else booked then', ''),
+(11, 13, 'decor', '2017-10-28', 'meru', 'my new home', 1, 'pending', '', ''),
+(12, 13, 'lifestyle', '2017-10-28', 'nyahururu', 'my lifestyle', 1, 'pending', '', ''),
+(13, 13, 'decor', '2017-10-20', 'nyahururu', 'my fabolous house', 1, 'accepted', '', 'decor nyahururu'),
+(14, 13, 'wedding', '2017-11-03', 'meru', 'dream wedding', 1, 'pending', '', ''),
+(15, 13, 'wedding', '2017-11-02', 'meru', 'the wedding', 1, 'accepted', '', 'wedding ,meru'),
+(16, 14, 'baby', '2017-11-03', 'Nairobi West', 'babys first walk', 1, 'pending', '', ''),
+(17, 14, 'baby', '2017-11-02', 'Madaraka', 'babys first walk', 1, 'pending', '', ''),
+(18, 13, 'landscape', '5/11/2017', 'nairobi', 'landscape', 1, 'pending', '', '');
+>>>>>>> Stashed changes
 
 -- --------------------------------------------------------
 
@@ -105,6 +131,35 @@ CREATE TABLE `customer_upload` (
   `extension` varchar(6) NOT NULL,
   `edit_status` varchar(255) NOT NULL,
   `dateEdited` varchar(10) NOT NULL
+<<<<<<< Updated upstream
+=======
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `customer_upload`
+--
+
+INSERT INTO `customer_upload` (`picID`, `name`, `custID`, `datePosted`, `extension`, `edit_status`, `dateEdited`) VALUES
+(1, '638283', 13, '2017-11-03', 'jpg', 'Unedited', ''),
+(2, '5aTjJhj-knd-wallpaper', 13, '2017-11-03', 'jpg', 'Unedited', ''),
+(3, 'aggiornamento-sito-dopo-algoritmo', 13, '2017-11-03', 'jpg', 'Unedited', ''),
+(4, '60854-OAOEZX-752', 13, '2017-11-03', 'jpg', 'Unedited', ''),
+(5, '61677-OAN4OG-161', 13, '2017-11-03', 'jpg', 'Unedited', ''),
+(6, 'doc6', 13, '2017-11-03', 'jpg', 'Unedited', ''),
+(7, 'doc5', 13, '2017-11-03', 'jpg', 'Unedited', ''),
+(8, 'embedded-systems-design_2_orig', 13, '2017-11-03', 'jpg', 'Unedited', ''),
+(9, 'embedded-systems-laboratory-systems', 13, '2017-11-03', 'jpg', 'Unedited', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `genre`
+--
+
+CREATE TABLE `genre` (
+  `genre_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL
+>>>>>>> Stashed changes
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -280,7 +335,11 @@ INSERT INTO `users` (`user_type`, `email`, `password`, `active`) VALUES
 ('1', 'cyrilondime@gmail.com', '1234', 'active'),
 ('1', 'doe@gmail.com', '1234', 'active'),
 ('1', 'johnb@gmail.com', '1234', 'active'),
+<<<<<<< Updated upstream
 ('2', 'jonathan@gmail.com', '1234', 'active'),
+=======
+('2', 'jonathan@gmail.com', '12345678', 'active'),
+>>>>>>> Stashed changes
 ('1', 'lynn@gmail.com', '1234', 'active'),
 ('3', 'main@admin.com', 'admin01', 'active'),
 ('1', 'mutuma@gmail.com', '1234', 'active'),
@@ -334,12 +393,15 @@ ALTER TABLE `customer_upload`
   ADD KEY `custID` (`custID`);
 
 --
+<<<<<<< Updated upstream
 -- Indexes for table `feedback`
 --
 ALTER TABLE `feedback`
   ADD PRIMARY KEY (`feedbackID`);
 
 --
+=======
+>>>>>>> Stashed changes
 -- Indexes for table `genre`
 --
 ALTER TABLE `genre`
@@ -397,6 +459,7 @@ ALTER TABLE `customer`
 ALTER TABLE `customer_upload`
   MODIFY `picID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
+<<<<<<< Updated upstream
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
@@ -406,6 +469,12 @@ ALTER TABLE `feedback`
 --
 ALTER TABLE `genre`
   MODIFY `genre_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+=======
+-- AUTO_INCREMENT for table `genre`
+--
+ALTER TABLE `genre`
+  MODIFY `genre_id` int(11) NOT NULL AUTO_INCREMENT;
+>>>>>>> Stashed changes
 --
 -- AUTO_INCREMENT for table `messages`
 --
