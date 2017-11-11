@@ -119,7 +119,7 @@
         <div class="row">
             <!-- team member 1 -->
             <div class="col-md-4 col-sm-8">
-                <div class="person"><a href="portfolio.php"><img src="images/IMG_-erpkx2.jpg" alt="" class="img-responsive">
+                <div class="person"><a href=""><img src="images/IMG_-erpkx2.jpg" alt="" class="img-responsive">
                         <div class="person-content">
                             <h4>Githinji Wanjohi</h4>
                             <h5 class="role">The Mastermind</h5>
@@ -135,13 +135,17 @@
                     <form method="post" action="specific_book.php">
                         <input type="hidden" value="Githinji Wanjohi" name="pname">
                         <button type="submit" class="btn btn-large">Book</button>
+                    </form><br>
+                    <form method="post" action="portfolio.php">
+                        <input type="hidden" value="4" name="pname">
+                        <button type="submit" class="btn btn-large" style="background-color: #1157e6;">Gallery</button>
                     </form>
                 </div>
             </div>
             <!-- team member 1 -->
             <!-- team member 2 -->
             <div class="col-md-4 col-sm-8">
-                <div class="person"><a href="portfolio.php"> <img src="images/cameron-kirby-179439.jpg"    alt="" class="img-responsive">
+                <div class="person"><a href=""> <img src="images/cameron-kirby-179439.jpg"    alt="" class="img-responsive">
                         <div class="person-content">
                             <h4>Sharon Karanja</h4>
                             <h5 class="role">Creative head</h5>
@@ -157,13 +161,17 @@
                     <form method="post" action="specific_book.php">
                         <input type="hidden" value="Sharon Karanja" name="pname">
                         <button type="submit" class="btn btn-large">Book</button>
+                    </form><br>
+                    <form method="post" action="portfolio.php">
+                        <input type="hidden" value="2" name="pname">
+                        <button type="submit" class="btn btn-large" style="background-color: #1157e6;">Gallery</button>
                     </form>
                 </div>
             </div>
             <!-- team member 2 -->
             <!-- team member 3 -->
             <div class="col-md-4 col-sm-8">
-                <div class="person"><a href="portfolio.php"><img src="images/team-3.png" alt="" class="img-responsive">
+                <div class="person"><a href=""><img src="images/team-3.png" alt="" class="img-responsive">
                         <div class="person-content">
                             <h4>Jonathan Ive</h4>
                             <h5 class="role">Master Editor</h5>
@@ -179,6 +187,10 @@
                     <form method="post" action="specific_book.php">
                         <input type="hidden" value="Jonathan Ive" name="pname">
                         <button type="submit" class="btn btn-large">Book</button>
+                    </form><br>
+                    <form method="post" action="portfolio.php">
+                        <input type="hidden" value="1" name="pname">
+                        <button type="submit" class="btn btn-large" style="background-color: #1157e6;">Gallery</button>
                     </form>
                 </div>
             </div>
@@ -254,23 +266,27 @@
                     <li>
                         <div class="col-md-12">
                             <blockquote>
-                                <h1>"Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Phasellus non dolor nibh. Nullam elementum Aenean eu leo quam..." </h1>
-                                <p>Drake Migos, Open Window production</p>
+                                <h1>"Jonathan is truly an outstanding photographer (and wonderful person) with an almost mystical ability to capture the true nature of people and events. I'd recommend him to anyone! " </h1>
+                                <p> - Laurie H.</p>
                             </blockquote>
                         </div>
                     </li>
                     <li>
                         <div class="col-md-12">
                             <blockquote>
-                                <h1>"Cras dictum tellus dui, vitae sollicitudin ipsum. Phasellus non dolor nibh. Nullam elementum tellus pretium feugiat shasellus non dolor nibh. Nullam elementum tellus pretium feugiat." </h1>
-                                <p>John Doe, Lexix Private Limited.</p>
+                                <h1>"Your photos are STUNNING! Thank you so, so much. They are all just spectacular and a gift we will treasure always. We are really grateful. You are just amazing. We can't thank you enough for sharing your craft with us. Thank you! " </h1>
+                                <p>- The Goler Family.</p>
                             </blockquote>
                         </div>
                     </li>
                     <li>
                         <div class="col-md-12">
                             <blockquote>
-                                <h1>"Cras mattis consectetur purus sit amet fermentum. Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur...." </h1>
+                                <h1>""We have been blown away by how gorgeous the photos of our wedding (and engagement shoot) are and we wanted to thank you for doing such an amazing job.
+
+                                    They are everything we imagined and more! Not only did you go above and beyond the call of duty before and on the day but you and your assistant made us feel so comfortable with your fun personality!
+
+                                    We are very lucky to have had you as our photographer. Thank you!"" </h1>
                                 <p>Chebarbar Chebet, Global Corporate Inc</p>
                             </blockquote>
                         </div>
@@ -278,8 +294,8 @@
                     <li>
                         <div class="col-md-12">
                             <blockquote>
-                                <h1>"Lorem ipsum dolor sit amet, consectetur adipiscing elitPhasellus non dolor nibh. Nullam elementum tellus pretium feugiat. Cras dictum tellus dui sollcitudin." </h1>
-                                <p>Kabras Chavakali, Martix Media</p>
+                                <h1>"The photos are great and capture the personality and spirit of the subjects. My son (the bat mitzvah girl's brother) does not like to pose for pictures, but in the photos of him, he looks natural and happy and looks like he is having fun. Jeff is also really fun to work with." </h1>
+                                <p>The Meyer Family</p>
                             </blockquote>
                         </div>
                     </li>
