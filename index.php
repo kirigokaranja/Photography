@@ -119,7 +119,7 @@
         <div class="row">
             <!-- team member 1 -->
             <div class="col-md-4 col-sm-8">
-                <div class="person"><a href="portfolio.php"><img src="images/IMG_-erpkx2.jpg" alt="" class="img-responsive">
+                <div class="person"><a href="#" data-toggle="modal" data-target="#gith"><img src="images/IMG_-erpkx2.jpg" alt="" class="img-responsive">
                         <div class="person-content">
                             <h4>Githinji Wanjohi</h4>
                             <h5 class="role">The Mastermind</h5>
@@ -186,6 +186,55 @@
         </div>
     </div>
 </section>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div id="gith" class="modal fade" role="dialog" style="margin-top: 70px">
+        <div class="modal-dialog">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="images/IMG_2571.jpg" alt="Chania">
+                    <div class="carousel-caption">
+                        <h3>Los Angeles</h3>
+                        <p>LA is always so much fun!</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="images/IMG_2796.jpg" alt="Chicago">
+                    <div class="carousel-caption">
+                        <h3>Chicago</h3>
+                        <p>Thank you, Chicago!</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="images/IMG_3119.jpg" alt="New York">
+                    <div class="carousel-caption">
+                        <h3>New York</h3>
+                        <p>We love the Big Apple!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</div>
 <!-- our team section -->
 
 <!-- work section -->

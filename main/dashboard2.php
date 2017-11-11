@@ -55,7 +55,7 @@ if(isset($_SESSION['Admin'])) {
             <div class="col-md-10 col-md-offset-1">
 
                 <div class="hero-text text-center">
-                    <h1>Main Photographer</h1><br>
+                    <h1>Main Photographer</h1>
                     <p style="color: #003434;">Dashboard</p>
 
                 </div>
