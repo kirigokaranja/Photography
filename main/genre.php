@@ -42,7 +42,7 @@ if(isset($_SESSION['Admin'])) {
                 <nav class="navigation" role="navigation">
                     <ul class="primary-nav">
                         <li><a href="dashboard.php">Dashboard</a></li>
-                        <li><a href="dashboard.php">User Uploads</a></li>
+                        <li><a href="userUploads.php">User Uploads</a></li>
                         <li><a href="message.php">Messages</a></li>
                         <li><a href="photographer.php">Photographers</a></li>
                         <li><a href="genre.php">Genre</a></li>
