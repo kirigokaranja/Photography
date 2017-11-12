@@ -1,5 +1,5 @@
 .hero {
-    background: url(../alif-ngoylung-243373.jpg) no-repeat center top;
+    background: url(alif-ngoylung-243373.jpg) no-repeat center top;
     opacity: 0.9;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -24,7 +24,7 @@
     text-transform: uppercase;
 }
 .hero-text p {
-    color: #d0d9ff;
+    color: #2d3033;
     font-size: 25px;
     font-weight: 400;
     letter-spacing: 3px;

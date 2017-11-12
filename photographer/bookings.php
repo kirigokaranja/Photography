@@ -73,7 +73,7 @@ while ($row = mysqli_fetch_array($res)) {
 <br><br>
             <div class="hero-text text-center">
                 <h1><?php echo $fname." ".$name; ?></h1><br>
-                <p>Bookings</p>
+                <p style="text-align: center;">Bookings</p>
             </div>
             <!-- banner text -->
         </div>
