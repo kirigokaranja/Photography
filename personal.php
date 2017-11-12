@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/flexslider.css">
     <link rel="stylesheet" href="css/jquery.fancybox.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/upload.css">
     <link rel="stylesheet" href="css/details.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/animate.min.css">
@@ -108,13 +109,12 @@ if(isset($_SESSION['email'])){
 
                     </ul>
                 </nav>
-
+            </div>
         </header>
         <!--header navigation -->
         <!-- banner text -->
         <div class="container">
             <div class="col-md-10 col-md-offset-1">
-        <br><br><br><br>
                 <div class="hero-text text-center">
                     <h1><?php echo $fname; echo $sname;?></h1><br><br>
                     <p>Personal Details</p>
@@ -123,7 +123,6 @@ if(isset($_SESSION['email'])){
             </div>
         </div>
     </section>
-    <br><br>
         <div class="personalcontent">
 
 <form>
@@ -161,14 +160,38 @@ if(isset($_SESSION['email'])){
 
         <?php
     }else{
-
-    session_destroy();
-
-
     ?>
-    <br><br><br><br><br><br>
-    <P style="color: blue; text-align: center; font-size: 25px">You are Not logged in</P><br><br><br><br>
-    <p style="text-align: center"><a href="signin.php" style="color: red; font-size: 30px; "> Login</a></p>
+    <script>
+
+        swal({
+                title: "User Login Required!",
+                text: "Please login to access upload feature",
+                type: "info",
+                showCancelButton: true,
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: "Login",
+                cancelButtonText: "Cancel",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+            function (isConfirm) {
+                if (isConfirm) {
+                    location.href = "log.php"
+                } else {
+                    location.href = "index.php"
+                }
+            });
+    </script>
 <?php } ?>
+
+<!-- JS FILES -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.flexslider-min.js"></script>
+<script src="js/jquery.fancybox.pack.js"></script>
+<script src="js/retina.min.js"></script>
+<script src="js/modernizr.js"></script>
+<script src="js/main.js"></script>
+<script  src="js/hamburger.js"></script>
 </body>
 </html>

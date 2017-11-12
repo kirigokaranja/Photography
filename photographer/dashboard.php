@@ -141,9 +141,9 @@ if (!is_dir($destination_path)) {?>
                 },
                 function (isConfirm) {
                     if (isConfirm) {
-                        location.href = "signin.php"
+                        location.href = "../log.php"
                     } else {
-                        location.href = "signin.php"
+                        location.href = "../log.php"
                     }
                 });
         </script>

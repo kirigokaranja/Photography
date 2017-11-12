@@ -46,10 +46,8 @@ if(isset($_SESSION['Photographer'])){
         $sname = $row['surname'];
         ?>
     <section class="hero" role="banner">
-
-        <!-- banner text -->
-        <div class="container">
-            <br><br>
+        <!--header navigation -->
+        <header id="header">
             <div class="header-content clearfix"><a class="logo" href="#"><img src="images/logo.ai" alt=""></a>
                 <nav class="navigation" role="navigation">
                     <ul class="primary-nav">
@@ -68,12 +66,14 @@ if(isset($_SESSION['Photographer'])){
                     </ul>
                 </nav>
             </div>
-            <div class="col-md-10 col-md-offset-1">
 
+        </header>
+        <!-- banner text -->
+        <div class="container">
+            <div class="col-md-10 col-md-offset-1">
                 <div class="hero-text text-center">
                     <h1><?php echo $fname . " " . $sname; ?></h1><br>
                     <p>Upload</p>
-                    </nav>
                 </div>
                 <!-- banner text -->
             </div>
@@ -163,7 +163,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
             },
             function(isConfirm) {
                 if (isConfirm) {
-                    location.href = "signin.php"
+                    location.href = "../log.php"
                 } else {
                     location.href = "dasboard.php"
                 }

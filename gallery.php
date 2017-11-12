@@ -53,10 +53,8 @@ if(isset($_SESSION['email'])) {
     $sname = $row['surname'];
     ?>
     <section class="hero" role="banner">
-
-        <!-- banner text -->
-        <div class="container">
-            <br><br>
+        <!--header navigation -->
+        <header id="header">
             <div class="header-content clearfix"><a class="logo" href="#"><img src="images/logo.ai" alt=""></a>
                 <nav class="navigation" role="navigation">
                     <ul class="primary-nav">
@@ -71,6 +69,8 @@ if(isset($_SESSION['email'])) {
                     </ul>
                 </nav>
             </div>
+        </header>
+        <div class="container">
             <div class="col-md-10 col-md-offset-1">
 
                 <div class="hero-text text-center">
@@ -240,6 +240,16 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
     </script>
     <?php }
     ?>
+
+<!-- JS FILES -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.flexslider-min.js"></script>
+<script src="js/jquery.fancybox.pack.js"></script>
+<script src="js/retina.min.js"></script>
+<script src="js/modernizr.js"></script>
+<script src="js/main.js"></script>
+<script  src="js/hamburger.js"></script>
 </body>
 </html>
 

@@ -99,14 +99,28 @@ if(isset($_SESSION['Admin'])){
     </div>
     <?php
 }else{
-
-    session_destroy();
-
-
     ?>
-    <br><br><br><br><br><br>
-    <P style="color: blue; text-align: center; font-size: 25px">You are Not logged in</P><br><br><br><br>
-    <p style="text-align: center"><a href="signin.php" style="color: red; font-size: 30px; "> Login</a></p>
+    <script>
+
+        swal({
+                title: "Login Required!",
+                text: "Please login to access photographers",
+                type: "info",
+                showCancelButton: true,
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: "Login",
+                cancelButtonText: "Cancel",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+            function (isConfirm) {
+                if (isConfirm) {
+                    location.href = "../log.php"
+                } else {
+                    location.href = "../index.php"
+                }
+            });
+    </script>
 <?php } ?>
 </body>
 </html>

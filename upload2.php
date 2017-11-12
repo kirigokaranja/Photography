@@ -49,9 +49,7 @@
         ?>
         <section class="hero" role="banner">
 
-            <!-- banner text -->
-            <div class="container">
-                <br><br>
+            <header id="header">
                 <div class="header-content clearfix"><a class="logo" href="#"><img src="images/logo.ai" alt=""></a>
                     <nav class="navigation" role="navigation">
                         <ul class="primary-nav">
@@ -66,6 +64,9 @@
                         </ul>
                     </nav>
                 </div>
+            </header>
+            <!-- banner text -->
+            <div class="container">
                 <div class="col-md-10 col-md-offset-1">
                     <div class="hero-text text-center">
                         <h1><?php echo $fname." ".$sname?> Upload</h1>
@@ -175,5 +176,15 @@
 
 
 ?>
+
+    <!-- JS FILES -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.flexslider-min.js"></script>
+    <script src="js/jquery.fancybox.pack.js"></script>
+    <script src="js/retina.min.js"></script>
+    <script src="js/modernizr.js"></script>
+    <script src="js/main.js"></script>
+    <script  src="js/hamburger.js"></script>
 </body>
 </html>

@@ -187,7 +187,7 @@ $id = $_SESSION['Admin'];
                         <?php }?>
                     </div>
 
-                    <div id="notification" class="tab-pane fade in active">
+                    <div id="notification" class="tab-pane fade">
                         <?php
                         $edited = "Unedited";
                         $sql = "SELECT * FROM customer_upload 

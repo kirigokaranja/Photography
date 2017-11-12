@@ -171,7 +171,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
             },
             function (isConfirm) {
                 if (isConfirm) {
-                    location.href = "log.php"
+                    location.href = "../log.php"
                 } else {
                     location.href = "index.php"
                 }
