@@ -70,7 +70,7 @@ while ($row = mysqli_fetch_array($res)) {
             </div>
         </header>
         <!-- banner text -->
-        <div class="container">
+        <div class="container" style="padding-top: 120px">
             <div class="col-md-10 col-md-offset-1">
 
                 <div class="hero-text text-center">

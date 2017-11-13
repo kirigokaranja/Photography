@@ -53,7 +53,7 @@ $sname = $row1['surname'];
 <h4>Please upload the required files for the selected user</h4>
 <div class="container">
     <form enctype="multipart/form-data" action="../main/upload2.php" class="dropzone" id="my-dropzone" method="post"
-          style="min-height: 350px; border: dotted">
+          style="min-height: 620px; border: dotted">
         <div class="form-group">
             <label for="folder">Customer Name</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="<?php echo $fName." ".$sname?>" value="<?php echo $fName." ".$sname?>" readonly="readonly">
@@ -68,6 +68,10 @@ $sname = $row1['surname'];
         </div><div class="form-group">
             <label for="folder">Customer Submission Time</label>
             <input type="text" class="form-control" id="time" name="time" placeholder="<?php echo $timePosted?>" value="<?php echo $timePosted?>" readonly="readonly">
+        </div>
+        <div class="form-group">
+            <label for="comment">Add a description of the work</label>
+            <textarea class="form-control" rows="5" id="comment" name="description"></textarea>
         </div>
         <div class="fallback" style="position: relative">
             <input name="file" type="file" multiple />

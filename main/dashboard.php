@@ -47,7 +47,7 @@ $id = $_SESSION['Admin'];
                     <li><a href="dashboard.php">Dashboard</a></li>
                     <li><a href="userUploads.php">User Uploads</a></li>
                     <li><a href="message.php">Messages</a></li>
-                    <li><a href="dashboard.php">Photographers</a></li>
+                    <li><a href="photographer.php">Photographers</a></li>
                     <li><a href="genre.php">Genre</a></li>
                     <li><a href="logout.php" class="btn btn-large">Logout</a></li>
 

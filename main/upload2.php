@@ -22,6 +22,7 @@ $custId = $cIDRow['custID'];
 $folderName = $_POST["folder"];
 $dateUploaded = $_POST["date"];
 $timeUploaded = $_POST["time"];
+$description = $_POST["description"];
 
 if (!empty($_FILES)) {
 
@@ -49,7 +50,7 @@ if (!empty($_FILES)) {
         echo "Sorry, your file is too large.";
     } else if (!is_dir($destination_path) || !is_dir($folder_path)) {
         /*Insert file details into db*/
-        $sq = "UPDATE `customer_upload` SET edit_status = '$edit', dateEdited = '$date', timeEdited = '$time'
+        $sq = "UPDATE `customer_upload` SET edit_status = '$edit', dateEdited = '$date', timeEdited = '$time', description = '$description'
                 WHERE custID = '$custId' AND folderName = '$folderName' AND datePosted = '$dateUploaded' AND timePosted = '$timeUploaded'";
         $rslt = $db->query($sq) or trigger_error($db->error."[$sq]");
 
