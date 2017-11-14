@@ -63,7 +63,12 @@ while ($row = mysqli_fetch_array($res)) {
                         <li><a href="notifications.php">Notifications</a></li>
                         <li><a href="personal.php">Personal Details</a></li>
                         <li><a href="gallery.php">Gallery</a></li>
-                        <li><a href="bookings.php">Bookings</a></li>
+                        <div class="dropdown">
+                            <a href="bookings.php">Book</a>
+                            <div class="dropdown-content">
+                                <a href="book.php">Add Booking</a>
+                            </div>
+                        </div>
                         <li><a href="logout.php" class="btn btn-large">Logout</a></li>
                     </ul>
                 </nav>

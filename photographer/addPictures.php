@@ -58,7 +58,7 @@ while ($row = mysqli_fetch_array($res)) {
             <div class="header-content clearfix"> <a class="logo" href="#"><img src="images/logo.ai" alt=""></a>
                 <nav class="navigation" role="navigation">
                     <ul class="primary-nav">
-                        <li><a href="dashboard.php">Dashboard</a></li>
+                        <li><a href="dashboard.php">Gallery</a></li>
                         <li><a href="schedule.php">Schedule</a></li>
                         <li><a href="addPictures.php">Add Pictures</a></li>
                         <li><a href="bookings.php">Bookings</a></li>

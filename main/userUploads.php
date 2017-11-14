@@ -140,7 +140,7 @@ $id = $_SESSION['Admin'];
                         $sql = "SELECT * FROM customer_upload 
                                     WHERE edit_status = '$edited'
                                     GROUP BY custID, timePosted
-                                    ORDER BY  datePosted ASC, timePosted ASC ";
+                                    ORDER BY  datePosted DESC , timePosted DESC ";
                         $result = $db->query($sql) or trigger_error($db->error."[$sql]");
                         while($row1 = mysqli_fetch_array($result)) {
                             $date = $row1['dateEdited'];
@@ -187,7 +187,7 @@ $id = $_SESSION['Admin'];
                         <?php }?>
                     </div>
 
-                    <div id="notification" class="tab-pane fade">
+                    <div id="notification" class="tab-pane fade in active">
                         <?php
                         $edited = "Unedited";
                         $sql = "SELECT * FROM customer_upload 

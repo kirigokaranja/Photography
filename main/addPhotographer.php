@@ -13,9 +13,10 @@ $sname = $_POST['sname'];
 $email = $_POST['email'];
 $pnumber = $_POST['pnumber'];
 $pass = 1234;
+$hash = md5($pass);
 $type = 2;
 
-$sq = "INSERT INTO `users`(`user_type`, `email`, `password`) VALUES ('$type', '$email','$pass')";
+$sq = "INSERT INTO `users`(`user_type`, `email`, `password`) VALUES ('$type', '$email','$hash')";
 global $db;
 $rslt = $db->query($sq) or trigger_error($db->error."[$sq]");
 

@@ -60,10 +60,10 @@ while ($row = mysqli_fetch_array($res)) {
             <br><br>
             <nav class="navigation" role="navigation">
                 <ul class="primary-nav">
-                    <li><a href="dashboard.php">Dashboard</a></li>
+                    <li><a href="dashboard.php">Gallery</a></li>
                     <li><a href="schedule.php">Schedule</a></li>
                     <li><a href="addPictures.php">Add Pictures</a></li>
-                        <li><a href="bookings.php">Bookings</a></li>
+                    <li><a href="bookings.php">Bookings</a></li>
                     <li><a href="logout.php" class="btn btn-large">Logout</a></li>
 
                 </ul>

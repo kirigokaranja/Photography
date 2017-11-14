@@ -12,11 +12,12 @@ $sname = $_POST["sname"];
 $email = $_POST["email"];
 $number = $_POST["number"];
 $pass = $_POST["password"];
+$hash = md5($pass);
 $type = 1;
 
 
 
-$sq = "INSERT INTO `users`(`user_type`, `email`, `password`) VALUES ('$type', '$email','$pass')";
+$sq = "INSERT INTO `users`(`user_type`, `email`, `password`) VALUES ('$type', '$email','$hash')";
 global $db;
 $rslt = $db->query($sq) or trigger_error($db->error."[$sq]");
 

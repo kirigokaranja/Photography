@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="../css/font-icon.css">
     <link rel="stylesheet" href="../css/menuDropdown.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/dropzone.css">
+    <link rel="stylesheet" href="css/dropzone.css">
     <link rel="stylesheet" href="../css/upload.css">
     <link rel="stylesheet" href="../css/gallery.css">
     <link rel="stylesheet" type="text/css" href="../dist/sweetalert.css">
@@ -58,7 +58,7 @@ while ($row = mysqli_fetch_array($res)) {
             <div class="header-content clearfix"><a class="logo" href="#"><img src="images/logo.ai" alt=""></a>
                 <nav class="navigation" role="navigation">
                     <ul class="primary-nav">
-                        <li><a href="dashboard.php">Dashboard</a></li>
+                        <li><a href="dashboard.php">Gallery</a></li>
                         <li><a href="schedule.php">Schedule</a></li>
                         <li><a href="addPictures.php">Add Pictures</a></li>
                         <li><a href="bookings.php">Bookings</a></li>
@@ -71,7 +71,7 @@ while ($row = mysqli_fetch_array($res)) {
 
                 <div class="hero-text text-center">
                     <h1><?php echo $fname . " " . $sname; ?></h1>
-                    <p>Dashboard</p>
+                    <p>Image Gallery</p>
                 </div>
                 <!-- banner text -->
             </div>
