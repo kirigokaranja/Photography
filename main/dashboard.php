@@ -266,7 +266,7 @@ while($row9 = mysqli_fetch_assoc($r9)) {
         <div class="widget">
             <div class="reportcontent">
             <span class="skin3">
-                <i></i>
+                <i><img src="images/book.png"></i>
             </span>
                 <p> bookings</p>
                 <h3><?php echo $row1['count(bookID)'];?></h3>
@@ -277,7 +277,7 @@ while($row9 = mysqli_fetch_assoc($r9)) {
         <div class="widget">
             <div class="reportcontent">
             <span class="skin1">
-                <i></i>
+                <i><img src="images/specialist-user.png"></i>
             </span>
                 <p> customers</p>
                 <h3><?php echo $row3['count(custID)'];?></h3>
@@ -288,7 +288,7 @@ while($row9 = mysqli_fetch_assoc($r9)) {
         <div class="widget">
             <div class="reportcontent">
             <span class="skin">
-                <i></i>
+                <i><img src="images/team.png"></i>
             </span>
                 <p> total users</p>
                 <h3><?php echo $row4['count(email)'];?></h3>
@@ -299,7 +299,7 @@ while($row9 = mysqli_fetch_assoc($r9)) {
         <div class="widget">
             <div class="reportcontent">
             <span class="skin3">
-                <i></i>
+                <i><img src="images/chat.png"></i>
             </span>
                 <p> feedback</p>
                 <h3><?php echo $row5['count(feedbackID)'];?></h3>
@@ -310,7 +310,7 @@ while($row9 = mysqli_fetch_assoc($r9)) {
         <div class="widget">
             <div class="reportcontent">
             <span class="skin">
-                <i></i>
+                <i><img src="images/message.png"></i>
             </span>
                 <p> messages</p>
                 <h3><?php echo $row6['count(messID)'];?></h3>
@@ -321,7 +321,7 @@ while($row9 = mysqli_fetch_assoc($r9)) {
         <div class="widget">
             <div class="reportcontent">
             <span class="skin2">
-                <i></i>
+                <i><img src="images/frame.png"></i>
             </span>
                 <p> photographers</p>
                 <h3><?php echo $row7['count(photoID)'];?></h3>
@@ -332,7 +332,7 @@ while($row9 = mysqli_fetch_assoc($r9)) {
         <div class="widget">
             <div class="reportcontent">
             <span class="skin2">
-                <i></i>
+                <i><img src="images/upload-picture.png"></i>
             </span>
                 <p> photographers uploads</p>
                 <h3><?php echo $row8['count(picID)'];?></h3>
@@ -343,7 +343,7 @@ while($row9 = mysqli_fetch_assoc($r9)) {
         <div class="widget">
             <div class="reportcontent">
             <span class="skin1">
-                <i></i>
+                <i><img src="images/photo.png"></i>
             </span>
                 <p> customers uploads</p>
                 <h3><?php echo $row9['count(picID)'];?></h3>
